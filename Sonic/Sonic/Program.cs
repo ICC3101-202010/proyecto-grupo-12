@@ -65,6 +65,7 @@ namespace Sonic
                         }
                         break;
                     case "Usuario":
+                        Console.Clear();
                         bool exit1 = true;
                         while (exit1)
                         {
@@ -87,11 +88,39 @@ namespace Sonic
                                             bool sesion = true;
                                             while (sesion)
                                             {
-                                                string elejido2 = MostrarOpciones(new List<string>() { "Editar Perfil", "Buscar", "Cerrar Sesión" });
+                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Cerrar Sesión" });
 
                                                 switch (elejido2)
                                                 {
+                                                    case "Mostrar Perfil":
+                                                        Console.Clear();
+                                                        sonic.MostarInfoPerfil();
+                                                        break;
                                                     case "Editar Perfil":
+                                                        Console.Clear();
+                                                        string elejido3 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña", "Elegir Gustos", "Cambiar Privacidad"});
+                                                        switch (elejido3)
+                                                        {
+                                                            case "Cambiar Nombre":
+                                                                Console.Clear();
+                                                                sonic.CambiarNombreUsuario();
+                                                                break;
+                                                            case "Cambiar Contraseña":
+                                                                Console.Clear();
+                                                                sonic.CambiarContraseñaUsuario();
+                                                                break;
+                                                            case "Elegir Gustos":
+                                                                Console.Clear();
+                                                                sonic.ElegirGustos();
+                                                                break;
+                                                            case "Cambiar Privacidad":
+                                                                Console.Clear();
+                                                                sonic.CambiarPrivacidad();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                break;
+                                                        }
                                                         break;
                                                     case "Buscar":
                                                         break;
@@ -103,6 +132,7 @@ namespace Sonic
                                                         controlador2 = false;
                                                         break;
                                                     default:
+                                                        Console.WriteLine("Opción no valida");
                                                         break;
                                                 }
                                                 Console.Clear();

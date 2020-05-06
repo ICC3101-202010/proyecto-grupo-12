@@ -5,15 +5,28 @@ namespace Sonic
 {
     public class Cantante : Persona
     {
-        List<Cancion> canciones;
-        List<Album> albumes;
+        public List<Cancion> canciones = new List<Cancion>();
+        public List<Album> albums = new List<Album>();
 
 
-        public Cantante(string nombre, List<Cancion> canciones, List<Album> albumes)
+        public Cantante(string nombre)
         {
             this.nombre = nombre;
-            this.canciones = canciones;
-            this.albumes = albumes;
         }
+
+        public void AgregarCancion(Cancion cancion) { this.canciones.Add(cancion); }
+
+        public void AgregarAlbum(Album album) { this.albums.Add(album);  }
+
+        public void ObtenerInfo()
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGray;  Console.Write("Nombre:"); Console.BackgroundColor = ConsoleColor.Black; Console.Write(" " + this.nombre);
+            Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Canciones: "); Console.BackgroundColor = ConsoleColor.Black;
+            foreach (Cancion cancion in canciones) { Console.WriteLine(cancion.nombre); }
+            Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Albums: "); Console.BackgroundColor = ConsoleColor.Black;
+            foreach (Album album in albums) { Console.WriteLine(album.nombre); }
+        }
+        
+
     }
 }

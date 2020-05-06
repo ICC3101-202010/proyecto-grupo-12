@@ -43,6 +43,7 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="Album.cs" />
     <Compile Include="Sonic.cs" />
+    <Compile Include="Admin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,16 +15,17 @@ namespace Sonic
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
 
-        public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio)
+        public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
             this.nombreDeUsuario = nombreDeUsuario;
             this.nombre = nombre;
             this.apellido = apellido;
             this.contraseña = contraseña;
+            this.privacidad = privacidad;
             this.tipoUsuario = tipoUsaurio;
         }
 
-        public void CambiarNombre()
+        public void CambiarNombre() // Cambia el nombre y apellido de este usuario
         {
             Console.WriteLine("Nombre nuevo: ");
             this.nombre = Console.ReadLine();
@@ -32,13 +33,13 @@ namespace Sonic
             this.apellido = Console.ReadLine();
         }
 
-        public void CambiarContraseña()
+        public void CambiarContraseña() // Cambia la contraseña de este usuario
         {
             Console.WriteLine("Contraseña Nueva:");
             this.contraseña = Console.ReadLine();
         }
 
-        public void CambiarPrivacidad()
+        public void CambiarPrivacidad() // Cambia la privacidad de este usuario
         {
             Console.WriteLine("Seleccione Privacidad:");
             Console.WriteLine("1. Publico");
@@ -57,9 +58,9 @@ namespace Sonic
                     break;
             }
         }
-        public void AgregarGusto(string genero){this.gustos.Add(genero);}
+        public void AgregarGusto(string genero){this.gustos.Add(genero);} // Agrega los gustos seleccionados a este usuario
 
-        public void ObtenerInformacion()
+        public void ObtenerInformacion() // Obtiene la info del perfil de este usuario
         {
             Console.WriteLine("Nombre de Usuario: " + this.nombreDeUsuario);
             Console.WriteLine("Nombre: " + this.nombre);

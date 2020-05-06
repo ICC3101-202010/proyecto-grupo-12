@@ -7,10 +7,12 @@ namespace Sonic
     {
         List<Cancion> canciones;
 
-        public Compositor(string nombre, List<Cancion> canciones)
+        public Compositor(string nombre)
         {
             this.nombre = nombre;
-            this.canciones = canciones;
         }
+
+        public void AgregarCancion(Cancion cancion) { this.canciones.Add(cancion); }
+
     }
 }

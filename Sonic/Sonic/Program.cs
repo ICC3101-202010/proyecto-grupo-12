@@ -34,17 +34,53 @@ namespace Sonic
                                 bool sesion1 = true;
                                 while (sesion1)
                                 {
-                                    string elejidoAdmin = MostrarOpciones(new List<string>() { "Agregar Canción", "Agregar Video", "Agregar Administrador", "Cerrar Sesión" });
+                                    string elejidoAdmin = MostrarOpciones(new List<string>() { "Agregar Canción", "Mostrar Canciones", "Mostrar Cantantes", "Mostrar Albums", "Agregar Video", "Agregar Administrador", "Mostrar Perfil", "Editar Perfil" ,"Cerrar Sesión" });
 
                                     switch (elejidoAdmin)
                                     {
                                         case "Agregar Canción":
-
+                                            Console.Clear();
+                                            sonic.ImportarCanciones();
+                                            break;
+                                        case "Mostrar Canciones":
+                                            Console.Clear();
+                                            sonic.MostarCanciones();
+                                            break;
+                                        case "Mostrar Cantantes":
+                                            Console.Clear();
+                                            sonic.MostarCantantes();
+                                            break;
+                                        case "Mostrar Albums":
+                                            Console.Clear();
+                                            sonic.MostarAlbums();
+                                            break;
                                         case "Agregar Video":
-
+                                            break;
                                         case "Agregar Administrador":
                                             Console.Clear();
                                             sonic.AgregarAdministrador();
+                                            break;
+                                        case "Mostrar Perfil":
+                                            Console.Clear();
+                                            sonic.MostarInfoPerfilAdmin();
+                                            break;
+                                        case "Editar Perfil":
+                                            Console.Clear();
+                                            string elejido4 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña" });
+                                            switch (elejido4)
+                                            {
+                                                case "Cambiar Nombre":
+                                                    Console.Clear();
+                                                    sonic.CambiarNombreAdmin();
+                                                    break;
+                                                case "Cambiar Contraseña":
+                                                    Console.Clear();
+                                                    sonic.CambiarContraseñaAdmin();
+                                                    break;
+                                                default:
+                                                    Console.WriteLine("Opción no valida");
+                                                    break;
+                                            }
                                             break;
                                         case "Cerrar Sesión":
                                             Console.Clear();
@@ -59,9 +95,7 @@ namespace Sonic
                                     Console.Clear();
                                     Thread.Sleep(1000);
                                 }
-                                
                             }
-
                         }
                         break;
                     case "Usuario":
@@ -94,7 +128,7 @@ namespace Sonic
                                                 {
                                                     case "Mostrar Perfil":
                                                         Console.Clear();
-                                                        sonic.MostarInfoPerfil();
+                                                        sonic.MostarInfoPerfilUsuario();
                                                         break;
                                                     case "Editar Perfil":
                                                         Console.Clear();

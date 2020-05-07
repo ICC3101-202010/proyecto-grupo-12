@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Sonic
 {
+    [Serializable]
     public class Cantante : Persona
     {
         public List<Cancion> canciones = new List<Cancion>();

@@ -1,6 +1,7 @@
 ﻿using System;
 namespace Sonic
 {
+    [Serializable]
     public class Admin
     {
         public string nombreDeUsuario;

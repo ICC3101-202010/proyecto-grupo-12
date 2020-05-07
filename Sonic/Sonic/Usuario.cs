@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Sonic
 {
+    [Serializable]
     public class Usuario
     {
         public string nombreDeUsuario;

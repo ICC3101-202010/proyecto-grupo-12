@@ -10,10 +10,13 @@ namespace Sonic
         {
             Sonic sonic = new Sonic();
 
+            sonic.CargarDatos();
+            
+          
             bool exit = true;
             while (exit)
             {
-                string elejido = MostrarOpciones(new List<string>() { "Administrador", "Usuario", "Salir" });
+                string elejido = MostrarOpciones(new List<string>() {"Administrador", "Usuario", "Salir" });
                 
                 switch (elejido)
                 {
@@ -97,6 +100,7 @@ namespace Sonic
                                 }
                             }
                         }
+                        
                         break;
                     case "Usuario":
                         Console.Clear();
@@ -172,7 +176,8 @@ namespace Sonic
                                                 Console.Clear();
                                                 Thread.Sleep(1000);
                                             }
-                                        } 
+                                        }
+                                        else { break; }
                                     }
                                     break;
                                 case "Registrarse":
@@ -195,6 +200,7 @@ namespace Sonic
                     case "Salir":
                         Console.Clear();
                         Console.WriteLine("Saliendo...");
+                        sonic.GuardarDatos();
                         Thread.Sleep(2000);
                         exit = false;
                         break;

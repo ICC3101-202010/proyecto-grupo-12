@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Sonic
 {
+    [Serializable]
     public class Compositor : Persona
     {
-        List<Cancion> canciones;
+        List<Cancion> canciones = new List<Cancion>();
 
         public Compositor(string nombre)
         {

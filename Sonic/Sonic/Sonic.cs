@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
 namespace Sonic 
@@ -7,12 +10,115 @@ namespace Sonic
     public class Sonic
     {
         public List<Admin> administradores = new List<Admin>(); //Creacion lista admin con un default
-        List<Usuario> usuarios = new List<Usuario>(); //Creacion lista Usuarios
-        List<Cancion> canciones = new List<Cancion>(); //Creacion lista de canciones
-        List<Cantante> cantantes = new List<Cantante>(); //Creacion lista cantantes
-        List<Album> albums = new List<Album>(); //Creacion lista albums
-        List<Compositor> compositores = new List<Compositor>(); //Creacion lista compositores
+        public List<Usuario> usuarios = new List<Usuario>(); //Creacion lista Usuarios
+        public List<Cancion> canciones = new List<Cancion>(); //Creacion lista de canciones
+        public List<Cantante> cantantes = new List<Cantante>(); //Creacion lista cantantes
+        public List<Album> albums = new List<Album>(); //Creacion lista albums
+        public List<Compositor> compositores = new List<Compositor>(); //Creacion lista compositores
         private string perfilActual; //Saber en que perfil esta la sesion actual
+
+        
+
+        public void GuardarDatos() //Guardar datos al cerrar aplicacion
+        {
+            IFormatter formatter1 = new BinaryFormatter();
+            if (canciones.Count != 0)
+            {
+                Stream stream3 = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter1.Serialize(stream3, canciones);
+                stream3.Close();
+            }
+          
+            IFormatter formatter2 = new BinaryFormatter();
+            if (usuarios.Count != 0)
+            {
+                Stream stream2 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter2.Serialize(stream2, usuarios);
+                stream2.Close();
+            }
+            IFormatter formatter3 = new BinaryFormatter();
+            if (administradores.Count != 0)
+            {
+                Stream stream1 = new FileStream("administradores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter3.Serialize(stream1, administradores);
+                stream1.Close();
+            }
+            IFormatter formatter4 = new BinaryFormatter();
+            if (albums.Count != 0)
+            {
+                Stream stream4 = new FileStream("albums.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter4.Serialize(stream4, albums);
+                stream4.Close();
+            }
+            IFormatter formatter5 = new BinaryFormatter();
+            if (compositores.Count != 0)
+            {
+                Stream stream5 = new FileStream("compositores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter5.Serialize(stream5, compositores);
+                stream5.Close();
+            }
+            if (cantantes.Count != 0)
+            {
+                Stream stream5 = new FileStream("cantantes.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter5.Serialize(stream5, cantantes);
+                stream5.Close();
+            }
+
+        }
+
+        public void CargarDatos() //Cargar Datos al abrir aplicacion
+        {
+            if (File.Exists("administradores.bin")) { CargarAdmins(); }
+            if (File.Exists("canciones.bin")) { CargarCanciones(); }
+            if (File.Exists("albums.bin")) { CargarAlbums(); }
+            if (File.Exists("compositores.bin")) { CargarCompositores(); }
+            if (File.Exists("cantantes.bin")) { CargarCantantes(); }
+            if (File.Exists("usuarios.bin")) { CargarUsuarios(); }
+        }
+        
+        public void CargarAdmins() //Cargar administradores
+        {
+            IFormatter formatter1 = new BinaryFormatter();
+            Stream stream1 = new FileStream("administradores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            administradores = (List<Admin>)formatter1.Deserialize(stream1);
+            stream1.Close();
+        }
+        public void CargarUsuarios() //Cargar usuarios
+        {
+            IFormatter formatter2 = new BinaryFormatter();
+            Stream stream2 = new FileStream("usuarios.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            usuarios = (List<Usuario>)formatter2.Deserialize(stream2);
+            stream2.Close();
+        }
+        public void CargarCanciones() //Cargar canciones
+        {
+            IFormatter formatter3 = new BinaryFormatter();
+            Stream stream3 = new FileStream("canciones.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            canciones = (List<Cancion>)formatter3.Deserialize(stream3);
+            stream3.Close();
+        }
+        public void CargarAlbums() //Cargar albums
+        {
+            IFormatter formatter4 = new BinaryFormatter();
+            Stream stream4 = new FileStream("albums.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            albums = (List<Album>)formatter4.Deserialize(stream4);
+            stream4.Close();
+        }
+        public void CargarCompositores() //Cargar compositores
+        {
+            IFormatter formatter5 = new BinaryFormatter();
+            Stream stream5 = new FileStream("compositores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            compositores = (List<Compositor>)formatter5.Deserialize(stream5);
+            stream5.Close();
+        }
+        public void CargarCantantes() //Cargar cantantes
+        {
+            IFormatter formatter5 = new BinaryFormatter();
+            Stream stream5 = new FileStream("compositores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            cantantes = (List<Cantante>)formatter5.Deserialize(stream5);
+            stream5.Close();
+        }
+
 
         public bool IniciarSesionAdmin() //Metodo para iniciar sesion como admin
         {
@@ -438,10 +544,5 @@ namespace Sonic
             Console.WriteLine("Presiona cualquier tecla para volver atras");
             Console.ReadKey();
         }
-
-        //Comentario de prueba
-
-        //Segundo comentario de prueba
-
     }
 }

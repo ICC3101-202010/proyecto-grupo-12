@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Sonic
+namespace Sonic 
 {
     public class Sonic
     {
         public List<Admin> administradores = new List<Admin>(); //Creacion lista admin con un default
         List<Usuario> usuarios = new List<Usuario>(); //Creacion lista Usuarios
-        List<Cancion> canciones = new List<Cancion>(); //Creacion lista canciones
+        List<Cancion> canciones = new List<Cancion>(); //Creacion lista de canciones
         List<Cantante> cantantes = new List<Cantante>(); //Creacion lista cantantes
         List<Album> albums = new List<Album>(); //Creacion lista albums
         List<Compositor> compositores = new List<Compositor>(); //Creacion lista compositores
@@ -438,5 +438,8 @@ namespace Sonic
             Console.WriteLine("Presiona cualquier tecla para volver atras");
             Console.ReadKey();
         }
+
+        //Comentario de prueba
+
     }
 }

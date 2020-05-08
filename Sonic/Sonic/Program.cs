@@ -302,7 +302,7 @@ namespace Sonic
                 Thread.Sleep(1000);
             }
 
-            static string MostrarOpciones(List<string> opciones)
+            string MostrarOpciones(List<string> opciones)
             {
                 int i = 0;
                 Console.WriteLine("\n\nSelecciona una opcion:");

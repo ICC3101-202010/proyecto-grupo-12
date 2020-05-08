@@ -11,7 +11,6 @@ namespace Sonic
             Sonic sonic = new Sonic();
 
             sonic.CargarDatos();
-            
           
             bool exit = true;
             while (exit)
@@ -302,8 +301,8 @@ namespace Sonic
                 Console.Clear();
                 Thread.Sleep(1000);
             }
-           
-            string MostrarOpciones(List<string> opciones)
+
+            static string MostrarOpciones(List<string> opciones)
             {
                 int i = 0;
                 Console.WriteLine("\n\nSelecciona una opcion:");

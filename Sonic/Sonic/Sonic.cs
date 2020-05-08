@@ -711,7 +711,7 @@ namespace Sonic
             Console.ReadKey();
         }
 
-        public void Buscar()
+        public void Buscar() //Buscar en todo
         {
             Console.WriteLine("Buscar: ");
             string busqueda = Console.ReadLine();

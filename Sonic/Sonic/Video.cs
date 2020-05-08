@@ -19,7 +19,8 @@ namespace Sonic
         int numeroReproducciones;
         int calificacion;
         int meGusta;
-        
+        public string imagen = null;
+
 
 
         public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion)

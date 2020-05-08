@@ -48,6 +48,11 @@ namespace Sonic
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
 
         }
+
+        public void ImagenVideo(string imagen)
+        {
+            this.imagen = imagen;
+        }
     }
 }
 

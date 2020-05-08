@@ -19,7 +19,7 @@ namespace Sonic
 
         public void AgregarAlbum(Album album) { this.albums.Add(album);  }
 
-        public void ObtenerInfo()
+        public void ObtenerInfo() // Obtener info del cantante
         {
             Console.BackgroundColor = ConsoleColor.DarkGray;  Console.Write("Nombre:"); Console.BackgroundColor = ConsoleColor.Black; Console.Write(" " + this.nombre);
             Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Canciones: "); Console.BackgroundColor = ConsoleColor.Black;

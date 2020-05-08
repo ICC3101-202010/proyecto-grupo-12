@@ -33,7 +33,7 @@ namespace Sonic
             this.añoPublicacion = añoPublicacion;
         }
 
-        public void ObtenerInfo()
+        public void ObtenerInfo() //Obtener Info Cancion
         {
             Console.WriteLine("Titulo: "+ this.nombre);
             Console.WriteLine("Cantante: " + this.cantante.nombre);
@@ -41,7 +41,7 @@ namespace Sonic
             Console.WriteLine("Estudio: " + this.estudio);
             Console.WriteLine("Discografia: " + this.discografia);
             Console.WriteLine("Album: " + this.album.nombre);
-            //Console.WriteLine("Compositor: " + this.compositor.nombre);
+            Console.WriteLine("Compositor: " + this.compositor.nombre);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
            
         }

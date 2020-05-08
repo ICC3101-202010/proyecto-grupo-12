@@ -37,52 +37,133 @@ namespace Sonic
                                 bool sesion1 = true;
                                 while (sesion1)
                                 {
-                                    string elejidoAdmin = MostrarOpciones(new List<string>() { "Agregar Canción", "Mostrar Canciones", "Mostrar Cantantes", "Mostrar Albums", "Agregar Video", "Agregar Administrador", "Mostrar Perfil", "Editar Perfil" ,"Cerrar Sesión" });
+                                    string elejidoPrincial = MostrarOpciones(new List<string>() { "Funciones Canción", "Funciones Videos", "Funciones Administrador", "Cerrar Sesión"});
 
-                                    switch (elejidoAdmin)
+                                    switch (elejidoPrincial)
                                     {
-                                        case "Agregar Canción":
+                                        case "Funciones Canción":
                                             Console.Clear();
-                                            sonic.ImportarCanciones();
-                                            break;
-                                        case "Mostrar Canciones":
-                                            Console.Clear();
-                                            sonic.MostarCanciones();
-                                            break;
-                                        case "Mostrar Cantantes":
-                                            Console.Clear();
-                                            sonic.MostarCantantes();
-                                            break;
-                                        case "Mostrar Albums":
-                                            Console.Clear();
-                                            sonic.MostarAlbums();
-                                            break;
-                                        case "Agregar Video":
-                                            break;
-                                        case "Agregar Administrador":
-                                            Console.Clear();
-                                            sonic.AgregarAdministrador();
-                                            break;
-                                        case "Mostrar Perfil":
-                                            Console.Clear();
-                                            sonic.MostarInfoPerfilAdmin();
-                                            break;
-                                        case "Editar Perfil":
-                                            Console.Clear();
-                                            string elejido4 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña" });
-                                            switch (elejido4)
+                                            bool sesion2 = true;
+                                            while (sesion2)
                                             {
-                                                case "Cambiar Nombre":
-                                                    Console.Clear();
-                                                    sonic.CambiarNombreAdmin();
-                                                    break;
-                                                case "Cambiar Contraseña":
-                                                    Console.Clear();
-                                                    sonic.CambiarContraseñaAdmin();
-                                                    break;
-                                                default:
-                                                    Console.WriteLine("Opción no valida");
-                                                    break;
+                                                string elejido6 = MostrarOpciones(new List<string>() { "Agregar Canción", "Mostrar Canciones", "Mostrar Cantantes", "Mostrar Albums", "Salir" });
+
+                                                switch (elejido6)
+                                                {
+                                                    case "Agregar Canción":
+                                                        Console.Clear();
+                                                        sonic.ImportarCanciones();
+                                                        break;
+                                                    case "Mostrar Canciones":
+                                                        Console.Clear();
+                                                        sonic.MostarCanciones();
+                                                        break;
+                                                    case "Mostrar Cantantes":
+                                                        Console.Clear();
+                                                        sonic.MostarCantantes();
+                                                        break;
+                                                    case "Mostrar Albums":
+                                                        Console.Clear();
+                                                        sonic.MostarAlbums();
+                                                        break;
+                                                    case "Salir":
+                                                        Console.Clear();
+                                                        Console.WriteLine("Saliendo...");
+                                                        Thread.Sleep(1000);
+                                                        sesion2 = false;
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                Console.Clear();
+                                                Thread.Sleep(1000);
+                                            }
+                                            break;
+                                        case "Funciones Videos":
+                                            Console.Clear();
+                                            bool sesion3 = true;
+                                            while (sesion3)
+                                            {
+                                                string elejido7 = MostrarOpciones(new List<string>() { "Agregar Video", "Mostrar Videos", "Mostrar Actores", "Mostrar Directores", "Salir" });
+
+                                                switch (elejido7)
+                                                {
+                                                    case "Agregar Video":
+                                                        Console.Clear();
+                                                        sonic.ImportarVideos();
+                                                        break;
+                                                    case "Mostrar Videos":
+                                                        Console.Clear();
+                                                        sonic.MostarVideos();
+                                                        break;
+                                                    case "Mostrar Actores":
+                                                        Console.Clear();
+                                                        sonic.MostarActores();
+                                                        break;
+                                                    case "Mostrar Directores":
+                                                        Console.Clear();
+                                                        sonic.MostarDirectores();
+                                                        break;
+                                                    case "Salir":
+                                                        Console.Clear();
+                                                        Console.WriteLine("Saliendo...");
+                                                        Thread.Sleep(1000);
+                                                        sesion3 = false;
+                                                        break;
+                                                    default:
+                                                        break;
+
+                                                }
+                                                Console.Clear();
+                                                Thread.Sleep(1000);
+                                            }
+                                            break;
+                                        case "Funciones Administrador":
+                                            Console.Clear();
+                                            bool sesion4 = true;
+                                            while (sesion4)
+                                            {
+                                                string elejido8 = MostrarOpciones(new List<string>() { "Agregar Administrador", "Mostrar Perfil", "Editar Perfil", "Salir" });
+
+                                                switch (elejido8)
+                                                {
+                                                    case "Agregar Administrador":
+                                                        Console.Clear();
+                                                        sonic.AgregarAdministrador();
+                                                        break;
+                                                    case "Mostrar Perfil":
+                                                        Console.Clear();
+                                                        sonic.MostarInfoPerfilAdmin();
+                                                        break;
+                                                    case "Editar Perfil":
+                                                        Console.Clear();
+                                                        string elejido4 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña" });
+                                                        switch (elejido4)
+                                                        {
+                                                            case "Cambiar Nombre":
+                                                                Console.Clear();
+                                                                sonic.CambiarNombreAdmin();
+                                                                break;
+                                                            case "Cambiar Contraseña":
+                                                                Console.Clear();
+                                                                sonic.CambiarContraseñaAdmin();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                break;
+                                                        }
+                                                        break;
+                                                    case "Salir":
+                                                        Console.Clear();
+                                                        Console.WriteLine("Saliendo...");
+                                                        Thread.Sleep(1000);
+                                                        sesion4 = false;
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+                                                Console.Clear();
+                                                Thread.Sleep(1000);
                                             }
                                             break;
                                         case "Cerrar Sesión":
@@ -92,9 +173,11 @@ namespace Sonic
                                             controlador1 = false;
                                             sesion1 = false;
                                             break;
+
                                         default:
                                             break;
                                     }
+                                  
                                     Console.Clear();
                                     Thread.Sleep(1000);
                                 }

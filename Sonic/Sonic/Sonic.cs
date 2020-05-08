@@ -15,53 +15,69 @@ namespace Sonic
         public List<Cantante> cantantes = new List<Cantante>(); //Creacion lista cantantes
         public List<Album> albums = new List<Album>(); //Creacion lista albums
         public List<Compositor> compositores = new List<Compositor>(); //Creacion lista compositores
+        public List<Video> videos = new List<Video>(); // Creacion lista de videos
+        public List<Actor> actores = new List<Actor>(); //Creacion lista actores
+        public List<Director> directores = new List<Director>(); //Creacion lista directores
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
         
 
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
         {
-            IFormatter formatter1 = new BinaryFormatter();
+            IFormatter formatter = new BinaryFormatter();
             if (canciones.Count != 0)
             {
                 Stream stream3 = new FileStream("canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter1.Serialize(stream3, canciones);
+                formatter.Serialize(stream3, canciones);
                 stream3.Close();
             }
-          
-            IFormatter formatter2 = new BinaryFormatter();
             if (usuarios.Count != 0)
             {
                 Stream stream2 = new FileStream("usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter2.Serialize(stream2, usuarios);
+                formatter.Serialize(stream2, usuarios);
                 stream2.Close();
             }
-            IFormatter formatter3 = new BinaryFormatter();
             if (administradores.Count != 0)
             {
                 Stream stream1 = new FileStream("administradores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter3.Serialize(stream1, administradores);
+                formatter.Serialize(stream1, administradores);
                 stream1.Close();
             }
-            IFormatter formatter4 = new BinaryFormatter();
             if (albums.Count != 0)
             {
                 Stream stream4 = new FileStream("albums.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter4.Serialize(stream4, albums);
+                formatter.Serialize(stream4, albums);
                 stream4.Close();
             }
-            IFormatter formatter5 = new BinaryFormatter();
             if (compositores.Count != 0)
             {
                 Stream stream5 = new FileStream("compositores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter5.Serialize(stream5, compositores);
+                formatter.Serialize(stream5, compositores);
                 stream5.Close();
             }
             if (cantantes.Count != 0)
             {
-                Stream stream5 = new FileStream("cantantes.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter5.Serialize(stream5, cantantes);
-                stream5.Close();
+                Stream stream6 = new FileStream("cantantes.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream6, cantantes);
+                stream6.Close();
+            }
+            if (videos.Count != 0)
+            {
+                Stream stream7 = new FileStream("videos.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream7, videos);
+                stream7.Close();
+            }
+            if (actores.Count != 0)
+            {
+                Stream stream8 = new FileStream("actores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream8, actores);
+                stream8.Close();
+            }
+            if (directores.Count != 0)
+            {
+                Stream stream9 = new FileStream("directores.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream9, directores);
+                stream9.Close();
             }
 
         }
@@ -74,6 +90,10 @@ namespace Sonic
             if (File.Exists("compositores.bin")) { CargarCompositores(); }
             if (File.Exists("cantantes.bin")) { CargarCantantes(); }
             if (File.Exists("usuarios.bin")) { CargarUsuarios(); }
+            if (File.Exists("directores.bin")) { CargarDirectores(); }
+            if (File.Exists("videos.bin")) { CargarVideos(); }
+            if (File.Exists("actores.bin")) { CargarActores(); }
+           
         }
         
         public void CargarAdmins() //Cargar administradores
@@ -113,10 +133,31 @@ namespace Sonic
         }
         public void CargarCantantes() //Cargar cantantes
         {
-            IFormatter formatter5 = new BinaryFormatter();
-            Stream stream5 = new FileStream("compositores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            cantantes = (List<Cantante>)formatter5.Deserialize(stream5);
-            stream5.Close();
+            IFormatter formatter6 = new BinaryFormatter();
+            Stream stream6 = new FileStream("compositores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            cantantes = (List<Cantante>)formatter6.Deserialize(stream6);
+            stream6.Close();
+        }
+        public void CargarVideos() //Cargar videos
+        {
+            IFormatter formatter7 = new BinaryFormatter();
+            Stream stream7 = new FileStream("videos.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            videos = (List<Video>)formatter7.Deserialize(stream7);
+            stream7.Close();
+        }
+        public void CargarActores() //Cargar actores
+        {
+            IFormatter formatter8 = new BinaryFormatter();
+            Stream stream8 = new FileStream("actores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            actores = (List<Actor>)formatter8.Deserialize(stream8);
+            stream8.Close();
+        }
+        public void CargarDirectores() //Cargar directores
+        {
+            IFormatter formatter9 = new BinaryFormatter();
+            Stream stream9 = new FileStream("directores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            directores = (List<Director>)formatter9.Deserialize(stream9);
+            stream9.Close();
         }
 
 
@@ -466,6 +507,7 @@ namespace Sonic
             }
         }
 
+
         public void ImportarCanciones() //Metadata de Importacion
         {
             while (true)
@@ -538,6 +580,132 @@ namespace Sonic
                 Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine(Environment.NewLine);
                 album.ObtenerInfo();
+                Console.WriteLine(Environment.NewLine);
+            }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
+        }
+
+        public Actor AgregarActor(string nombreActor) // Agregar un Actor
+        {
+            foreach (Actor actor1 in actores)
+            {
+                if (actor1.nombre == nombreActor) { return actor1; }
+            }
+            Actor actor = new Actor(nombreActor);
+            actores.Add(actor);
+            return actor;
+        }
+
+        public Director AgregarDirector(string nombreDirector) // Agregar un Director
+        {
+            foreach (Director director1 in directores)
+            {
+                if (director1.nombre == nombreDirector) { return director1; }
+            }
+            Director director = new Director(nombreDirector);
+            directores.Add(director);
+            return director;
+        }
+
+        public void AgregarVideoActor(Video video, string nombreActor) // Agregar un video a un actor
+        {
+            foreach (Actor actor in actores)
+            {
+                if (actor.nombre == nombreActor) { actor.AgregarVideo(video); break; }
+            }
+        }
+
+        public void AgregarVideoDirector(Video video, string nombreDirector) // Agregar un video a un director
+        {
+            foreach (Director director in directores)
+            {
+                if (director.nombre == nombreDirector) { director.AgregarVideo(video); break; }
+            }
+        }
+
+        public void ImportarVideos() //Metadata de importacion
+        {
+            while (true)
+            {
+                Console.WriteLine("AGREGUE VIDEO");
+                Console.WriteLine("Titulo: ");
+                string titulo = Console.ReadLine();
+                Console.WriteLine("Categoria: ");
+                string categoria = Console.ReadLine();
+                Console.WriteLine("Genero: ");
+                string genero = Console.ReadLine();
+                Console.WriteLine("Estudio: ");
+                string estudio = Console.ReadLine();
+                Console.WriteLine("Director: ");
+                string director = Console.ReadLine();
+                Director director1 = AgregarDirector(director);
+                Console.WriteLine("Descripción: ");
+                string descripcion = Console.ReadLine();
+                Console.WriteLine("Año de Publicacion: ");
+                int añoDePublicacion = Convert.ToInt32(Console.ReadLine());
+                List<Actor> actores1 = new List<Actor>();
+                Console.WriteLine("Actores: ");
+                while (true)
+                {
+                    Console.WriteLine("Nombre: ");
+                    string actor = Console.ReadLine();
+                    Actor actor1 = new Actor(actor);
+                    actores1.Add(actor1);
+                    AgregarActor(actor);
+                    Console.WriteLine("¿Desea añadir a otro actor a este video? (s/n)");
+                    string eleccion1 = Console.ReadLine();
+                    if (eleccion1 == "n") { break; }
+                }
+
+                Video video = new Video(titulo, categoria, genero, estudio, director1, descripcion, actores1, añoDePublicacion);
+                videos.Add(video);
+                foreach(Actor actor in actores1) { AgregarVideoActor(video, actor.nombre); }
+                this.AgregarVideoDirector(video, director);
+                Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("VIDEO AGREGADO"); Console.BackgroundColor = ConsoleColor.Black; Console.WriteLine(Environment.NewLine);
+                Console.WriteLine("¿Desea agregar otro video? (s/n)");
+                string eleccion2 = Console.ReadLine();
+                if (eleccion2 == "n") { Thread.Sleep(1000); break; }
+                Console.Clear();
+            }
+        }
+
+        public void MostarVideos() // Display de info videos
+        {
+            foreach (Video video in videos)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine(Environment.NewLine);
+                video.ObtenerInfo();
+                Console.WriteLine(Environment.NewLine);
+            }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
+        }
+
+        public void MostarActores() // Display de info de cantantes
+        {
+            foreach (Actor actor in actores)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine(Environment.NewLine);
+                actor.ObtenerInfo();
+                Console.WriteLine(Environment.NewLine);
+            }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
+        }
+
+        public void MostarDirectores() //Display de info de albums
+        {
+            foreach (Director director in directores)
+            {
+                Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine(Environment.NewLine);
+                director.ObtenerInfo();
                 Console.WriteLine(Environment.NewLine);
             }
             Console.WriteLine(Environment.NewLine);

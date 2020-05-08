@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic", "Sonic\Sonic.csproj", "{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}"
 EndProject
 Global
@@ -9,9 +10,15 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Debug|anycpu.Build.0 = Debug|anycpu
-		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Release|anycpu.ActiveCfg = Release|anycpu
-		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Release|anycpu.Build.0 = Release|anycpu
+		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {989E2128-9F33-430F-AEFD-54E146E42EB2}
 	EndGlobalSection
 EndGlobal

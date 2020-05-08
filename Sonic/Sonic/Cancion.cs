@@ -19,6 +19,7 @@ namespace Sonic
         int numeroReproducciones;
         int calificacion;
         int meGusta;
+        public string imagen = null;
 
 
         public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion)
@@ -44,6 +45,11 @@ namespace Sonic
             Console.WriteLine("Compositor: " + this.compositor.nombre);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
            
+        }
+
+        public void ImagenCancion(string imagen)
+        {
+            this.imagen = imagen;
         }
 
     }

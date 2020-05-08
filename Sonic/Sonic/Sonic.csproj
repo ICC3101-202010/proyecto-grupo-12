@@ -44,6 +44,7 @@
     <Compile Include="Album.cs" />
     <Compile Include="Sonic.cs" />
     <Compile Include="Admin.cs" />
+    <Compile Include="Reproductor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

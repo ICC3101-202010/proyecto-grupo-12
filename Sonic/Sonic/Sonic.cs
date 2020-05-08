@@ -20,8 +20,6 @@ namespace Sonic
         public List<Director> directores = new List<Director>(); //Creacion lista directores
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
-        
-
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
         {
             IFormatter formatter = new BinaryFormatter();
@@ -134,7 +132,7 @@ namespace Sonic
         public void CargarCantantes() //Cargar cantantes
         {
             IFormatter formatter6 = new BinaryFormatter();
-            Stream stream6 = new FileStream("compositores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            Stream stream6 = new FileStream("cantantes.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             cantantes = (List<Cantante>)formatter6.Deserialize(stream6);
             stream6.Close();
         }
@@ -707,6 +705,103 @@ namespace Sonic
                 Console.WriteLine(Environment.NewLine);
                 director.ObtenerInfo();
                 Console.WriteLine(Environment.NewLine);
+            }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
+        }
+
+        public void Buscar()
+        {
+            Console.WriteLine("Buscar: ");
+            string busqueda = Console.ReadLine();
+            List<Cancion> cancionesBusqueda = new List<Cancion>();
+            foreach (Cancion cancion in canciones){if (cancion.nombre.Contains(busqueda)){cancionesBusqueda.Add(cancion);}}
+            if (cancionesBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Canciones:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Cancion cancion in cancionesBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    cancion.ObtenerInfo();
+                }
+            }
+            List<Cantante> cantantesBusqueda = new List<Cantante>();
+            foreach (Cantante cantante in cantantes) { if (cantante.nombre.Contains(busqueda)) { cantantesBusqueda.Add(cantante); } }
+            if (cantantesBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Cantantes:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Cantante cantante in cantantesBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    cantante.ObtenerInfo();
+                }
+            }
+            List<Album> albumsBusqueda = new List<Album>();
+            foreach (Album album in albums) { if (album.nombre.Contains(busqueda)) { albumsBusqueda.Add(album); } }
+            if (albumsBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Albums:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Album album in albumsBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    album.ObtenerInfo();
+                }
+            }
+            List<Compositor> compositoresBusqueda = new List<Compositor>();
+            foreach (Compositor compositor in compositores) { if (compositor.nombre.Contains(busqueda)) { compositoresBusqueda.Add(compositor); } }
+            if (compositoresBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Compositores:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Compositor compositor in compositoresBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    compositor.ObtenerInfo();
+                }
+            }
+            List<Video> videosBusqueda = new List<Video>();
+            foreach (Video video in videos) { if (video.nombre.Contains(busqueda)) { videosBusqueda.Add(video); } }
+            if (videosBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Videos:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Video video in videosBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    video.ObtenerInfo();
+                }
+            }
+            List<Actor> actoresBusqueda = new List<Actor>();
+            foreach (Actor actor in actores) { if (actor.nombre.Contains(busqueda)) { actoresBusqueda.Add(actor); } }
+            if (actoresBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Actores:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Actor actor in actoresBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    actor.ObtenerInfo();
+                }
+            }
+            List<Director> directoresBusqueda = new List<Director>();
+            foreach (Director director in directores) { if (director.nombre.Contains(busqueda)) { directoresBusqueda.Add(director); } }
+            if (directoresBusqueda.Count != 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Directores:"); Console.BackgroundColor = ConsoleColor.Black;
+                foreach (Director director in directoresBusqueda)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
+                    Console.WriteLine(Environment.NewLine);
+                    director.ObtenerInfo();
+                }
+            }
+            if (cancionesBusqueda.Count == 0 && cantantesBusqueda.Count == 0 && albumsBusqueda.Count == 0 && compositoresBusqueda.Count == 0 && videosBusqueda.Count == 0 && actoresBusqueda.Count == 0 && directoresBusqueda.Count == 0)
+            {
+                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black;
             }
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Presiona cualquier tecla para volver atras");

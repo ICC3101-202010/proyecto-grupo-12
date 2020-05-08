@@ -244,6 +244,8 @@ namespace Sonic
                                                         }
                                                         break;
                                                     case "Buscar":
+                                                        Console.Clear();
+                                                        sonic.Buscar();
                                                         break;
                                                     case "Cerrar Sesión":
                                                         Console.Clear();

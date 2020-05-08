@@ -15,5 +15,13 @@ namespace Sonic
 
         public void AgregarCancion(Cancion cancion) { this.canciones.Add(cancion); }
 
+        public void ObtenerInfo() // Obtener info del compositor
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGray; Console.Write("Nombre:"); Console.BackgroundColor = ConsoleColor.Black; Console.Write(" " + this.nombre);
+            Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Canciones: "); Console.BackgroundColor = ConsoleColor.Black;
+            foreach (Cancion cancion in canciones) { Console.WriteLine(cancion.nombre); }
+        }
+
+
     }
 }

@@ -19,6 +19,7 @@ namespace Sonic
         int numeroReproducciones;
         int calificacion;
         int meGusta;
+        public string imagen = null;
 
 
         public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion)
@@ -33,7 +34,7 @@ namespace Sonic
             this.añoPublicacion = añoPublicacion;
         }
 
-        public void ObtenerInfo()
+        public void ObtenerInfo() //Obtener Info Cancion
         {
             Console.WriteLine("Titulo: "+ this.nombre);
             Console.WriteLine("Cantante: " + this.cantante.nombre);
@@ -41,9 +42,14 @@ namespace Sonic
             Console.WriteLine("Estudio: " + this.estudio);
             Console.WriteLine("Discografia: " + this.discografia);
             Console.WriteLine("Album: " + this.album.nombre);
-            //Console.WriteLine("Compositor: " + this.compositor.nombre);
+            Console.WriteLine("Compositor: " + this.compositor.nombre);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
            
+        }
+
+        public void ImagenCancion(string imagen)
+        {
+            this.imagen = imagen;
         }
 
     }

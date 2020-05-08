@@ -808,14 +808,21 @@ namespace Sonic
             Console.ReadKey();
         }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         public void AgregarImagenCancion(string nombreCancion) //No esta agregada en el Program
         {
             string eleccion = null;
 
             foreach (var i in canciones)
             {
+<<<<<<< Updated upstream
                 if(nombreCancion == i.nombre)
+=======
+                if (nombreCancion == i.nombre)
+>>>>>>> Stashed changes
                 {
                     Console.WriteLine("\nQue extension desea usar para esta imagen:" +
                                   "\n[1] .png" +
@@ -849,7 +856,11 @@ namespace Sonic
                 }
             }
 
+<<<<<<< Updated upstream
             if(eleccion == null) { Console.WriteLine("No existen caciones con ese nombre para guardar la imagen"); }
+=======
+            if (eleccion == null) { Console.WriteLine("No existen caciones con ese nombre para guardar la imagen"); }
+>>>>>>> Stashed changes
         }
 
         public void AgregarImagenVideo(String nombreVideo) //No esta agregada en el Program
@@ -890,7 +901,11 @@ namespace Sonic
         {
             string variable;
 
+<<<<<<< Updated upstream
             if(cancion.imagen != null)
+=======
+            if (cancion.imagen != null)
+>>>>>>> Stashed changes
             {
                 Console.WriteLine("La cancion ya tiene una imagen");
                 Console.WriteLine("\nDesea cambiar la imagen?" +
@@ -943,6 +958,9 @@ namespace Sonic
                 }
             }
         }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     }
 }

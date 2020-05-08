@@ -52,5 +52,9 @@ namespace Sonic
             this.imagen = imagen;
         }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     }
 }

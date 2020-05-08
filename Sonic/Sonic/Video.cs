@@ -20,6 +20,10 @@ namespace Sonic
         int calificacion;
         int meGusta;
         public string imagen = null;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
         public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion)

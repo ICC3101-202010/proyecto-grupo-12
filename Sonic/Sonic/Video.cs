@@ -22,7 +22,6 @@ namespace Sonic
         public string imagen = null;
 
 
-
         public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion)
         {
             this.nombre = nombre;

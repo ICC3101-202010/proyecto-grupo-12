@@ -856,7 +856,7 @@ namespace Sonic
 
         public void AgregarImagenVideo() //Agregar una imagen a un video
         {
-            Console.WriteLine("Nombre de la Cancion:");
+            Console.WriteLine("Nombre del video:");
             string nombreVideo = Console.ReadLine();
 
             string eleccion = null;

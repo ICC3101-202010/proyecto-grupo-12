@@ -37,7 +37,5 @@ namespace Sonic
             Console.WriteLine("Nombre: " + this.nombre);
             Console.WriteLine("Apellido: " + this.apellido);
         }
-
-        //Prueba Sonic Daniel Branch
     }
 }

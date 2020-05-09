@@ -48,41 +48,58 @@ namespace Sonic
             return null;
         }
 
-        public static void EmpezarReproductor(List<Cancion> canciones, List<Video> videos)
+        public static void EmpezarReproductor(List<Cancion> canciones, List<Video> videos, Usuario usuario, ArchivoMultimedia ultimaReproduccion, int tiempoGuardado = 0)
         {
-            bool reproductorEnCurso = true;
-            while (reproductorEnCurso)
+            while (true)
             {
-                Console.Clear();
-                Console.WriteLine("1. Canciones" +
-                                    "\n2. Videos");
-                int eleccion = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
                 ArchivoMultimedia archivo = null;
-                switch (eleccion)
+                int inicio = 0;
+                bool firstTime = true;
+                while (true)
                 {
-                    case 1:
-                        Cancion cancion = CancionesReproductor(canciones);
-                        archivo = cancion;
-                        break;
-                    case 2:
-                        Video video = VideosReproductor(videos);
-                        archivo = video;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no valida");
-                        break;
+                    if (ultimaReproduccion == null)
+                    {
+                        Console.Clear();
+                        inicio = 0;
+                        Console.WriteLine("1. Canciones" +
+                                            "\n2. Videos");
+                        int eleccion = Convert.ToInt32(Console.ReadLine());
+                        Console.Clear();
+                        switch (eleccion)
+                        {
+                            case 1:
+                                Cancion cancion = CancionesReproductor(canciones);
+                                archivo = cancion;
+                                break;
+                            case 2:
+                                Video video = VideosReproductor(videos);
+                                archivo = video;
+                                break;
+                            default:
+                                Console.WriteLine("Opción no valida");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("¿Desea reanudar desde ultima reproducción? (s/n)");
+                        string eleccion2 = Console.ReadLine();
+                        if (eleccion2 == "n") { ultimaReproduccion = null; continue; }
+                        archivo = ultimaReproduccion; inicio = tiempoGuardado;
+                    }
+                    break;
                 }
-                
+
                 Console.Clear();
                 if (archivo != null)
                 {
-                    archivo.numeroReproducciones++;
+                    if (ultimaReproduccion == null) { archivo.numeroReproducciones++; }
                     Barra.WriteProgressBar(0, "00:00");
-                    int minutos = -1; int segundos = 0;
-                    for (var i = 0; i <= archivo.duracion; ++i)
+                    int minutos = -1; int segundos = inicio;
+                    for (var i = inicio; i <= archivo.duracion; ++i)
                     {
                         if (i % 60 == 0) { minutos++; segundos = 0; } else { segundos++; }
+                        if(ultimaReproduccion != null && i%60 != 0 && firstTime) { minutos++; firstTime = false; }
                         string tiempo;
                         if(segundos < 10) { tiempo = String.Format("{0}:0{1}", minutos, segundos); } else { tiempo = String.Format("{0}:{1}", minutos, segundos); }
                         if (!Console.KeyAvailable) { 
@@ -92,15 +109,18 @@ namespace Sonic
                             Console.WriteLine("\n Presione: \n P: Pausar   R: Reproducir   S: Salir ");
                             Thread.Sleep(1000);
                         }
-                        else if (Console.ReadKey(true).Key == ConsoleKey.S) { return; }
+                        else if (Console.ReadKey(true).Key == ConsoleKey.S) { GuardarArchivo(archivo, i, usuario); return; }
                         else if (Console.ReadKey(true).Key == ConsoleKey.P)
                         {
+                            i--;
                             while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.R))
                             {
                             }
                         } 
                     }
                     Console.WriteLine();
+                    usuario.archivoReproduccion = null;
+                    usuario.tiempoReproduccion = 0;
                     Console.WriteLine("¿Desea reproducir otra archivo? (s/n)");
                     string eleccion2 = Console.ReadLine();
                     if (eleccion2 == "n") { break; }
@@ -114,5 +134,10 @@ namespace Sonic
             }
         }
 
+        public static void GuardarArchivo(ArchivoMultimedia archivo, int tiempo, Usuario usuario)
+        {
+            usuario.archivoReproduccion = archivo;
+            usuario.tiempoReproduccion = tiempo;
+        }
     }
 }

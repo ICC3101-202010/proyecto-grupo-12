@@ -956,7 +956,9 @@ namespace Sonic
 
         public void ReproductorPoint()
         {
-            Reproductor.EmpezarReproductor(canciones, videos);
+            Usuario pasarUsuario = null;
+            foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
+            Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, pasarUsuario.tiempoReproduccion );
         }
 
        public void DescargarCancion()

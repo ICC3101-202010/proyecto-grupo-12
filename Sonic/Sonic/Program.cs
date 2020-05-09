@@ -11,7 +11,6 @@ namespace Sonic
             Sonic sonic = new Sonic();
 
             sonic.CargarDatos();
-            
           
             bool exit = true;
             while (exit)
@@ -46,13 +45,16 @@ namespace Sonic
                                             bool sesion2 = true;
                                             while (sesion2)
                                             {
-                                                string elejido6 = MostrarOpciones(new List<string>() { "Agregar Canción", "Mostrar Canciones", "Mostrar Cantantes", "Mostrar Albums", "Salir" });
+                                                string elejido6 = MostrarOpciones(new List<string>() { "Agregar Canción","Agregar Imagen", "Mostrar Canciones", "Mostrar Cantantes", "Mostrar Albums", "Salir" });
 
                                                 switch (elejido6)
                                                 {
                                                     case "Agregar Canción":
                                                         Console.Clear();
                                                         sonic.ImportarCanciones();
+                                                        break;
+                                                    case "Agregar Imagen":
+                                                        sonic.AgregarImagenCancion();
                                                         break;
                                                     case "Mostrar Canciones":
                                                         Console.Clear();
@@ -84,13 +86,16 @@ namespace Sonic
                                             bool sesion3 = true;
                                             while (sesion3)
                                             {
-                                                string elejido7 = MostrarOpciones(new List<string>() { "Agregar Video", "Mostrar Videos", "Mostrar Actores", "Mostrar Directores", "Salir" });
+                                                string elejido7 = MostrarOpciones(new List<string>() { "Agregar Video", "Agregar Imagen", "Mostrar Videos", "Mostrar Actores", "Mostrar Directores", "Salir" });
 
                                                 switch (elejido7)
                                                 {
                                                     case "Agregar Video":
                                                         Console.Clear();
                                                         sonic.ImportarVideos();
+                                                        break;
+                                                    case "Agregar Imagen":
+                                                        sonic.AgregarImagenVideo();
                                                         break;
                                                     case "Mostrar Videos":
                                                         Console.Clear();
@@ -296,7 +301,7 @@ namespace Sonic
                 Console.Clear();
                 Thread.Sleep(1000);
             }
-           
+
             string MostrarOpciones(List<string> opciones)
             {
                 int i = 0;

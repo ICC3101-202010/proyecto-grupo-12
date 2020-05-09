@@ -44,6 +44,7 @@ namespace Sonic
             Console.WriteLine("Album: " + this.album.nombre);
             Console.WriteLine("Compositor: " + this.compositor.nombre);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
+            Console.WriteLine("Imagen: " + this.imagen);
            
         }
 

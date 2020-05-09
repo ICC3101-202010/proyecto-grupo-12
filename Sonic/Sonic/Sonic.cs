@@ -942,8 +942,6 @@ namespace Sonic
             }
 
             return false;
-
-            //prueba
         }
     }
 }

@@ -313,6 +313,7 @@ namespace Sonic
                 }
                 return opciones[Convert.ToInt16(Console.ReadLine())];
             }
+       
         }
     }
 }

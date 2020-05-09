@@ -15,6 +15,7 @@ namespace Sonic
         List<string> gustos = new List<string>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
+        public List<Cancion> cancionesDescargadas = new List<Cancion>();
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 
@@ -86,6 +87,28 @@ namespace Sonic
 
         }
 
+        public void AgregarCancionDescargada(Cancion cancion)
+        {
+            cancionesDescargadas.Add(cancion);
+
+        }
+        public void VerCancionesDescargadas()
+        {
+            int contador = 1;
+            if (cancionesDescargadas.Count == 0)
+            {
+                Console.WriteLine("No hay canciones descargadas.");
+            }
+            else
+            {
+                Console.WriteLine(cancionesDescargadas.Count + "canciones descargadas: ");
+                foreach (Cancion cancion in cancionesDescargadas)
+                {
+                    Console.WriteLine(contador);
+                    cancion.ObtenerInfo();
+                    contador++;
+                }
+            }
 
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
@@ -224,6 +247,7 @@ namespace Sonic
             }
 
             if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+
         }
     }
 }

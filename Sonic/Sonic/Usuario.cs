@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Sonic
 {
@@ -13,9 +14,11 @@ namespace Sonic
         string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
+        List<Cancion> descargas = new List<Cancion>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
-        public List<Cancion> cancionesDescargadas = new List<Cancion>();
+        
+        
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 
@@ -89,20 +92,31 @@ namespace Sonic
 
         public void AgregarCancionDescargada(Cancion cancion)
         {
-            cancionesDescargadas.Add(cancion);
-
+            bool state = false;
+            foreach(Cancion cancion2 in descargas) { if (cancion.nombre == cancion2.nombre) { state = true; break; } }
+            if (state)
+            {
+                Console.WriteLine("La canción "+cancion.nombre +" ya se encuentra en tus descargas");
+                Thread.Sleep(2000);
+            } else
+            {
+                this.descargas.Add(cancion);
+                Console.WriteLine("\n Se ha descargado la cancion " + cancion.nombre);
+                Thread.Sleep(2000);
+            }
         }
+
         public void VerCancionesDescargadas()
         {
             int contador = 1;
-            if (cancionesDescargadas.Count == 0)
+            if (descargas.Count == 0)
             {
                 Console.WriteLine("No hay canciones descargadas.");
             }
             else
             {
-                Console.WriteLine(cancionesDescargadas.Count + "canciones descargadas: ");
-                foreach (Cancion cancion in cancionesDescargadas)
+                Console.WriteLine(descargas.Count + "canciones descargadas: ");
+                foreach (Cancion cancion in descargas)
                 {
                     Console.WriteLine(contador);
                     cancion.ObtenerInfo();

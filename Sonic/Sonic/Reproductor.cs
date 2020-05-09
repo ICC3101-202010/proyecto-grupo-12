@@ -77,6 +77,7 @@ namespace Sonic
                 Console.Clear();
                 if (archivo != null)
                 {
+                    archivo.numeroReproducciones++;
                     Barra.WriteProgressBar(0, "00:00");
                     int minutos = -1; int segundos = 0;
                     for (var i = 0; i <= archivo.duracion; ++i)

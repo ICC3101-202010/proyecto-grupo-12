@@ -965,39 +965,35 @@ namespace Sonic
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
-                    string cd;
-
                     if (canciones.Count == 0)
                     {
                         Console.WriteLine("Lo sentimos, no hay canciones disponibles por el momento.");
-
+                        Thread.Sleep(2000);
+                        break;
                     }
                     else
                     {
-
+                        bool cancionEncontrada = true;
                         Console.WriteLine("Escriba el nombre de la cancion que desea descargar: ");
-                        cd = Console.ReadLine();
+                        string cd = Console.ReadLine();
 
                         foreach (Cancion cancion in canciones)
                         {
-                            if (cancion.nombre == cd)
+                            if (cancion.nombre.Contains(cd))
                             {
                                 usuario.AgregarCancionDescargada(cancion);
-                                Console.WriteLine("Se ha descargado la cancion " + cd);
+                               
+                                break;
                             }
-                            else
-                            {
-                                Console.WriteLine("No hemos encontrado la cancion "+cd);
-                            }
-
+                            else { cancionEncontrada = false; }
 
                         }
-
+                        if (!cancionEncontrada) { Console.WriteLine("No hemos encontrado la cancion " + cd); Thread.Sleep(2000); }
                     }
                 }
             }
-            
         }
+
         public void VerDescargas()
         {
             foreach (Usuario usuario in usuarios)
@@ -1005,12 +1001,12 @@ namespace Sonic
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
                     usuario.VerCancionesDescargadas();
-                  
 
+                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("Presiona cualquier tecla para volver atras");
+                    Console.ReadKey();
                 }
             }
-
         }
-
     }
 }

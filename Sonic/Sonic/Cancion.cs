@@ -15,7 +15,6 @@ namespace Sonic
         Compositor compositor;
         string letra;
         int añoPublicacion;
-        int numeroReproducciones;
         int calificacion;
         int meGusta;
         public string imagen = null;
@@ -46,6 +45,7 @@ namespace Sonic
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
             Console.WriteLine("Duración: " + this.duracion);
             Console.WriteLine("Imagen: " + this.imagen);
+            Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
            
         }
 

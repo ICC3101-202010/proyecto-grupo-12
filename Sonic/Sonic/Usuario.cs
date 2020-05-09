@@ -15,6 +15,20 @@ namespace Sonic
         List<string> gustos = new List<string>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
+        public List<Cancion> cancionesDescargadas = new List<Cancion>();
+
+        // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
+
+        List<Usuario> seguirUsuario;
+        // List<Playlist> seguirPlaylist; Aun no esta creada
+        // List<Disco> seguirDisco; Aparece en el enunciado
+        List<Cantante> seguirCantante;
+        List<Actor> seguirActor;
+        List<Director> seguirDirector;
+        List<Compositor> seguirCompositor;
+        // List<Album> seguirAlbum; Nose si va esto
+        int numeroSeguidores;
+        List<Usuario> seguidores;
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -73,5 +87,167 @@ namespace Sonic
 
         }
 
+        public void AgregarCancionDescargada(Cancion cancion)
+        {
+            cancionesDescargadas.Add(cancion);
+
+        }
+        public void VerCancionesDescargadas()
+        {
+            int contador = 1;
+            if (cancionesDescargadas.Count == 0)
+            {
+                Console.WriteLine("No hay canciones descargadas.");
+            }
+            else
+            {
+                Console.WriteLine(cancionesDescargadas.Count + "canciones descargadas: ");
+                foreach (Cancion cancion in cancionesDescargadas)
+                {
+                    Console.WriteLine(contador);
+                    cancion.ObtenerInfo();
+                    contador++;
+                }
+            }
+
+        // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
+
+        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
+
+        // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
+
+        // public void SeguimientoDisco(Disco disco) { seguirDisco.Add(disco); } //FALTA
+
+        public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } //LISTO
+
+        public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } //LISTO
+
+        public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
+
+        public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } //LISTO
+
+        // public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
+
+        public void NuevoSeguidor(Usuario usuario) //Recomendado poner en una clase abstracta por multiples repeticiones
+                                                   //Considere que solo pueden seguir los usuarios
+                                                   //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
+        {
+            int contador = 0;
+            foreach(var i in seguidores)
+            {
+                if(i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al Usuario");
+                    contador++;
+                    break;
+                }
+            }
+
+            if(contador == 0) 
+            {
+                seguidores.Add(usuario);
+                numeroSeguidores++;
+                Console.WriteLine("Has comenzado a seguir al Usuario");
+            }
+        }
+
+        public void DejarSeguir(Usuario usuario)
+        {
+            //No me acuerdo como eliminar un objeto de una lista
+        }
+
+        public void InformacionUsuarioSeguidor() //LISTO
+        {
+            int contador = 0;
+
+            Console.WriteLine("Los Usuarios que sigues son:");
+
+            foreach (var i in seguirUsuario)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+                contador++;
+            }
+
+            if(contador == 0) {Console.WriteLine("No sigues a ningun usuario"); }
+        }
+
+        // public void InformacionPlaylistSeguidor() //FALTA
+
+        // public void InformacionDiscoSeguidor() //FALTA
+
+        public void InformacionCantanteSeguidor() //LISTO
+        {
+            int contador = 0;
+
+            Console.WriteLine("Los Cantantes que sigues son:");
+
+            foreach (var i in seguirCantante)
+            {
+                Console.WriteLine(i.nombre);
+                contador++;
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues a ningun Cantante"); }
+        }
+
+        public void InformacionActorSeguidor() //LISTO
+        {
+            int contador = 0;
+
+            Console.WriteLine("Los Actores que sigues son:");
+
+            foreach (var i in seguirActor)
+            {
+                Console.WriteLine(i.nombre);
+                contador++;
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues a ningun Actor"); }
+        }
+
+        public void InformacionDirectorSeguidor() //LISTO
+        {
+            int contador = 0;
+
+            Console.WriteLine("Los Directores que sigues son:");
+
+            foreach (var i in seguirDirector)
+            {
+                Console.WriteLine(i.nombre);
+                contador++;
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues a ningun Director"); }
+        }
+
+        public void InformacionCompositorSeguidor() //LISTO
+        {
+            int contador = 0;
+
+            Console.WriteLine("Los Compositor que sigues son:");
+
+            foreach (var i in seguirCompositor)
+            {
+                Console.WriteLine(i.nombre);
+                contador++;
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues a ningun Compositor"); }
+        }
+
+        // public void InformacionAlbumSeguidor() //FALTA
+
+        public void InformacionSeguidores() //LISTO
+        {
+            Console.WriteLine("Sus seguidores son:");
+
+            foreach (var i in seguidores)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+            }
+
+            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+
+        }
     }
 }

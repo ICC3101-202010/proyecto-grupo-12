@@ -318,6 +318,7 @@ namespace Sonic
                 int opcion2 = Convert.ToInt16(Console.ReadLine());
                 return opciones[opcion2];
             }
+       
         }
     }
 }

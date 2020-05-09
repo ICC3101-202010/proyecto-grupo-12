@@ -958,5 +958,59 @@ namespace Sonic
         {
             Reproductor.EmpezarReproductor(canciones, videos);
         }
+
+       public void DescargarCancion()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    string cd;
+
+                    if (canciones.Count == 0)
+                    {
+                        Console.WriteLine("Lo sentimos, no hay canciones disponibles por el momento.");
+
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("Escriba el nombre de la cancion que desea descargar: ");
+                        cd = Console.ReadLine();
+
+                        foreach (Cancion cancion in canciones)
+                        {
+                            if (cancion.nombre == cd)
+                            {
+                                usuario.AgregarCancionDescargada(cancion);
+                                Console.WriteLine("Se ha descargado la cancion " + cd);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No hemos encontrado la cancion "+cd);
+                            }
+
+
+                        }
+
+                    }
+                }
+            }
+            
+        }
+        public void VerDescargas()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.VerCancionesDescargadas();
+                  
+
+                }
+            }
+
+        }
+
     }
 }

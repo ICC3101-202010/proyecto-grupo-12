@@ -8,6 +8,9 @@ namespace Sonic
     {
         List<Video> videos = new List<Video>();
 
+        List<Usuario> seguidores;
+        int numeroSeguidores;
+
         public Director(string nombre)
         {
             this.nombre = nombre;
@@ -21,6 +24,45 @@ namespace Sonic
             Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Videos: "); Console.BackgroundColor = ConsoleColor.Black;
             foreach (Video video in videos) { Console.WriteLine(video.nombre); }
 
+        }
+
+        public void NuevoSeguidor(Usuario usuario, Director director)
+        {
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al director");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0)
+            {
+                seguidores.Add(usuario);
+                numeroSeguidores++;
+                usuario.SeguimientoDirector(director);
+                Console.WriteLine("Has comenzado a seguir al director");
+            }
+        }
+
+        public void DejarSeguir(Usuario usuario, Director director)
+        {
+            //No me acuerdo como eliminar un objeto de una lista
+        }
+
+        public void InformacionSeguidores()
+        {
+            Console.WriteLine("Sus seguidores son:");
+
+            foreach (var i in seguidores)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+            }
+
+            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
         }
     }
 }

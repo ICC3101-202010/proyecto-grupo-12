@@ -9,6 +9,9 @@ namespace Sonic
         public List<Cancion> canciones = new List<Cancion>();
         public List<Album> albums = new List<Album>();
 
+        List<Usuario> seguidores;
+        int numeroSeguidores;
+
 
         public Cantante(string nombre)
         {
@@ -27,7 +30,44 @@ namespace Sonic
             Console.BackgroundColor = ConsoleColor.DarkGray; Console.WriteLine("\n Albums: "); Console.BackgroundColor = ConsoleColor.Black;
             foreach (Album album in albums) { Console.WriteLine(album.nombre); }
         }
-        
 
+        public void NuevoSeguidor(Usuario usuario, Cantante cantante) 
+        {
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al Cantante");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0)
+            {
+                seguidores.Add(usuario);
+                numeroSeguidores++;
+                usuario.SeguimientoCantante(cantante);
+                Console.WriteLine("Has comenzado a seguir al Cantante");
+            }
+        }
+
+        public void DejarSeguir(Usuario usuario, Cantante cantante)
+        {
+            //No me acuerdo como eliminar un objeto de una lista
+        }
+
+        public void InformacionSeguidores()
+        {
+            Console.WriteLine("Sus seguidores son:");
+
+            foreach (var i in seguidores)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+            }
+
+            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+        }
     }
 }

@@ -214,7 +214,7 @@ namespace Sonic
                                             bool sesion = true;
                                             while (sesion)
                                             {
-                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Cerrar Sesión" });
+                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Reproducir", "Cerrar Sesión" });
 
                                                 switch (elejido2)
                                                 {
@@ -251,6 +251,10 @@ namespace Sonic
                                                     case "Buscar":
                                                         Console.Clear();
                                                         sonic.Buscar();
+                                                        break;
+                                                    case "Reproducir":
+                                                        Console.Clear();
+                                                        sonic.ReproductorPoint();
                                                         break;
                                                     case "Cerrar Sesión":
                                                         Console.Clear();
@@ -311,7 +315,8 @@ namespace Sonic
                     Console.WriteLine(Convert.ToString(i) + ". " + opcion);
                     i += 1;
                 }
-                return opciones[Convert.ToInt16(Console.ReadLine())];
+                int opcion2 = Convert.ToInt16(Console.ReadLine());
+                return opciones[opcion2];
             }
         }
     }

@@ -808,8 +808,11 @@ namespace Sonic
             Console.ReadKey();
         }
       
-        public void AgregarImagenCancion(string nombreCancion) //No esta agregada en el Program
+        public void AgregarImagenCancion() //Agregar una imagen a una cancion
         {
+            Console.WriteLine("Nombre de la Cancion:");
+            string nombreCancion = Console.ReadLine();
+
             string eleccion = null;
 
             foreach (var i in canciones)
@@ -823,7 +826,7 @@ namespace Sonic
 
                     eleccion = Console.ReadLine();
 
-                    CambiarImagenCancion(i, eleccion);
+                    if (CambiarImagenCancion(i)) { eleccion = "0"; }
 
                     switch (eleccion)
                     {
@@ -841,19 +844,21 @@ namespace Sonic
 
                         case "3":
 
-                            i.ImagenCancion($"{nombreCancion}.jpg");
+                            i.ImagenCancion($"{nombreCancion}.jpeg");
                             Console.WriteLine("La imagen ha sido guardada exitosamente");
                             break;
                     }
                 }
             }
-
-
-            if(eleccion == null) { Console.WriteLine("No existen caciones con ese nombre para guardar la imagen"); }
+            Thread.Sleep(1000);
+            if(eleccion == null) { Console.WriteLine("No existen caciones con ese nombre para guardar la imagen"); Thread.Sleep(1000); }
         }
 
-        public void AgregarImagenVideo(String nombreVideo) //No esta agregada en el Program
+        public void AgregarImagenVideo() //Agregar una imagen a un video
         {
+            Console.WriteLine("Nombre del video:");
+            string nombreVideo = Console.ReadLine();
+
             string eleccion = null;
 
             foreach (var i in videos)
@@ -866,7 +871,7 @@ namespace Sonic
 
                     eleccion = Console.ReadLine();
 
-                    CambiarImagenVideo(i, eleccion);
+                    if(CambiarImagenVideo(i)){ break; }
 
                     switch (eleccion)
                     {
@@ -884,9 +889,11 @@ namespace Sonic
                     }
                 }
             }
+            Thread.Sleep(1000);
+            if (eleccion == null) { Console.WriteLine("No existen videos con ese nombre para guardar la imagen"); Thread.Sleep(1000); }
         }
 
-        public void CambiarImagenCancion(Cancion cancion, string eleccion)
+        public bool CambiarImagenCancion(Cancion cancion)
         {
             string variable;
 
@@ -902,20 +909,16 @@ namespace Sonic
                 switch (variable)
                 {
                     case "1":
-
-                        break;
-
+                        return false;
                     case "2":
-
-                        eleccion = "0";
                         Console.WriteLine("Imagen no cambiada");
-
-                        break;
+                        return true;
                 }
             }
+            return false;
         }
 
-        public void CambiarImagenVideo(Video video, string eleccion)
+        public bool CambiarImagenVideo(Video video)
         {
             string variable;
 
@@ -931,18 +934,16 @@ namespace Sonic
                 switch (variable)
                 {
                     case "1":
-
-                        break;
-
+                        return false;
                     case "2":
-
-                        eleccion = "0";
                         Console.WriteLine("Imagen no cambiada");
-
-                        break;
+                        return true;
                 }
             }
+
+            return false;
+
+            //prueba
         }
-        //Prueba fallo 
     }
 }

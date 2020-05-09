@@ -8,6 +8,9 @@ namespace Sonic
     {
         List<Cancion> canciones = new List<Cancion>();
 
+        List<Usuario> seguidores;
+        int numeroSeguidores;
+
         public Compositor(string nombre)
         {
             this.nombre = nombre;
@@ -22,6 +25,43 @@ namespace Sonic
             foreach (Cancion cancion in canciones) { Console.WriteLine(cancion.nombre); }
         }
 
+        public void NuevoSeguidor(Usuario usuario, Compositor compositor)
+        {
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al compositor");
+                    contador++;
+                    break;
+                }
+            }
 
+            if (contador == 0)
+            {
+                seguidores.Add(usuario);
+                numeroSeguidores++;
+                usuario.SeguimientoCompositor(compositor);
+                Console.WriteLine("Has comenzado a seguir al compositor");
+            }
+        }
+
+        public void DejarSeguir(Usuario usuario, Compositor compositor)
+        {
+            //No me acuerdo como eliminar un objeto de una lista
+        }
+
+        public void InformacionSeguidores()
+        {
+            Console.WriteLine("Sus seguidores son:");
+
+            foreach (var i in seguidores)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+            }
+
+            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+        }
     }
 }

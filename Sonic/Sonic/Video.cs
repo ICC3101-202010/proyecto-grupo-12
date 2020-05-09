@@ -7,7 +7,7 @@ namespace Sonic
     public class Video : ArchivoMultimedia
     {
 
-        public string nombre;
+       
         string categoria;
         string genero;
         string estudio;
@@ -15,7 +15,6 @@ namespace Sonic
         string descripcion;
         List<Actor> actores;
         int añoPublicacion;
-        int duracion;
         int numeroReproducciones;
         int calificacion;
         int meGusta;
@@ -23,7 +22,7 @@ namespace Sonic
 
 
 
-        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion)
+        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -33,6 +32,7 @@ namespace Sonic
             this.descripcion = descripcion;
             this.actores = actores;
             this.añoPublicacion = añoPublicacion;
+            this.duracion = duracion;
         }
 
         public void ObtenerInfo() //Obtener Info del video
@@ -46,6 +46,7 @@ namespace Sonic
             Console.WriteLine("Director: " + this.director.nombre);
             Console.WriteLine("Descripción: " + this.descripcion);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
+            
 
         }
 

@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic", "Sonic\Sonic.csproj", "{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sonic", "Sonic.csproj", "{25E5E27D-4AD3-4B03-94B1-D76AE1141AAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

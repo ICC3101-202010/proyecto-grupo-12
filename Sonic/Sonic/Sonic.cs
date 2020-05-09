@@ -711,7 +711,7 @@ namespace Sonic
             Console.ReadKey();
         }
 
-        public void Buscar()
+        public void Buscar() //Buscar en todo
         {
             Console.WriteLine("Buscar: ");
             string busqueda = Console.ReadLine();
@@ -807,7 +807,7 @@ namespace Sonic
             Console.WriteLine("Presiona cualquier tecla para volver atras");
             Console.ReadKey();
         }
-
+      
         public void AgregarImagenCancion(string nombreCancion) //No esta agregada en el Program
         {
             string eleccion = null;
@@ -847,6 +847,7 @@ namespace Sonic
                     }
                 }
             }
+
 
             if(eleccion == null) { Console.WriteLine("No existen caciones con ese nombre para guardar la imagen"); }
         }

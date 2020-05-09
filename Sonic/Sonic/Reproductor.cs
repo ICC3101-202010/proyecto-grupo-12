@@ -53,9 +53,11 @@ namespace Sonic
             bool reproductorEnCurso = true;
             while (reproductorEnCurso)
             {
+                Console.Clear();
                 Console.WriteLine("1. Canciones" +
                                     "\n2. Videos");
                 int eleccion = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
                 ArchivoMultimedia archivo = null;
                 switch (eleccion)
                 {
@@ -68,6 +70,7 @@ namespace Sonic
                         archivo = video;
                         break;
                     default:
+                        Console.WriteLine("Opción no valida");
                         break;
                 }
                 
@@ -84,7 +87,7 @@ namespace Sonic
                         if (!Console.KeyAvailable) { 
                             int progreso = ((i * 100) / archivo.duracion);
                             Barra.WriteProgressBar(progreso, tiempo, true);
-                            Console.WriteLine("\n\n Canción: " + archivo.nombre);
+                            if (archivo.GetType().Name == "Cancion") { Console.WriteLine("\n\n Canción: " + archivo.nombre); } else { Console.WriteLine("\n\n Video: " + archivo.nombre); }
                             Console.WriteLine("\n Presione: \n P: Pausar   R: Reproducir   S: Salir ");
                             Thread.Sleep(1000);
                         }
@@ -97,6 +100,9 @@ namespace Sonic
                         } 
                     }
                     Console.WriteLine();
+                    Console.WriteLine("¿Desea reproducir otra archivo? (s/n)");
+                    string eleccion2 = Console.ReadLine();
+                    if (eleccion2 == "n") { break; }
                 }
                 else
                 {

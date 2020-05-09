@@ -73,7 +73,7 @@ namespace Sonic
                     break;
             }
         }
-        public void AgregarGusto(string genero){this.gustos.Add(genero);} // Agrega los gustos seleccionados a este usuario
+        public void AgregarGusto(string genero) { this.gustos.Add(genero); } // Agrega los gustos seleccionados a este usuario
 
         public void ObtenerInformacion() // Obtiene la info del perfil de este usuario
         {
@@ -109,7 +109,7 @@ namespace Sonic
                     contador++;
                 }
             }
-
+        }
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
         public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
@@ -133,9 +133,9 @@ namespace Sonic
                                                    //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
         {
             int contador = 0;
-            foreach(var i in seguidores)
+            foreach (var i in seguidores)
             {
-                if(i.nombreDeUsuario == usuario.nombreDeUsuario)
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
                 {
                     Console.WriteLine("Ya sigues al Usuario");
                     contador++;
@@ -143,7 +143,7 @@ namespace Sonic
                 }
             }
 
-            if(contador == 0) 
+            if (contador == 0)
             {
                 seguidores.Add(usuario);
                 numeroSeguidores++;
@@ -168,7 +168,7 @@ namespace Sonic
                 contador++;
             }
 
-            if(contador == 0) {Console.WriteLine("No sigues a ningun usuario"); }
+            if (contador == 0) { Console.WriteLine("No sigues a ningun usuario"); }
         }
 
         // public void InformacionPlaylistSeguidor() //FALTA

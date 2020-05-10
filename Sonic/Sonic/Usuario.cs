@@ -15,7 +15,17 @@ namespace Sonic
         List<string> gustos = new List<string>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
+<<<<<<< Updated upstream
         public List<Cancion> cancionesDescargadas = new List<Cancion>();
+=======
+
+        //-- DATOS REPRODUCTOR --
+        public ArchivoMultimedia archivoReproduccion;
+        public int tiempoReproduccion;
+        public List<Cancion> colaCanciones = new List<Cancion>();
+        public List<Video> colaVideos = new List<Video>();
+
+>>>>>>> Stashed changes
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 

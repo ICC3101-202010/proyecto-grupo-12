@@ -139,13 +139,6 @@ namespace Sonic
                         if (eleccion2 == "n") { ultimaReproduccion = null; usuario.colaVideos.Clear(); usuario.colaCanciones.Clear(); continue; }
                         archivo = ultimaReproduccion; inicio = tiempoGuardado;
                     }
-                    else
-                    {
-                        Console.WriteLine("¿Desea reanudar desde ultima reproducción? (s/n)");
-                        string eleccion2 = Console.ReadLine();
-                        if (eleccion2 == "n") { ultimaReproduccion = null; continue; }
-                        archivo = ultimaReproduccion; inicio = tiempoGuardado;
-                    }
                     break;
                 }
 

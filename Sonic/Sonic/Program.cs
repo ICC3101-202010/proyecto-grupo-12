@@ -181,7 +181,7 @@ namespace Sonic
                                         case "Cerrar Sesión":
                                             Console.Clear();
                                             Console.WriteLine("Cerrando Sesión...");
-                                            Thread.Sleep(2000);
+                                            Thread.Sleep(1000);
                                             controlador1 = false;
                                             sesion1 = false;
                                             break;
@@ -316,7 +316,7 @@ namespace Sonic
                         Console.Clear();
                         Console.WriteLine("Saliendo...");
                         sonic.GuardarDatos();
-                        Thread.Sleep(2000);
+                        Thread.Sleep(1000);
                         exit = false;
                         break;
 

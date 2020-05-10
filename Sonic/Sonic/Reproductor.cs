@@ -50,29 +50,6 @@ namespace Sonic
             return null;
         }
 
-<<<<<<< Updated upstream
-        public static void EmpezarReproductor(List<Cancion> canciones, List<Video> videos)
-        {
-            bool reproductorEnCurso = true;
-            while (reproductorEnCurso)
-            {
-                Console.WriteLine("1. Canciones" +
-                                    "\n2. Videos");
-                int eleccion = Convert.ToInt32(Console.ReadLine());
-                ArchivoMultimedia archivo = null;
-                switch (eleccion)
-                {
-                    case 1:
-                        Cancion cancion = CancionesReproductor(canciones);
-                        archivo = cancion;
-                        break;
-                    case 2:
-                        Video video = VideosReproductor(videos);
-                        archivo = video;
-                        break;
-                    default:
-                        break;
-=======
         public static void CargarArchivoCola(List<Cancion> canciones, List<Video> videos,Usuario usuario, ArchivoMultimedia archivoReproduciendo) //Agregar a cola
         {
 
@@ -162,35 +139,32 @@ namespace Sonic
                         if (eleccion2 == "n") { ultimaReproduccion = null; usuario.colaVideos.Clear(); usuario.colaCanciones.Clear(); continue; }
                         archivo = ultimaReproduccion; inicio = tiempoGuardado;
                     }
+                    else
+                    {
+                        Console.WriteLine("¿Desea reanudar desde ultima reproducción? (s/n)");
+                        string eleccion2 = Console.ReadLine();
+                        if (eleccion2 == "n") { ultimaReproduccion = null; continue; }
+                        archivo = ultimaReproduccion; inicio = tiempoGuardado;
+                    }
                     break;
->>>>>>> Stashed changes
                 }
-                
+
                 Console.Clear();
                 if (archivo != null)
                 {
+                    if (ultimaReproduccion == null) { archivo.numeroReproducciones++; }
                     Barra.WriteProgressBar(0, "00:00");
-                    int minutos = -1; int segundos = 0;
-                    for (var i = 0; i <= archivo.duracion; ++i)
+                    int minutos = -1; int segundos = inicio;
+                    for (var i = inicio; i <= archivo.duracion; ++i)
                     {
                         if (i % 60 == 0) { minutos++; segundos = 0; } else { segundos++; }
-<<<<<<< Updated upstream
-=======
-                        if (ultimaReproduccion != null && i % 60 != 0 && firstTime) { minutos++; firstTime = false; }
->>>>>>> Stashed changes
+                        if(ultimaReproduccion != null && i%60 != 0 && firstTime) { minutos++; firstTime = false; }
                         string tiempo;
                         if (segundos < 10) { tiempo = String.Format("{0}:0{1}", minutos, segundos); } else { tiempo = String.Format("{0}:{1}", minutos, segundos); }
                         if (!Console.KeyAvailable)
                         {
                             int progreso = ((i * 100) / archivo.duracion);
                             Barra.WriteProgressBar(progreso, tiempo, true);
-<<<<<<< Updated upstream
-                            Console.WriteLine("\n\n Canción: " + archivo.nombre);
-                            Console.WriteLine("\n Presione: \n P: Pausar   R: Reproducir   S: Salir ");
-                            Thread.Sleep(1000);
-                        }
-                        else if (Console.ReadKey(true).Key == ConsoleKey.S) { return; }
-=======
                             if (archivo.GetType().Name == "Cancion") { Console.WriteLine("\n\n Canción: " + archivo.nombre); } else { Console.WriteLine("\n\n Video: " + archivo.nombre); }
                             Console.WriteLine("\n Presione: \n P: Pausar   C: Cola" +
                                 "\n Presione 2 veces: \n R: Reproducir   S: Salir ");
@@ -214,17 +188,15 @@ namespace Sonic
                             }
                         }
                         else if (Console.ReadKey(true).Key == ConsoleKey.S) { GuardarArchivo(archivo, i, usuario); return; }
->>>>>>> Stashed changes
                         else if (Console.ReadKey(true).Key == ConsoleKey.P)
                         {
+                            i--;
                             while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.R))
                             {
                             }
                         }
                     }
                     Console.WriteLine();
-<<<<<<< Updated upstream
-=======
                     usuario.archivoReproduccion = null;
                     usuario.tiempoReproduccion = 0;
                     if(archivo.GetType().Name == "Cancion" && usuario.colaCanciones.Count != 0)
@@ -245,7 +217,6 @@ namespace Sonic
                         if (eleccion2 == "n") { break; }
                         archivo = null;
                     }
->>>>>>> Stashed changes
                 }
                 else
                 {
@@ -256,13 +227,10 @@ namespace Sonic
             }
         }
 
-<<<<<<< Updated upstream
-=======
         public static void GuardarArchivo(ArchivoMultimedia archivo, int tiempo, Usuario usuario) //Guardar Archivo si se estaba reproduciendo
         {
             usuario.archivoReproduccion = archivo;
             usuario.tiempoReproduccion = tiempo;
         }
->>>>>>> Stashed changes
     }
 }

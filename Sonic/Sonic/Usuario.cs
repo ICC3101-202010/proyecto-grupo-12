@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Sonic
 {
@@ -13,11 +14,11 @@ namespace Sonic
         string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
+        List<Cancion> descargas = new List<Cancion>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
-<<<<<<< Updated upstream
         public List<Cancion> cancionesDescargadas = new List<Cancion>();
-=======
+
 
         //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;
@@ -25,20 +26,20 @@ namespace Sonic
         public List<Cancion> colaCanciones = new List<Cancion>();
         public List<Video> colaVideos = new List<Video>();
 
->>>>>>> Stashed changes
+
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 
-        List<Usuario> seguirUsuario;
+        List<Usuario> seguirUsuario = new List<Usuario>();
         // List<Playlist> seguirPlaylist; Aun no esta creada
         // List<Disco> seguirDisco; Aparece en el enunciado
-        List<Cantante> seguirCantante;
-        List<Actor> seguirActor;
-        List<Director> seguirDirector;
-        List<Compositor> seguirCompositor;
+        List<Cantante> seguirCantante = new List<Cantante>();
+        List<Actor> seguirActor = new List<Actor>();
+        List<Director> seguirDirector = new List<Director>();
+        List<Compositor> seguirCompositor = new List<Compositor>();
         // List<Album> seguirAlbum; Nose si va esto
-        int numeroSeguidores;
-        List<Usuario> seguidores;
+        int numeroSeguidores = 0;
+        List<Usuario> seguidores = new List<Usuario>();
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -83,7 +84,7 @@ namespace Sonic
                     break;
             }
         }
-        public void AgregarGusto(string genero){this.gustos.Add(genero);} // Agrega los gustos seleccionados a este usuario
+        public void AgregarGusto(string genero) { this.gustos.Add(genero); } // Agrega los gustos seleccionados a este usuario
 
         public void ObtenerInformacion() // Obtiene la info del perfil de este usuario
         {
@@ -97,55 +98,79 @@ namespace Sonic
 
         }
 
-        public void AgregarCancionDescargada(Cancion cancion)
+        public void AgregarCancionDescargada(Cancion cancion) //Agregar cancion a lista de descargas
         {
-            cancionesDescargadas.Add(cancion);
-
+            
+            bool state = false;
+            foreach(Cancion cancion2 in descargas) { if (cancion.nombre == cancion2.nombre) { state = true; break; } }
+            if (state)
+            {
+                Console.WriteLine("La canción "+cancion.nombre +" ya se encuentra en tus descargas");
+                Thread.Sleep(2000);
+            } else
+            {
+                this.descargas.Add(cancion);
+                Console.WriteLine("\n Se ha descargado la cancion " + cancion.nombre);
+                Thread.Sleep(2000);
+            }
         }
-        public void VerCancionesDescargadas()
+
+        public void VerCancionesDescargadas() //Ver canciones descargadas del usuario
         {
             int contador = 1;
-            if (cancionesDescargadas.Count == 0)
+            if (descargas.Count == 0)
             {
                 Console.WriteLine("No hay canciones descargadas.");
             }
             else
             {
-                Console.WriteLine(cancionesDescargadas.Count + "canciones descargadas: ");
-                foreach (Cancion cancion in cancionesDescargadas)
+                Console.WriteLine(descargas.Count + "canciones descargadas: ");
+                foreach (Cancion cancion in descargas)
                 {
                     Console.WriteLine(contador);
                     cancion.ObtenerInfo();
                     contador++;
                 }
             }
-
+        }
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
-
-        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
 
         // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
 
+        // public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } //FALTA
+
         // public void SeguimientoDisco(Disco disco) { seguirDisco.Add(disco); } //FALTA
+
+        // public void NoSeguimientoDisco(Disco disco) { seguirDisco.Remove(disco); } //FALTA
 
         public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } //LISTO
 
+        public void NoSeguimientoCantante(Cantante cantante) { seguirCantante.Remove(cantante); } //LISTO
+
         public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } //LISTO
+
+        public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } //LISTO
 
         public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
 
+        public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } //LISTO
+
         public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } //LISTO
 
+        public void NoSeguimientoCompositor(Compositor compositor) { seguirCompositor.Remove(compositor); } //LISTO
+
         // public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
+
+        // public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
 
         public void NuevoSeguidor(Usuario usuario) //Recomendado poner en una clase abstracta por multiples repeticiones
                                                    //Considere que solo pueden seguir los usuarios
                                                    //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
         {
             int contador = 0;
-            foreach(var i in seguidores)
+            foreach (var i in seguidores)
             {
-                if(i.nombreDeUsuario == usuario.nombreDeUsuario)
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
                 {
                     Console.WriteLine("Ya sigues al Usuario");
                     contador++;
@@ -153,7 +178,7 @@ namespace Sonic
                 }
             }
 
-            if(contador == 0) 
+            if (contador == 0)
             {
                 seguidores.Add(usuario);
                 numeroSeguidores++;
@@ -163,7 +188,20 @@ namespace Sonic
 
         public void DejarSeguir(Usuario usuario)
         {
-            //No me acuerdo como eliminar un objeto de una lista
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    seguidores.Remove(usuario);
+                    numeroSeguidores--;
+                    Console.WriteLine("Has dejado de seguir al Usuario");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0) {Console.WriteLine("No sigues al Usuario"); }
         }
 
         public void InformacionUsuarioSeguidor() //LISTO
@@ -178,7 +216,7 @@ namespace Sonic
                 contador++;
             }
 
-            if(contador == 0) {Console.WriteLine("No sigues a ningun usuario"); }
+            if (contador == 0) { Console.WriteLine("No sigues a ningun usuario"); }
         }
 
         // public void InformacionPlaylistSeguidor() //FALTA

@@ -18,6 +18,7 @@ namespace Sonic
         public List<Video> videos = new List<Video>(); // Creacion lista de videos
         public List<Actor> actores = new List<Actor>(); //Creacion lista actores
         public List<Director> directores = new List<Director>(); //Creacion lista directores
+        public List<Playlist> playlists = new List<Playlist>();
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
@@ -956,7 +957,9 @@ namespace Sonic
 
         public void ReproductorPoint()
         {
-            Reproductor.EmpezarReproductor(canciones, videos);
+            Usuario pasarUsuario = null;
+            foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
+            Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, pasarUsuario.tiempoReproduccion );
         }
 
        public void DescargarCancion()
@@ -965,39 +968,35 @@ namespace Sonic
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
-                    string cd;
-
                     if (canciones.Count == 0)
                     {
                         Console.WriteLine("Lo sentimos, no hay canciones disponibles por el momento.");
-
+                        Thread.Sleep(2000);
+                        break;
                     }
                     else
                     {
-
+                        bool cancionEncontrada = true;
                         Console.WriteLine("Escriba el nombre de la cancion que desea descargar: ");
-                        cd = Console.ReadLine();
+                        string cd = Console.ReadLine();
 
                         foreach (Cancion cancion in canciones)
                         {
-                            if (cancion.nombre == cd)
+                            if (cancion.nombre.Contains(cd))
                             {
                                 usuario.AgregarCancionDescargada(cancion);
-                                Console.WriteLine("Se ha descargado la cancion " + cd);
+                               
+                                break;
                             }
-                            else
-                            {
-                                Console.WriteLine("No hemos encontrado la cancion "+cd);
-                            }
-
+                            else { cancionEncontrada = false; }
 
                         }
-
+                        if (!cancionEncontrada) { Console.WriteLine("No hemos encontrado la cancion " + cd); Thread.Sleep(2000); }
                     }
                 }
             }
-            
         }
+
         public void VerDescargas()
         {
             foreach (Usuario usuario in usuarios)
@@ -1005,12 +1004,46 @@ namespace Sonic
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
                     usuario.VerCancionesDescargadas();
-                  
 
+                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("Presiona cualquier tecla para volver atras");
+                    Console.ReadKey();
                 }
             }
-
         }
 
+        public void AgregarCancionPlaylist(Playlist playlist) // Agrega canciones a la playlist solo ingresando el nombre DE LA CANCION
+        {
+            string eleccion = "";
+            while (eleccion != "n")
+            {
+                Console.WriteLine("Ingrese cancion que desea ingresar a su Playlist: ");
+                string cp = Console.ReadLine();
+                foreach (Cancion cancion in canciones)
+                {
+                    if (cancion.nombre == cp)
+                    {
+                        playlist.AgregarCancion(cancion);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No hemos encontrado la cancion : " + cp);
+                    }
+                }
+                Console.WriteLine("Desea agregar otra cancion? (s/n)");
+                eleccion = Console.ReadLine();
+            }
+        }
+        public void VerPlaylists() // Se ven las playlists de todos los usuarios que tienen su playlist como PUBLICA
+        {
+            foreach (Playlist playlist in playlists)
+            {
+                if (playlist.privacidad == "publica")
+                {
+                    playlist.Info();
+                }
+            }
+        }
     }
 }

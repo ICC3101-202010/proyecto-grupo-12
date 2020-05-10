@@ -15,10 +15,10 @@ namespace Sonic
         Compositor compositor;
         string letra;
         int añoPublicacion;
-        int numeroReproducciones;
         int calificacion;
-        int meGusta;
+        int meGusta = 0;
         public string imagen = null;
+        List<Usuario> meGustaUsuarios = new List<Usuario>();
 
 
         public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion, int duracion)
@@ -46,6 +46,7 @@ namespace Sonic
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
             Console.WriteLine("Duración: " + this.duracion);
             Console.WriteLine("Imagen: " + this.imagen);
+            Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
            
         }
 
@@ -54,5 +55,54 @@ namespace Sonic
             this.imagen = imagen;
         }
 
+        public void MeGusta(Usuario usuario)
+        {
+            Console.WriteLine("Le has dado me gusta a esta cancion");
+            meGustaUsuarios.Add(usuario);
+            meGusta++;
+        }
+
+        public void RevisionMeGusta(Usuario usuario)
+        {
+            int contador = 0;
+            foreach (var i in meGustaUsuarios)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya le has dado me gusta");
+                    contador++;
+                    break;
+                }
+            }
+            if (contador == 0)
+            {
+                MeGusta(usuario);
+            }
+        }
+
+        public void QuitarMeGusta(Usuario usuario)
+        {
+            Console.WriteLine("Le has quitado el me gusta a esta cancion");
+            meGustaUsuarios.Remove(usuario);
+            meGusta--;
+        }
+
+        public void RevisionQuitarMeGusta(Usuario usuario)
+        {
+            int contador = 0;
+            foreach (var i in meGustaUsuarios)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("No le has dado me gusta");
+                    contador++;
+                    break;
+                }
+            }
+            if (contador == 0)
+            {
+                QuitarMeGusta(usuario);
+            }
+        }
     }
 }

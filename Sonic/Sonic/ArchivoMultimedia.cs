@@ -6,6 +6,7 @@ namespace Sonic
     {
         public string nombre;
         public int duracion;
+        public int numeroReproducciones = 0;
 
 
         public ArchivoMultimedia()

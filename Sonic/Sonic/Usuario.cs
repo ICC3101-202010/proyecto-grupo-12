@@ -17,9 +17,16 @@ namespace Sonic
         List<Cancion> descargas = new List<Cancion>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
+        public List<Cancion> cancionesDescargadas = new List<Cancion>();
 
+
+        //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;
         public int tiempoReproduccion;
+        public List<Cancion> colaCanciones = new List<Cancion>();
+        public List<Video> colaVideos = new List<Video>();
+
+
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 

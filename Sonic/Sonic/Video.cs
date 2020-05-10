@@ -20,6 +20,7 @@ namespace Sonic
         int calificacion;
         int meGusta;
         public string imagen = null;
+        List<Usuario> meGustaUsuarios = new List<Usuario>();
 
 
 
@@ -52,6 +53,56 @@ namespace Sonic
         public void ImagenVideo(string imagen)
         {
             this.imagen = imagen;
+        }
+
+        public void MeGusta(Usuario usuario)
+        {
+            Console.WriteLine("Le has dado me gusta a esta cancion");
+            meGustaUsuarios.Add(usuario);
+            meGusta++;
+        }
+
+        public void RevisionMeGusta(Usuario usuario)
+        {
+            int contador = 0;
+            foreach (var i in meGustaUsuarios)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya le has dado me gusta");
+                    contador++;
+                    break;
+                }
+            }
+            if (contador == 0)
+            {
+                MeGusta(usuario);
+            }
+        }
+
+        public void QuitarMeGusta(Usuario usuario)
+        {
+            Console.WriteLine("Le has quitado el me gusta a esta cancion");
+            meGustaUsuarios.Remove(usuario);
+            meGusta--;
+        }
+
+        public void RevisionQuitarMeGusta(Usuario usuario)
+        {
+            int contador = 0;
+            foreach (var i in meGustaUsuarios)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("No le has dado me gusta");
+                    contador++;
+                    break;
+                }
+            }
+            if (contador == 0)
+            {
+                QuitarMeGusta(usuario);
+            }
         }
     }
 }

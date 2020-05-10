@@ -89,21 +89,33 @@ namespace Sonic
 
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
-        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
-
         // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
+
+        // public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } //FALTA
 
         // public void SeguimientoDisco(Disco disco) { seguirDisco.Add(disco); } //FALTA
 
+        // public void NoSeguimientoDisco(Disco disco) { seguirDisco.Remove(disco); } //FALTA
+
         public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } //LISTO
+
+        public void NoSeguimientoCantante(Cantante cantante) { seguirCantante.Remove(cantante); } //LISTO
 
         public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } //LISTO
 
+        public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } //LISTO
+
         public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
+
+        public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } //LISTO
 
         public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } //LISTO
 
+        public void NoSeguimientoCompositor(Compositor compositor) { seguirCompositor.Remove(compositor); } //LISTO
+
         // public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
+
+        // public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
 
         public void NuevoSeguidor(Usuario usuario) //Recomendado poner en una clase abstracta por multiples repeticiones
                                                    //Considere que solo pueden seguir los usuarios
@@ -130,7 +142,20 @@ namespace Sonic
 
         public void DejarSeguir(Usuario usuario)
         {
-            //No me acuerdo como eliminar un objeto de una lista
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    seguidores.Remove(usuario);
+                    numeroSeguidores--;
+                    Console.WriteLine("Has dejado de seguir al Usuario");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0) {Console.WriteLine("No sigues al Usuario"); }
         }
 
         public void InformacionUsuarioSeguidor() //LISTO

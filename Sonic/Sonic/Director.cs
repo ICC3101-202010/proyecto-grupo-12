@@ -50,7 +50,21 @@ namespace Sonic
 
         public void DejarSeguir(Usuario usuario, Director director)
         {
-            //No me acuerdo como eliminar un objeto de una lista
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    seguidores.Remove(usuario);
+                    numeroSeguidores--;
+                    usuario.NoSeguimientoDirector(director);
+                    Console.WriteLine("Has dejado de seguir al Director");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues al Director"); }
         }
 
         public void InformacionSeguidores()

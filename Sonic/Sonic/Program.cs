@@ -223,7 +223,7 @@ namespace Sonic
                                             bool sesion = true;
                                             while (sesion)
                                             {
-                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Reproducir","Seguir", "Dejar de Seguir", "Descargar", "Mostar Descargas", "Crear Playlist","Mostrar Playlists","Cerrar Sesión" });
+                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Reproducir","Seguir", "Dejar de Seguir", "Descargar", "Mostar Descargas", "Crear Playlist","Mostrar Playlists","Calificar", "Quitar Calificación","Me Gusta","Quitar Me Gusta","Cerrar Sesión" });
 
                                                 switch (elejido2)
                                                 {
@@ -289,6 +289,22 @@ namespace Sonic
                                                     case "Mostrar Playlists":
                                                         Console.Clear();
                                                         sonic.VerPlaylists();
+                                                        break;
+                                                    case "Calificar":
+                                                        Console.Clear();
+                                                        sonic.Calificar();
+                                                        break;
+                                                    case "Quitar Calificación":
+                                                        Console.Clear();
+                                                        sonic.SacarCalificacion();
+                                                        break;
+                                                    case "Me Gusta":
+                                                        Console.Clear();
+                                                        sonic.PonerMeGusta();
+                                                        break;
+                                                    case "Quitar Me Gusta":
+                                                        Console.Clear();
+                                                        sonic.SacarMeGusta();
                                                         break;
                                                     case "Cerrar Sesión":
                                                         Console.Clear();

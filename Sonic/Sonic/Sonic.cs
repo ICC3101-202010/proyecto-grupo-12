@@ -1105,6 +1105,23 @@ namespace Sonic
             }
             return null;
         }
+        public Video SeleccionarVideo()
+        {
+            int i = 1;
+            foreach (Video video in videos)
+            {
+                Console.WriteLine(i + ". " + video.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Video videos1 in videos)
+            {
+                if (i == eleccion) { return videos1; }
+                i++;
+            }
+            return null;
+        }
 
         public Cantante SeleccionarCantante()
         {
@@ -1336,6 +1353,100 @@ namespace Sonic
             if (contador == 0) { Console.WriteLine("No sigues al " + persona.GetType().Name); Thread.Sleep(1500); }
         }
 
-        //Push de prueba
+        public void Calificar()
+        {
+            Console.WriteLine("1. Canciones" +
+                "\n2. Videos");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Cancion cancion = SeleccionarCancion();
+                    Console.WriteLine("Califiación del 1 al 10 :");
+                    int calificacion = Convert.ToInt32(Console.ReadLine());
+                    cancion.RevisionCalificacion(UsuarioActual(), calificacion);
+                    cancion.PromedioCalificion();
+                    break;
+                case 2:
+                    Video video = SeleccionarVideo();
+                    Console.WriteLine("Califiación del 1 al 10 :");
+                    int calificacion2 = Convert.ToInt32(Console.ReadLine());
+                    video.RevisionCalificacion(UsuarioActual(), calificacion2);
+                    video.PromedioCalificion();
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    Thread.Sleep(1500);
+                    break;
+            }
+        }
+
+        public void SacarCalificacion()
+        {
+            Console.WriteLine("1. Canciones" +
+                "\n2. Videos");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Cancion cancion = SeleccionarCancion();
+                    cancion.RevisionQuitarCalificacion(UsuarioActual());
+                    cancion.PromedioCalificion();
+                    break;
+                case 2:
+                    Video video = SeleccionarVideo();
+                    video.RevisionQuitarCalificacion(UsuarioActual());
+                    video.PromedioCalificion();
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    Thread.Sleep(1500);
+                    break;
+            }
+        }
+
+        public void PonerMeGusta()
+        {
+            Console.WriteLine("1. Canciones" +
+                "\n2. Videos");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Cancion cancion = SeleccionarCancion();
+                    cancion.RevisionMeGusta(UsuarioActual());
+                    break;
+                case 2:
+                    Video video = SeleccionarVideo();
+                    video.RevisionMeGusta(UsuarioActual());
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    Thread.Sleep(1500);
+                    break;
+            }
+        }
+
+        public void SacarMeGusta()
+        {
+            Console.WriteLine("1. Canciones" +
+                "\n2. Videos");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Cancion cancion = SeleccionarCancion();
+                    cancion.RevisionQuitarMeGusta(UsuarioActual());
+                    break;
+                case 2:
+                    Video video = SeleccionarVideo();
+                    video.RevisionQuitarMeGusta(UsuarioActual());
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    Thread.Sleep(1500);
+                    break;
+            }
+        }
     }
 }

@@ -1366,7 +1366,7 @@ namespace Sonic
                     int calificacion = Convert.ToInt32(Console.ReadLine());
                     cancion.RevisionCalificacion(UsuarioActual(), calificacion);
                     cancion.PromedioCalificion();
-                    break;
+                    break; 
                 case 2:
                     Video video = SeleccionarVideo();
                     Console.WriteLine("Califiación del 1 al 10 :");

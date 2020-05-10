@@ -45,6 +45,11 @@
     <Compile Include="Sonic.cs" />
     <Compile Include="Admin.cs" />
     <Compile Include="Reproductor.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Barra.cs" />
+    <Compile Include="Playlist.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

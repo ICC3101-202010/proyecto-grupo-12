@@ -1335,5 +1335,7 @@ namespace Sonic
 
             if (contador == 0) { Console.WriteLine("No sigues al " + persona.GetType().Name); Thread.Sleep(1500); }
         }
+
+        //Push de prueba
     }
 }

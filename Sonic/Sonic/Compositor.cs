@@ -8,7 +8,7 @@ namespace Sonic
     {
         List<Cancion> canciones = new List<Cancion>();
 
-        List<Usuario> seguidores;
+        List<Usuario> seguidores = new List<Usuario>();
         int numeroSeguidores;
 
         public Compositor(string nombre)
@@ -49,7 +49,21 @@ namespace Sonic
 
         public void DejarSeguir(Usuario usuario, Compositor compositor)
         {
-            //No me acuerdo como eliminar un objeto de una lista
+            int contador = 0;
+            foreach (var i in seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    seguidores.Remove(usuario);
+                    numeroSeguidores--;
+                    usuario.NoSeguimientoCompositor(compositor);
+                    Console.WriteLine("Has dejado de seguir al Compositor");
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues al Compositor"); }
         }
 
         public void InformacionSeguidores()

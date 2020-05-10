@@ -75,6 +75,8 @@ namespace Sonic
                                                         sesion2 = false;
                                                         break;
                                                     default:
+                                                        Console.WriteLine("Opción no valida");
+                                                        Thread.Sleep(1000);
                                                         break;
                                                 }
                                                 Console.Clear();
@@ -116,6 +118,8 @@ namespace Sonic
                                                         sesion3 = false;
                                                         break;
                                                     default:
+                                                        Console.WriteLine("Opción no valida");
+                                                        Thread.Sleep(1000);
                                                         break;
 
                                                 }
@@ -155,6 +159,7 @@ namespace Sonic
                                                                 break;
                                                             default:
                                                                 Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
                                                                 break;
                                                         }
                                                         break;
@@ -165,6 +170,8 @@ namespace Sonic
                                                         sesion4 = false;
                                                         break;
                                                     default:
+                                                        Console.WriteLine("Opción no valida");
+                                                        Thread.Sleep(1000);
                                                         break;
                                                 }
                                                 Console.Clear();
@@ -180,6 +187,8 @@ namespace Sonic
                                             break;
 
                                         default:
+                                            Console.WriteLine("Opción no valida");
+                                            Thread.Sleep(1000);
                                             break;
                                     }
                                   
@@ -214,7 +223,7 @@ namespace Sonic
                                             bool sesion = true;
                                             while (sesion)
                                             {
-                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Cerrar Sesión" });
+                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Reproducir","Descargar", "Mostar Descargas", "Cerrar Sesión" });
 
                                                 switch (elejido2)
                                                 {
@@ -245,12 +254,25 @@ namespace Sonic
                                                                 break;
                                                             default:
                                                                 Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
                                                                 break;
                                                         }
                                                         break;
                                                     case "Buscar":
                                                         Console.Clear();
                                                         sonic.Buscar();
+                                                        break;
+                                                    case "Reproducir":
+                                                        Console.Clear();
+                                                        sonic.ReproductorPoint();
+                                                        break;
+                                                    case "Descargar":
+                                                        Console.Clear();
+                                                        sonic.DescargarCancion();
+                                                        break;
+                                                    case "Mostar Descargas":
+                                                        Console.Clear();
+                                                        sonic.VerDescargas();
                                                         break;
                                                     case "Cerrar Sesión":
                                                         Console.Clear();
@@ -261,6 +283,7 @@ namespace Sonic
                                                         break;
                                                     default:
                                                         Console.WriteLine("Opción no valida");
+                                                        Thread.Sleep(1000);
                                                         break;
                                                 }
                                                 Console.Clear();
@@ -281,6 +304,8 @@ namespace Sonic
                                     exit1 = false;
                                     break;
                                 default:
+                                    Console.WriteLine("Opción no valida");
+                                    Thread.Sleep(1000);
                                     break;
                             }
                             Console.Clear();
@@ -296,6 +321,8 @@ namespace Sonic
                         break;
 
                     default:
+                        Console.WriteLine("Opción no valida");
+                        Thread.Sleep(1000);
                         break;
                 }
                 Console.Clear();
@@ -311,7 +338,17 @@ namespace Sonic
                     Console.WriteLine(Convert.ToString(i) + ". " + opcion);
                     i += 1;
                 }
-                return opciones[Convert.ToInt16(Console.ReadLine())];
+                int opcion2 = 0;
+                try
+                {
+                    opcion2 = Convert.ToInt16(Console.ReadLine());
+                    return opciones[opcion2];
+                }
+                catch (Exception)
+                {
+                    return "Invalido";
+                }
+               
             }
        
         }

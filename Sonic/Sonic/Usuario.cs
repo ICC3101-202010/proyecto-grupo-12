@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Sonic
 {
@@ -13,21 +14,25 @@ namespace Sonic
         string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
+        List<Cancion> descargas = new List<Cancion>();
         List<Cancion> FavoritosCancion;
         List<Video> FavoritosVideo;
 
+        public ArchivoMultimedia archivoReproduccion;
+        public int tiempoReproduccion;
+
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 
-        List<Usuario> seguirUsuario;
+        List<Usuario> seguirUsuario = new List<Usuario>();
         // List<Playlist> seguirPlaylist; Aun no esta creada
         // List<Disco> seguirDisco; Aparece en el enunciado
-        List<Cantante> seguirCantante;
-        List<Actor> seguirActor;
-        List<Director> seguirDirector;
-        List<Compositor> seguirCompositor;
+        List<Cantante> seguirCantante = new List<Cantante>();
+        List<Actor> seguirActor = new List<Actor>();
+        List<Director> seguirDirector = new List<Director>();
+        List<Compositor> seguirCompositor = new List<Compositor>();
         // List<Album> seguirAlbum; Nose si va esto
-        int numeroSeguidores;
-        List<Usuario> seguidores;
+        int numeroSeguidores = 0;
+        List<Usuario> seguidores = new List<Usuario>();
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -72,7 +77,7 @@ namespace Sonic
                     break;
             }
         }
-        public void AgregarGusto(string genero){this.gustos.Add(genero);} // Agrega los gustos seleccionados a este usuario
+        public void AgregarGusto(string genero) { this.gustos.Add(genero); } // Agrega los gustos seleccionados a este usuario
 
         public void ObtenerInformacion() // Obtiene la info del perfil de este usuario
         {
@@ -86,7 +91,41 @@ namespace Sonic
 
         }
 
+        public void AgregarCancionDescargada(Cancion cancion) //Agregar cancion a lista de descargas
+        {
+            
+            bool state = false;
+            foreach(Cancion cancion2 in descargas) { if (cancion.nombre == cancion2.nombre) { state = true; break; } }
+            if (state)
+            {
+                Console.WriteLine("La canción "+cancion.nombre +" ya se encuentra en tus descargas");
+                Thread.Sleep(2000);
+            } else
+            {
+                this.descargas.Add(cancion);
+                Console.WriteLine("\n Se ha descargado la cancion " + cancion.nombre);
+                Thread.Sleep(2000);
+            }
+        }
 
+        public void VerCancionesDescargadas() //Ver canciones descargadas del usuario
+        {
+            int contador = 1;
+            if (descargas.Count == 0)
+            {
+                Console.WriteLine("No hay canciones descargadas.");
+            }
+            else
+            {
+                Console.WriteLine(descargas.Count + "canciones descargadas: ");
+                foreach (Cancion cancion in descargas)
+                {
+                    Console.WriteLine(contador);
+                    cancion.ObtenerInfo();
+                    contador++;
+                }
+            }
+        }
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
         // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
@@ -122,9 +161,9 @@ namespace Sonic
                                                    //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
         {
             int contador = 0;
-            foreach(var i in seguidores)
+            foreach (var i in seguidores)
             {
-                if(i.nombreDeUsuario == usuario.nombreDeUsuario)
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
                 {
                     Console.WriteLine("Ya sigues al Usuario");
                     contador++;
@@ -132,7 +171,7 @@ namespace Sonic
                 }
             }
 
-            if(contador == 0) 
+            if (contador == 0)
             {
                 seguidores.Add(usuario);
                 numeroSeguidores++;
@@ -170,7 +209,7 @@ namespace Sonic
                 contador++;
             }
 
-            if(contador == 0) {Console.WriteLine("No sigues a ningun usuario"); }
+            if (contador == 0) { Console.WriteLine("No sigues a ningun usuario"); }
         }
 
         // public void InformacionPlaylistSeguidor() //FALTA
@@ -249,6 +288,7 @@ namespace Sonic
             }
 
             if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+
         }
     }
 }

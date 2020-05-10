@@ -530,7 +530,12 @@ namespace Sonic
                 Compositor compositor2 = AgregarCompositor(compositor);
                 Console.WriteLine("Año de Publicación: ");
                 int añoPublicacion = Convert.ToInt32(Console.ReadLine());
-                Cancion cancion = new Cancion(nombre, cantante2, album2,  genero, estudio, discografia, compositor2, añoPublicacion);
+                Console.WriteLine("Duración (minutos): ");
+                int duracionMinutos = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Duración (segundos): ");
+                int duracionSegundos = Convert.ToInt32(Console.ReadLine());
+                int duracion = (duracionMinutos * 60 + duracionSegundos);
+                Cancion cancion = new Cancion(nombre, cantante2, album2,  genero, estudio, discografia, compositor2, añoPublicacion, duracion);
                 canciones.Add(cancion);
                 this.AgregarCancionCantante(cancion, cantante);
                 this.AgregarCancionCompositor(cancion, compositor);
@@ -643,6 +648,11 @@ namespace Sonic
                 string descripcion = Console.ReadLine();
                 Console.WriteLine("Año de Publicacion: ");
                 int añoDePublicacion = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Duración (minutos): ");
+                int duracionMinutos = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Duración (segundos): ");
+                int duracionSegundos = Convert.ToInt32(Console.ReadLine());
+                int duracion = (duracionMinutos * 60 + duracionSegundos);
                 List<Actor> actores1 = new List<Actor>();
                 Console.WriteLine("Actores: ");
                 while (true)
@@ -657,7 +667,7 @@ namespace Sonic
                     if (eleccion1 == "n") { break; }
                 }
 
-                Video video = new Video(titulo, categoria, genero, estudio, director1, descripcion, actores1, añoDePublicacion);
+                Video video = new Video(titulo, categoria, genero, estudio, director1, descripcion, actores1, añoDePublicacion, duracion);
                 videos.Add(video);
                 foreach(Actor actor in actores1) { AgregarVideoActor(video, actor.nombre); }
                 this.AgregarVideoDirector(video, director);
@@ -942,6 +952,63 @@ namespace Sonic
             }
 
             return false;
+        }
+
+        public void ReproductorPoint()
+        {
+            Usuario pasarUsuario = null;
+            foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
+            Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, pasarUsuario.tiempoReproduccion );
+        }
+
+       public void DescargarCancion()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    if (canciones.Count == 0)
+                    {
+                        Console.WriteLine("Lo sentimos, no hay canciones disponibles por el momento.");
+                        Thread.Sleep(2000);
+                        break;
+                    }
+                    else
+                    {
+                        bool cancionEncontrada = true;
+                        Console.WriteLine("Escriba el nombre de la cancion que desea descargar: ");
+                        string cd = Console.ReadLine();
+
+                        foreach (Cancion cancion in canciones)
+                        {
+                            if (cancion.nombre.Contains(cd))
+                            {
+                                usuario.AgregarCancionDescargada(cancion);
+                               
+                                break;
+                            }
+                            else { cancionEncontrada = false; }
+
+                        }
+                        if (!cancionEncontrada) { Console.WriteLine("No hemos encontrado la cancion " + cd); Thread.Sleep(2000); }
+                    }
+                }
+            }
+        }
+
+        public void VerDescargas()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.VerCancionesDescargadas();
+
+                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("Presiona cualquier tecla para volver atras");
+                    Console.ReadKey();
+                }
+            }
         }
     }
 }

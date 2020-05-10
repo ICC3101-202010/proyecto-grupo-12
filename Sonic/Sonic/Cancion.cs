@@ -7,7 +7,6 @@ namespace Sonic
     public class Cancion : ArchivoMultimedia
     {
 
-        public string nombre;
         Cantante cantante;
         string genero;
         string estudio;
@@ -16,14 +15,13 @@ namespace Sonic
         Compositor compositor;
         string letra;
         int añoPublicacion;
-        int numeroReproducciones;
         int calificacion;
         int meGusta = 0;
         public string imagen = null;
         List<Usuario> meGustaUsuarios = new List<Usuario>();
 
 
-        public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion)
+        public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion, int duracion)
         {
             this.nombre = nombre;
             this.cantante = cantante;
@@ -33,6 +31,7 @@ namespace Sonic
             this.discografia = discografia;
             this.compositor = compositor;
             this.añoPublicacion = añoPublicacion;
+            this.duracion = duracion;
         }
 
         public void ObtenerInfo() //Obtener Info Cancion
@@ -45,7 +44,9 @@ namespace Sonic
             Console.WriteLine("Album: " + this.album.nombre);
             Console.WriteLine("Compositor: " + this.compositor.nombre);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
+            Console.WriteLine("Duración: " + this.duracion);
             Console.WriteLine("Imagen: " + this.imagen);
+            Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
            
         }
 

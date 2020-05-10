@@ -46,6 +46,8 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Reproductor.cs" />
     <Compile Include="Barra.cs" />
+    <Compile Include="Playlist.cs" />
+
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

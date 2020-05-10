@@ -18,6 +18,7 @@ namespace Sonic
         public List<Video> videos = new List<Video>(); // Creacion lista de videos
         public List<Actor> actores = new List<Actor>(); //Creacion lista actores
         public List<Director> directores = new List<Director>(); //Creacion lista directores
+        public List<Playlist> playlists = new List<Playlist>();
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
@@ -1007,6 +1008,40 @@ namespace Sonic
                     Console.WriteLine(Environment.NewLine);
                     Console.WriteLine("Presiona cualquier tecla para volver atras");
                     Console.ReadKey();
+                }
+            }
+        }
+
+        public void AgregarCancionPlaylist(Playlist playlist) // Agrega canciones a la playlist solo ingresando el nombre DE LA CANCION
+        {
+            string eleccion = "";
+            while (eleccion != "n")
+            {
+                Console.WriteLine("Ingrese cancion que desea ingresar a su Playlist: ");
+                string cp = Console.ReadLine();
+                foreach (Cancion cancion in canciones)
+                {
+                    if (cancion.nombre == cp)
+                    {
+                        playlist.AgregarCancion(cancion);
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("No hemos encontrado la cancion : " + cp);
+                    }
+                }
+                Console.WriteLine("Desea agregar otra cancion? (s/n)");
+                eleccion = Console.ReadLine();
+            }
+        }
+        public void VerPlaylists() // Se ven las playlists de todos los usuarios que tienen su playlist como PUBLICA
+        {
+            foreach (Playlist playlist in playlists)
+            {
+                if (playlist.privacidad == "publica")
+                {
+                    playlist.Info();
                 }
             }
         }

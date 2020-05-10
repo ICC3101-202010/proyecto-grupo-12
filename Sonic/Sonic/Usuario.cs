@@ -167,7 +167,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Usuarios que sigues son:");
+            Console.WriteLine("\nLos Usuarios que sigues son:");
 
             foreach (var i in seguirUsuario)
             {
@@ -186,7 +186,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Cantantes que sigues son:");
+            Console.WriteLine("\nLos Cantantes que sigues son:");
 
             foreach (var i in seguirCantante)
             {
@@ -201,7 +201,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Actores que sigues son:");
+            Console.WriteLine("\nLos Actores que sigues son:");
 
             foreach (var i in seguirActor)
             {
@@ -216,7 +216,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Directores que sigues son:");
+            Console.WriteLine("\nLos Directores que sigues son:");
 
             foreach (var i in seguirDirector)
             {
@@ -231,7 +231,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Compositor que sigues son:");
+            Console.WriteLine("\nLos Compositor que sigues son:");
 
             foreach (var i in seguirCompositor)
             {

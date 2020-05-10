@@ -78,6 +78,12 @@ namespace Sonic
                 formatter.Serialize(stream9, directores);
                 stream9.Close();
             }
+            if (playlists.Count != 0)
+            {
+                Stream stream10 = new FileStream("playlists.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream10, playlists);
+                stream10.Close();
+            }
 
         }
 
@@ -92,7 +98,7 @@ namespace Sonic
             if (File.Exists("directores.bin")) { CargarDirectores(); }
             if (File.Exists("videos.bin")) { CargarVideos(); }
             if (File.Exists("actores.bin")) { CargarActores(); }
-           
+            if (File.Exists("playlists.bin")) { CargarPlaylists(); }
         }
         
         public void CargarAdmins() //Cargar administradores
@@ -157,6 +163,13 @@ namespace Sonic
             Stream stream9 = new FileStream("directores.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             directores = (List<Director>)formatter9.Deserialize(stream9);
             stream9.Close();
+        }
+        public void CargarPlaylists() //Cargar directores
+        {
+            IFormatter formatter10 = new BinaryFormatter();
+            Stream stream10 = new FileStream("playlists.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            playlists = (List<Playlist>)formatter10.Deserialize(stream10);
+            stream10.Close();
         }
 
 
@@ -1012,38 +1025,85 @@ namespace Sonic
             }
         }
 
-        public void AgregarCancionPlaylist(Playlist playlist) // Agrega canciones a la playlist solo ingresando el nombre DE LA CANCION
+        public void CrearPlaylist() // Crea la playlist
+        {
+            Console.WriteLine("Ingrese nombre de la Playlist: ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Privacidad de la Playlist: ");
+            Console.WriteLine("0.- Privada");
+            Console.WriteLine("1.- Publica");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            string privacidad;
+            if (eleccion == 0 || eleccion == 1 && UsuarioActual().privacidad == "Publico")
+            {
+                if (eleccion == 0)
+                {
+                    privacidad = "Privada";
+                }
+                else
+                {
+                    privacidad = "Publica";
+                }
+            }
+            else
+            {
+                Console.WriteLine("Tus playlist solo pueden ser privada debido a que eres un usuario privado");
+                Thread.Sleep(1500);
+                privacidad = "Privada";
+            }
+            Playlist playlist = new Playlist(nombre, privacidad);
+            playlists.Add(playlist);
+            AgregarCancionPlaylist(playlist);
+            Console.BackgroundColor = ConsoleColor.Green;  Console.WriteLine("PlAYLIST CREADA"); Console.BackgroundColor = ConsoleColor.Black;
+            Thread.Sleep(1500);
+        }
+
+        public void AgregarCancionPlaylist(Playlist playlist) // Agrega canciones a la playlist
         {
             string eleccion = "";
             while (eleccion != "n")
             {
-                Console.WriteLine("Ingrese cancion que desea ingresar a su Playlist: ");
-                string cp = Console.ReadLine();
-                foreach (Cancion cancion in canciones)
-                {
-                    if (cancion.nombre == cp)
-                    {
-                        playlist.AgregarCancion(cancion);
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hemos encontrado la cancion : " + cp);
-                    }
-                }
-                Console.WriteLine("Desea agregar otra cancion? (s/n)");
+                Console.Clear();
+                Console.WriteLine("Seleccione cancion que desea ingresar a su Playlist: ");
+                Cancion cancion = SeleccionarCancion();
+                playlist.AgregarCancion(cancion);
+                Console.WriteLine("\nDesea agregar otra cancion? (s/n)");
                 eleccion = Console.ReadLine();
             }
         }
+
+
+
         public void VerPlaylists() // Se ven las playlists de todos los usuarios que tienen su playlist como PUBLICA
         {
             foreach (Playlist playlist in playlists)
             {
-                if (playlist.privacidad == "publica")
+                if (playlist.privacidad == "Publica")
                 {
                     playlist.Info();
                 }
             }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
+        }
+
+        public Cancion SeleccionarCancion()
+        {
+            int i = 1;
+            foreach (Cancion cancion in canciones)
+            {
+                Console.WriteLine(i + ". " + cancion.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Cancion cancion1 in canciones)
+            {
+                if (i == eleccion) { return cancion1; }
+                i++;
+            }
+            return null;
         }
 
         public Cantante SeleccionarCantante()

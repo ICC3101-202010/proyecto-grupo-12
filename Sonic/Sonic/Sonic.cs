@@ -904,7 +904,7 @@ namespace Sonic
             if (eleccion == null) { Console.WriteLine("No existen videos con ese nombre para guardar la imagen"); Thread.Sleep(1000); }
         }
 
-        public bool CambiarImagenCancion(Cancion cancion)
+        public bool CambiarImagenCancion(Cancion cancion) //Cambiar imagen de cancion
         {
             string variable;
 
@@ -929,7 +929,7 @@ namespace Sonic
             return false;
         }
 
-        public bool CambiarImagenVideo(Video video)
+        public bool CambiarImagenVideo(Video video) //Cambiar imagen de video
         {
             string variable;
 
@@ -955,14 +955,14 @@ namespace Sonic
             return false;
         }
 
-        public void ReproductorPoint()
+        public void ReproductorPoint() //Bypass a reproductor, entregandole la info
         {
             Usuario pasarUsuario = null;
             foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
             Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, pasarUsuario.tiempoReproduccion );
         }
 
-       public void DescargarCancion()
+       public void DescargarCancion() //Añadir cancion a descargas
         {
             foreach (Usuario usuario in usuarios)
             {
@@ -997,7 +997,7 @@ namespace Sonic
             }
         }
 
-        public void VerDescargas()
+        public void VerDescargas() //Ver descargas
         {
             foreach (Usuario usuario in usuarios)
             {
@@ -1044,6 +1044,236 @@ namespace Sonic
                     playlist.Info();
                 }
             }
+        }
+
+        public Cantante SeleccionarCantante()
+        {
+            int i = 1;
+            foreach(Cantante cantante in cantantes)
+            {
+                Console.WriteLine(i + ". " + cantante.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Cantante cantante1 in cantantes)
+            {
+                if(i == eleccion) { return cantante1; }
+                i++;
+            }
+            return null;
+        }
+
+        public Actor SeleccionarActor()
+        {
+            int i = 1;
+            foreach (Actor actor in actores)
+            {
+                Console.WriteLine(i + ". " + actor.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Actor actor1 in actores)
+            {
+                if (i == eleccion) { return actor1; }
+                i++;
+            }
+            return null;
+        }
+
+        public Director SeleccionarDirector()
+        {
+            int i = 1;
+            foreach (Director director in directores)
+            {
+                Console.WriteLine(i + ". " + director.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Director director1 in directores)
+            {
+                if (i == eleccion) { return director1; }
+                i++;
+            }
+            return null;
+        }
+
+        public Compositor SeleccionarCompositor()
+        {
+            int i = 1;
+            foreach (Compositor compositor in compositores)
+            {
+                Console.WriteLine(i + ". " + compositor.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Compositor compositor1 in compositores)
+            {
+                if (i == eleccion) { return compositor1; }
+                i++;
+            }
+            return null;
+        }
+
+        public Usuario SeleccionarUsuario()
+        {
+            int i = 1;
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.privacidad == "Publico")
+                {
+                    Console.WriteLine(i +". " + usuario.nombre);
+                    i++;
+                }
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 0;
+            foreach (Usuario usuario1 in usuarios)
+            {
+                if (usuario1.privacidad == "Publico") { i++; }
+                if (i == eleccion) { return usuario1; }
+            }
+            return null;
+        }
+
+        public void Seguir()
+        {
+            Console.WriteLine("1. Cantantes" +
+                "\n2. Actores" +
+                "\n3. Directores" +
+                "\n4. Compositores" +
+                "\n5. Usuarios" +
+                "\n6. Albums" +
+                "\n7. Playlist\n");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            Usuario usuario = UsuarioActual();
+            switch (eleccion)
+            {
+                case 1:
+                    Cantante cantante = SeleccionarCantante();
+                    NuevoSeguidorPersona(usuario, cantante);
+                    break;
+                case 2:
+                    Actor actor = SeleccionarActor();
+                    NuevoSeguidorPersona(usuario, actor);
+                    break;
+                case 3:
+                    Director director = SeleccionarDirector();
+                    NuevoSeguidorPersona(usuario, director);
+                    break;
+                case 4:
+                    Compositor compositor = SeleccionarCompositor();
+                    NuevoSeguidorPersona(usuario, compositor);
+                    break;
+                case 5:
+                    Usuario usuario1 = SeleccionarUsuario();
+                    NuevoSeguidorPersona(usuario, usuario1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public Usuario UsuarioActual()
+        {
+            foreach(Usuario usuario in usuarios)
+            {
+                if(usuario.nombreDeUsuario == perfilActual) { return usuario; }
+            }
+            return null;
+        }
+
+        public void NuevoSeguidorPersona(Usuario usuario, Persona persona)
+        {
+            int contador = 0;
+            foreach (var i in persona.seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al " + persona.GetType().Name);
+                    Thread.Sleep(1500);
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0)
+            {
+                persona.NuevoSeguidor(usuario);
+                persona.numeroSeguidores++;
+                if (persona.GetType().Name == "Cantante") { var persona1 = (Cantante)persona;  usuario.SeguimientoCantante(persona1); };
+                if (persona.GetType().Name == "Actor") { var persona1 = (Actor)persona; usuario.SeguimientoActor(persona1); };
+                if (persona.GetType().Name == "Director") { var persona1 = (Director)persona; usuario.SeguimientoDirector(persona1); };
+                if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.SeguimientoCompositor(persona1); };
+                if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario)persona; usuario.SeguimientoUsuario(persona1); };
+                Console.WriteLine("Has comenzado a seguir al " + persona.GetType().Name);
+                Thread.Sleep(1500);
+            }
+        }
+
+        public void DejarSeguir()
+        {
+            Console.WriteLine("1. Cantantes" +
+                "\n2. Actores" +
+                "\n3. Directores" +
+                "\n4. Compositores" +
+                "\n5. Usuarios" +
+                "\n6. Albums" +
+                "\n7. Playlist\n");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            Usuario usuario = UsuarioActual();
+            switch (eleccion)
+            {
+                case 1:
+                    Cantante cantante = SeleccionarCantante();
+                    DejarSeguirPersona(usuario, cantante);
+                    break;
+                case 2:
+                    Actor actor = SeleccionarActor();
+                    DejarSeguirPersona(usuario, actor);
+                    break;
+                case 3:
+                    Director director = SeleccionarDirector();
+                    DejarSeguirPersona(usuario, director);
+                    break;
+                case 4:
+                    Compositor compositor = SeleccionarCompositor();
+                    DejarSeguirPersona(usuario, compositor);
+                    break;
+                case 5:
+                    Usuario usuario1 = SeleccionarUsuario();
+                    DejarSeguirPersona(usuario, usuario1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void DejarSeguirPersona(Usuario usuario, Persona persona)
+        {
+            int contador = 0;
+            foreach (var i in persona.seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    persona.EliminarSeguidor(usuario);
+                    persona.numeroSeguidores--;
+                    if (persona.GetType().Name == "Cantante") { var persona1 = (Cantante)persona; usuario.NoSeguimientoCantante(persona1); };
+                    if (persona.GetType().Name == "Actor") { var persona1 = (Actor)persona; usuario.NoSeguimientoActor(persona1); };
+                    if (persona.GetType().Name == "Director") { var persona1 = (Director)persona; usuario.NoSeguimientoDirector(persona1); };
+                    if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.NoSeguimientoCompositor(persona1); };
+                    if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario)persona; usuario.NoSeguimientoUsuario(persona1); };
+                    Console.WriteLine("Has dejado de seguir al " + persona.GetType().Name);
+                    Thread.Sleep(1500);
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues al " + persona.GetType().Name); Thread.Sleep(1500); }
         }
     }
 }

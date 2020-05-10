@@ -5,13 +5,12 @@ using System.Threading;
 namespace Sonic
 {
     [Serializable]
-    public class Usuario
+    public class Usuario : Persona
     {
         public string nombreDeUsuario;
-        string nombre;
         string apellido;
         string tipoUsuario;
-        string privacidad;
+        public string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
         List<Cancion> descargas = new List<Cancion>();
@@ -26,10 +25,6 @@ namespace Sonic
         public List<Cancion> colaCanciones = new List<Cancion>();
         public List<Video> colaVideos = new List<Video>();
 
-
-
-        // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
-
         List<Usuario> seguirUsuario = new List<Usuario>();
         // List<Playlist> seguirPlaylist; Aun no esta creada
         // List<Disco> seguirDisco; Aparece en el enunciado
@@ -38,8 +33,6 @@ namespace Sonic
         List<Director> seguirDirector = new List<Director>();
         List<Compositor> seguirCompositor = new List<Compositor>();
         // List<Album> seguirAlbum; Nose si va esto
-        int numeroSeguidores = 0;
-        List<Usuario> seguidores = new List<Usuario>();
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -133,6 +126,7 @@ namespace Sonic
                 }
             }
         }
+
         // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
         // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
@@ -151,6 +145,10 @@ namespace Sonic
 
         public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } //LISTO
 
+        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
+
+        public void NoSeguimientoUsuario(Usuario usuario) { seguirUsuario.Remove(usuario); } //LISTO
+
         public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
 
         public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } //LISTO
@@ -163,46 +161,7 @@ namespace Sonic
 
         // public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
 
-        public void NuevoSeguidor(Usuario usuario) //Recomendado poner en una clase abstracta por multiples repeticiones
-                                                   //Considere que solo pueden seguir los usuarios
-                                                   //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
-        {
-            int contador = 0;
-            foreach (var i in seguidores)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    Console.WriteLine("Ya sigues al Usuario");
-                    contador++;
-                    break;
-                }
-            }
-
-            if (contador == 0)
-            {
-                seguidores.Add(usuario);
-                numeroSeguidores++;
-                Console.WriteLine("Has comenzado a seguir al Usuario");
-            }
-        }
-
-        public void DejarSeguir(Usuario usuario)
-        {
-            int contador = 0;
-            foreach (var i in seguidores)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    seguidores.Remove(usuario);
-                    numeroSeguidores--;
-                    Console.WriteLine("Has dejado de seguir al Usuario");
-                    contador++;
-                    break;
-                }
-            }
-
-            if (contador == 0) {Console.WriteLine("No sigues al Usuario"); }
-        }
+        
 
         public void InformacionUsuarioSeguidor() //LISTO
         {
@@ -282,20 +241,6 @@ namespace Sonic
 
             if (contador == 0) { Console.WriteLine("No sigues a ningun Compositor"); }
         }
-
         // public void InformacionAlbumSeguidor() //FALTA
-
-        public void InformacionSeguidores() //LISTO
-        {
-            Console.WriteLine("Sus seguidores son:");
-
-            foreach (var i in seguidores)
-            {
-                Console.WriteLine(i.nombreDeUsuario);
-            }
-
-            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
-
-        }
     }
 }

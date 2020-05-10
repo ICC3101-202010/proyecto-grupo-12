@@ -23,16 +23,16 @@ namespace Sonic
 
         // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
 
-        List<Usuario> seguirUsuario;
+        List<Usuario> seguirUsuario = new List<Usuario>();
         // List<Playlist> seguirPlaylist; Aun no esta creada
         // List<Disco> seguirDisco; Aparece en el enunciado
-        List<Cantante> seguirCantante;
-        List<Actor> seguirActor;
-        List<Director> seguirDirector;
-        List<Compositor> seguirCompositor;
+        List<Cantante> seguirCantante = new List<Cantante>();
+        List<Actor> seguirActor = new List<Actor>();
+        List<Director> seguirDirector = new List<Director>();
+        List<Compositor> seguirCompositor = new List<Compositor>();
         // List<Album> seguirAlbum; Nose si va esto
-        int numeroSeguidores;
-        List<Usuario> seguidores;
+        int numeroSeguidores = 0;
+        List<Usuario> seguidores = new List<Usuario>();
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -91,8 +91,9 @@ namespace Sonic
 
         }
 
-        public void AgregarCancionDescargada(Cancion cancion)
+        public void AgregarCancionDescargada(Cancion cancion) //Agregar cancion a lista de descargas
         {
+            
             bool state = false;
             foreach(Cancion cancion2 in descargas) { if (cancion.nombre == cancion2.nombre) { state = true; break; } }
             if (state)
@@ -107,7 +108,7 @@ namespace Sonic
             }
         }
 
-        public void VerCancionesDescargadas()
+        public void VerCancionesDescargadas() //Ver canciones descargadas del usuario
         {
             int contador = 1;
             if (descargas.Count == 0)
@@ -169,6 +170,7 @@ namespace Sonic
         public void DejarSeguir(Usuario usuario)
         {
             //No me acuerdo como eliminar un objeto de una lista
+            
         }
 
         public void InformacionUsuarioSeguidor() //LISTO

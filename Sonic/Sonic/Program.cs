@@ -185,6 +185,7 @@ namespace Sonic
                                             controlador1 = false;
                                             sesion1 = false;
                                             break;
+
                                         default:
                                             Console.WriteLine("Opción no valida");
                                             Thread.Sleep(1000);
@@ -343,7 +344,7 @@ namespace Sonic
                     opcion2 = Convert.ToInt16(Console.ReadLine());
                     return opciones[opcion2];
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return "Invalido";
                 }

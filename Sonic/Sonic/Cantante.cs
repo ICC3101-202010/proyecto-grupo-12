@@ -9,7 +9,7 @@ namespace Sonic
         public List<Cancion> canciones = new List<Cancion>();
         public List<Album> albums = new List<Album>();
 
-        List<Usuario> seguidores;
+        List<Usuario> seguidores = new List<Usuario>();
         int numeroSeguidores;
 
 

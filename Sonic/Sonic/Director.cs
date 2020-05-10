@@ -8,7 +8,7 @@ namespace Sonic
     {
         List<Video> videos = new List<Video>();
 
-        List<Usuario> seguidores;
+        List<Usuario> seguidores = new List<Usuario>();
         int numeroSeguidores;
 
         public Director(string nombre)

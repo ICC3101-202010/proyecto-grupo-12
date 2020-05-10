@@ -8,7 +8,7 @@ namespace Sonic
     {
         List<Cancion> canciones = new List<Cancion>();
 
-        List<Usuario> seguidores;
+        List<Usuario> seguidores = new List<Usuario>();
         int numeroSeguidores;
 
         public Compositor(string nombre)

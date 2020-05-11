@@ -96,6 +96,5 @@ namespace Sonic
 
             if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
         }
-
     }
 }

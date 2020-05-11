@@ -30,9 +30,11 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Denuncia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Cancion.cs" />
+    <Compile Include="Publicidad.cs" />
     <Compile Include="Video.cs" />
     <Compile Include="ArchivoMultimedia.cs" />
     <Compile Include="Actor.cs" />
@@ -47,8 +49,8 @@
     <Compile Include="Reproductor.cs" />
     <Compile Include="Barra.cs" />
     <Compile Include="Playlist.cs" />
-
     <Compile Include="Busqueda.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
 </Project>

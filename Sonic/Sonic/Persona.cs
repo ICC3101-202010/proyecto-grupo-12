@@ -13,7 +13,6 @@ namespace Sonic
 
         public Persona()
         {
-            
         }
 
         public void NuevoSeguidor(Usuario usuario) { seguidores.Add(usuario); }

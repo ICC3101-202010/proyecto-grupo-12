@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Sonic
 {
     [Serializable]
@@ -8,6 +10,7 @@ namespace Sonic
         string nombre;
         string apellido;
         public string contraseña;
+        List<Publicidad> publicidadAdmin = new List<Publicidad>();
 
         public Admin(string nombreDeUsuario, string nombre, string apellido, string contraseña) //Constructor Admin
         {
@@ -37,5 +40,9 @@ namespace Sonic
             Console.WriteLine("Nombre: " + this.nombre);
             Console.WriteLine("Apellido: " + this.apellido);
         }
+
+        public void AgregarPublicidadAdmin(Publicidad publicidad) { publicidadAdmin.Add(publicidad); }
+
+        public void QuitarPublicidadAdmin(Publicidad publicidad) { publicidadAdmin.Remove(publicidad); }
     }
 }

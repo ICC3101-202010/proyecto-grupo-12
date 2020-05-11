@@ -14,9 +14,8 @@ namespace Sonic
         public string contraseña;
         List<string> gustos = new List<string>();
         List<Cancion> descargas = new List<Cancion>();
-        List<Cancion> FavoritosCancion = new List<Cancion>();
-        List<Video> FavoritosVideo = new List<Video>();
-        public List<Cancion> cancionesDescargadas = new List<Cancion>();
+        List<Cancion> favoritosCancion = new List<Cancion>();
+        List<Video> favoritosVideo = new List<Video>();
         public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
 
 
@@ -89,6 +88,8 @@ namespace Sonic
             Console.WriteLine("Privacidad: " + this.privacidad);
             Console.WriteLine("Gustos: ");
             foreach (string gusto in gustos) { Console.Write(gusto + ", "); }
+            Console.WriteLine("Descargas: ");
+            foreach (Cancion cancion in favoritosCancion) { Console.WriteLine("\n" + cancion.nombre); }
             InformacionSeguidores();
             InformacionUsuarioSeguidor();
             InformacionCantanteSeguidor();
@@ -260,21 +261,27 @@ namespace Sonic
 
         public void AgregarCancionFavoritos(Cancion cancion){
             bool cancionEnFavoritos = false;
-            foreach(Cancion cancion1 in FavoritosCancion)
+            if (favoritosCancion != null)
             {
-                if (cancion.nombre == cancion1.nombre) { Console.WriteLine("\nCancion ya se encuentra en favoritos"); Thread.Sleep(1500); cancionEnFavoritos = true; break; }
+                foreach (Cancion cancion1 in favoritosCancion)
+                {
+                    if (cancion.nombre == cancion1.nombre) { Console.WriteLine("\nCancion ya se encuentra en favoritos"); Thread.Sleep(1500); cancionEnFavoritos = true; break; }
+                }
             }
-            if (!cancionEnFavoritos) { this.FavoritosCancion.Add(cancion); Console.WriteLine("\nCancion agregada con exito"); Thread.Sleep(1500); }
+            if (!cancionEnFavoritos) { this.favoritosCancion.Add(cancion); Console.WriteLine("\nCancion agregada con exito"); Thread.Sleep(1500); }
         }
 
         public void AgregarVideoFavoritos(Video video)
         {
             bool videoEnFavoritos = false;
-            foreach (Video video1 in FavoritosVideo)
+            if (favoritosVideo != null)
             {
-                if (video.nombre == video1.nombre) { Console.WriteLine("\nVideo ya se encuentra en favoritos"); Thread.Sleep(1500); videoEnFavoritos = true; break; }
+                foreach (Video video1 in favoritosVideo)
+                {
+                    if (video.nombre == video1.nombre) { Console.WriteLine("\nVideo ya se encuentra en favoritos"); Thread.Sleep(1500); videoEnFavoritos = true; break; }
+                }
             }
-            if (!videoEnFavoritos) { this.FavoritosVideo.Add(video); Console.WriteLine("\nVideo agregado con exito"); Thread.Sleep(1500); }
+            if (!videoEnFavoritos) { this.favoritosVideo.Add(video); Console.WriteLine("\nVideo agregado con exito"); Thread.Sleep(1500); }
         }
     }
 }

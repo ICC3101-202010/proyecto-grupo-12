@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sonic
 {
-    class Publicidad
+    public class Publicidad
     {
         string nombre; //Titulo
         string tipo; //Video o Imagen

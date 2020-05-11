@@ -341,7 +341,7 @@ namespace Sonic
                                                         }
                                                         break;
                                                     case "Favoritos":
-                                                        string elejido12 = MostrarOpciones(new List<string>() { "Crear Playlist", "Mostrar Playlists" });
+                                                        string elejido12 = MostrarOpciones(new List<string>() { "Agregar cancion a Favoritos", "Agregar video a Favoritos" });
                                                         switch (elejido12)
                                                         {
                                                             case "Agregar cancion a Favoritos":

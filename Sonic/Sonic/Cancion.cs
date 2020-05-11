@@ -7,14 +7,14 @@ namespace Sonic
     public class Cancion : ArchivoMultimedia
     {
 
-        Cantante cantante;
-        string genero;
-        string estudio;
-        string discografia;
-        Album album;
-        Compositor compositor;
-        string letra;
-        int añoPublicacion;
+        public Cantante cantante;
+        public string genero;
+        public string estudio;
+        public string discografia;
+        public Album album;
+        public Compositor compositor;
+        public string letra;
+        public int añoPublicacion;
         public string imagen = null;
         
 

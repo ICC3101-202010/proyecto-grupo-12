@@ -11,6 +11,9 @@ namespace Sonic
         public string privacidad;
         List<Cancion> playlist = new List<Cancion>();
 
+        public List<Usuario> seguidores = new List<Usuario>();
+        public int numeroSeguidores;
+
         public Playlist(string nombre, string privacidad)
         {
             this.nombre = nombre;
@@ -57,6 +60,7 @@ namespace Sonic
             if (playlist.Count == 0)
             {
                 Console.WriteLine("No tienes canciones en esta Playlist");
+                Thread.Sleep(1500);
             }
             else
             {
@@ -67,11 +71,30 @@ namespace Sonic
                         playlist.Remove(cancion);
                         Console.WriteLine("Se ha eliminado la cancion de tu Playlist");
                         Thread.Sleep(1500);
-                        break;
+                        return;
                     }
                 }
+
+                Console.WriteLine("Esta cancion no esta en tu playlist");
+                Thread.Sleep(1500);
             }
 
+        }
+
+        public void NuevoSeguidor(Usuario usuario) { seguidores.Add(usuario); }
+
+        public void EliminarSeguidor(Usuario usuario) { seguidores.Remove(usuario); }
+
+        public void InformacionSeguidores()
+        {
+            Console.WriteLine("\nSus seguidores son:");
+
+            foreach (var i in seguidores)
+            {
+                Console.WriteLine(i.nombreDeUsuario);
+            }
+
+            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
         }
 
     }

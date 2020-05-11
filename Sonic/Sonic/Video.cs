@@ -8,18 +8,19 @@ namespace Sonic
     {
 
        
-        string categoria;
-        string genero;
-        string estudio;
-        Director director;
-        string descripcion;
-        List<Actor> actores;
-        int añoPublicacion;
+        public string categoria;
+        public string genero;
+        public string estudio;
+        public Director director;
+        public string descripcion;
+        public List<Actor> actores;
+        public int añoPublicacion;
+        public int resolucion;
         public string imagen = null;
 
 
 
-        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion)
+        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion, int resolucion)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -30,6 +31,7 @@ namespace Sonic
             this.actores = actores;
             this.añoPublicacion = añoPublicacion;
             this.duracion = duracion;
+            this.resolucion = resolucion;
         }
 
         public void ObtenerInfo() //Obtener Info del video
@@ -44,6 +46,7 @@ namespace Sonic
             Console.WriteLine("Descripción: " + this.descripcion);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
             Console.WriteLine("Duración: " + this.duracion);
+            Console.WriteLine("Resolución: " + this.resolucion);
             Console.WriteLine("Imagen: " + this.imagen);
             Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
 

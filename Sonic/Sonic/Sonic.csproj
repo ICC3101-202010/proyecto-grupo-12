@@ -48,6 +48,7 @@
     <Compile Include="Barra.cs" />
     <Compile Include="Playlist.cs" />
 
+    <Compile Include="Busqueda.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

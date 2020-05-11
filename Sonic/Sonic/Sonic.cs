@@ -19,6 +19,8 @@ namespace Sonic
         public List<Actor> actores = new List<Actor>(); //Creacion lista actores
         public List<Director> directores = new List<Director>(); //Creacion lista directores
         public List<Playlist> playlists = new List<Playlist>();
+        public List<Cancion> cancionesBusqueda = new List<Cancion>();
+        public List<Video> videosBusqueda = new List<Video>();
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
@@ -662,6 +664,8 @@ namespace Sonic
                 string descripcion = Console.ReadLine();
                 Console.WriteLine("Año de Publicacion: ");
                 int añoDePublicacion = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Resolucion (numero): ");
+                int resolucion = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Duración (minutos): ");
                 int duracionMinutos = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Duración (segundos): ");
@@ -681,7 +685,7 @@ namespace Sonic
                     if (eleccion1 == "n") { break; }
                 }
 
-                Video video = new Video(titulo, categoria, genero, estudio, director1, descripcion, actores1, añoDePublicacion, duracion);
+                Video video = new Video(titulo, categoria, genero, estudio, director1, descripcion, actores1, añoDePublicacion, duracion, resolucion);
                 videos.Add(video);
                 foreach(Actor actor in actores1) { AgregarVideoActor(video, actor.nombre); }
                 this.AgregarVideoDirector(video, director);
@@ -735,103 +739,293 @@ namespace Sonic
             Console.ReadKey();
         }
 
-        public void Buscar() //Buscar en todo
+        public void BuscarPorCategoria(string categoria)
         {
-            Console.WriteLine("Buscar: ");
-            string busqueda = Console.ReadLine();
-            List<Cancion> cancionesBusqueda = new List<Cancion>();
-            foreach (Cancion cancion in canciones){if (cancion.nombre.Contains(busqueda)){cancionesBusqueda.Add(cancion);}}
+            foreach(Video video in videos)
+            {
+                if (video.categoria.Contains(categoria))
+                {
+                    if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); }
+                }   
+            }
+        }
+
+        public void BuscarPorEvaluacion(string condicion, int valor)
+        {
+            foreach (Cancion cancion in canciones)
+            {
+                if (condicion == "mayor")
+                {
+                    if(cancion.calificacion > valor) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                }
+                else if (condicion == "menor")
+                {
+                    if (cancion.calificacion < valor) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                }
+                else if (condicion == "igual")
+                {
+                    if (cancion.calificacion == valor) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                }
+            }
+            foreach (Video video in videos)
+            {
+                if (condicion == "mayor")
+                {
+                    if (video.calificacion > valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+                else if (condicion == "menor")
+                {
+                    if (video.calificacion < valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+                else if (condicion == "igual")
+                {
+                    if (video.calificacion == valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+            }
+        }
+
+
+        public bool VerificarCancionEnBusqueda(Cancion cancion)
+        {
+            foreach(Cancion cancion1 in cancionesBusqueda)
+            {
+                if(cancion1.nombre == cancion.nombre) { return true; }
+            }
+            return false;
+        }
+
+        public bool VerificarVideoEnBusqueda(Video video)
+        {
+            foreach (Video video1 in videosBusqueda)
+            {
+                if (video1.nombre == video.nombre) { return true; }
+            }
+            return false;
+        }
+
+        public void BuscarPorPalabra(string palabra)
+        {
+            foreach(Cancion cancion in canciones)
+            {
+                if (cancion.nombre.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (cancion.genero.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (cancion.estudio.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (cancion.discografia.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (cancion.album.nombre.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (cancion.compositor.nombre.Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+                if (Convert.ToString(cancion.añoPublicacion).Contains(palabra)) { if (!VerificarCancionEnBusqueda(cancion)) { cancionesBusqueda.Add(cancion); } }
+            }
+
+            foreach(Video video in videos)
+            {
+                if (video.nombre.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                if (video.genero.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                if (video.estudio.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                if (video.director.nombre.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                if (video.descripcion.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                if (Convert.ToString(video.añoPublicacion).Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                foreach(Actor actor in video.actores) { if(actor.nombre.Contains(palabra)) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } } }
+            }
+        }
+
+        public void BuscarPorResolucion(string condicion, int valor)
+        {
+            foreach (Video video in videos)
+            {
+                if (condicion == "mayor")
+                {
+                    if (video.resolucion > valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+                else if (condicion == "menor")
+                {
+                    if (video.resolucion < valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+                else if (condicion == "igual")
+                {
+                    if (video.resolucion == valor) { if (!VerificarVideoEnBusqueda(video)) { videosBusqueda.Add(video); } }
+                }
+            }
+        }
+
+        public void GuardarBusqueda(List<Action> busqueda)
+        {
+            Usuario usuarioActual = UsuarioActual();
+            Console.WriteLine("Nombre de Busqueda Inteligente: ");
+            string nombre = Console.ReadLine();
+            Busqueda busqueda1 = new Busqueda(nombre, busqueda);
+            usuarioActual.busquedasInteligentes.Add(busqueda1);
+            Console.WriteLine("Busqueda Inteligente guardada");
+            Thread.Sleep(1500);
+        }
+
+        public void RealizarBusqueda()
+        {
+            Usuario usuarioActual = UsuarioActual();
+            Console.WriteLine("Seleccione Busqueda: ");
+            int i = 1;
+            foreach(Busqueda busqueda in usuarioActual.busquedasInteligentes)
+            {
+                Console.WriteLine(i + ". " + busqueda.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach(Busqueda busqeuda1 in usuarioActual.busquedasInteligentes)
+            {
+                if(i == eleccion)
+                {
+                    foreach(Action funcion in busqeuda1.busquedas)
+                    {
+                        funcion();
+                    }
+                    break;
+                }
+                i++;
+            }
+            int j = 1;
+            Console.Clear();
             if (cancionesBusqueda.Count != 0)
             {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Canciones:"); Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine("Canciones: ");
                 foreach (Cancion cancion in cancionesBusqueda)
                 {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("\n" + j + ". \n");
                     cancion.ObtenerInfo();
+                    j++;
                 }
             }
-            List<Cantante> cantantesBusqueda = new List<Cantante>();
-            foreach (Cantante cantante in cantantes) { if (cantante.nombre.Contains(busqueda)) { cantantesBusqueda.Add(cantante); } }
-            if (cantantesBusqueda.Count != 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Cantantes:"); Console.BackgroundColor = ConsoleColor.Black;
-                foreach (Cantante cantante in cantantesBusqueda)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
-                    cantante.ObtenerInfo();
-                }
-            }
-            List<Album> albumsBusqueda = new List<Album>();
-            foreach (Album album in albums) { if (album.nombre.Contains(busqueda)) { albumsBusqueda.Add(album); } }
-            if (albumsBusqueda.Count != 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Albums:"); Console.BackgroundColor = ConsoleColor.Black;
-                foreach (Album album in albumsBusqueda)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
-                    album.ObtenerInfo();
-                }
-            }
-            List<Compositor> compositoresBusqueda = new List<Compositor>();
-            foreach (Compositor compositor in compositores) { if (compositor.nombre.Contains(busqueda)) { compositoresBusqueda.Add(compositor); } }
-            if (compositoresBusqueda.Count != 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Compositores:"); Console.BackgroundColor = ConsoleColor.Black;
-                foreach (Compositor compositor in compositoresBusqueda)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
-                    compositor.ObtenerInfo();
-                }
-            }
-            List<Video> videosBusqueda = new List<Video>();
-            foreach (Video video in videos) { if (video.nombre.Contains(busqueda)) { videosBusqueda.Add(video); } }
+            j = 1;
             if (videosBusqueda.Count != 0)
             {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Videos:"); Console.BackgroundColor = ConsoleColor.Black;
+                Console.WriteLine("Videos: ");
                 foreach (Video video in videosBusqueda)
                 {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
+                    Console.WriteLine("\n"+j + ". \n");
                     video.ObtenerInfo();
+                    j++;
                 }
             }
-            List<Actor> actoresBusqueda = new List<Actor>();
-            foreach (Actor actor in actores) { if (actor.nombre.Contains(busqueda)) { actoresBusqueda.Add(actor); } }
-            if (actoresBusqueda.Count != 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Actores:"); Console.BackgroundColor = ConsoleColor.Black;
-                foreach (Actor actor in actoresBusqueda)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
-                    actor.ObtenerInfo();
-                }
-            }
-            List<Director> directoresBusqueda = new List<Director>();
-            foreach (Director director in directores) { if (director.nombre.Contains(busqueda)) { directoresBusqueda.Add(director); } }
-            if (directoresBusqueda.Count != 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Blue; Console.WriteLine("Directores:"); Console.BackgroundColor = ConsoleColor.Black;
-                foreach (Director director in directoresBusqueda)
-                {
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.WriteLine("-------------------------------------"); Console.BackgroundColor = ConsoleColor.Black;
-                    Console.WriteLine(Environment.NewLine);
-                    director.ObtenerInfo();
-                }
-            }
-            if (cancionesBusqueda.Count == 0 && cantantesBusqueda.Count == 0 && albumsBusqueda.Count == 0 && compositoresBusqueda.Count == 0 && videosBusqueda.Count == 0 && actoresBusqueda.Count == 0 && directoresBusqueda.Count == 0)
-            {
-                Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black;
-            }
+            if (videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black; }
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Presiona cualquier tecla para volver atras");
             Console.ReadKey();
+            cancionesBusqueda.Clear();
+            videosBusqueda.Clear();
         }
-      
+
+        public void Buscar()
+        {
+            List<Action> busquedas = new List<Action>();
+
+            while (true)
+            {
+                Console.WriteLine("\nBuscar por:" +
+                "\n1. Palabra" +
+                "\n2. Persona" +
+                "\n3. Evaluacion" +
+                "\n4. Resolución" +
+                "\n5. Categoria");
+
+                int eleccion = Convert.ToInt32(Console.ReadLine());
+                switch (eleccion)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Palabra:");
+                        string palabra = Console.ReadLine();
+                        BuscarPorPalabra(palabra);
+                        busquedas.Add(() => BuscarPorPalabra(palabra));
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Nombre Persona:");
+                        string persona = Console.ReadLine();
+                        BuscarPorPalabra(persona);
+                        busquedas.Add(() => BuscarPorPalabra(persona));
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+                        int eleccion3 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Valor: ");
+                        int valor = Convert.ToInt32(Console.ReadLine());
+                        if(eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
+                        else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
+                        else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
+                        break;
+                    case 4:
+                        Console.Clear();
+                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+                        int eleccion7 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Valor: ");
+                        int valor2 = Convert.ToInt32(Console.ReadLine());
+                        if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
+                        else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
+                        else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
+                        break;
+                    case 5:
+                        Console.Clear();
+                        Console.WriteLine("Categoria: ");
+                        string categoria = Console.ReadLine();
+                        BuscarPorCategoria(categoria);
+                        busquedas.Add(() => BuscarPorCategoria(categoria));
+                        break;
+                    default:
+                        Console.WriteLine("Opcion no valida");
+                        Thread.Sleep(1500);
+                        break;
+                }
+                Console.WriteLine("\n ¿Desea agregar otro filtro? (s/n)");
+                string eleccion2 = Console.ReadLine();
+                if(eleccion2 == "n") { break; }
+
+            }
+            int i = 1;
+            Console.Clear();
+            if (cancionesBusqueda.Count != 0)
+            {
+                Console.WriteLine("Canciones: ");
+                foreach (Cancion cancion in cancionesBusqueda)
+                {
+                    Console.WriteLine(i +". \n");
+                    cancion.ObtenerInfo();
+                    i++;
+                }
+            }
+            i = 1;
+            if (videosBusqueda.Count != 0)
+            {
+                Console.WriteLine("Videos: ");
+                foreach (Video video in videosBusqueda)
+                {
+                    Console.WriteLine(i + ". ");
+                    video.ObtenerInfo();
+                    i++;
+                }
+            }
+            if(videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black; }
+            cancionesBusqueda.Clear();
+            videosBusqueda.Clear();
+            Console.WriteLine("\n¿Desea guardar busqueda? (s/n)");
+            string eleccion5 = Console.ReadLine();
+            if (eleccion5 == "s") { GuardarBusqueda(busquedas); }
+        }
+
+        public void AgregarCancionAFavoritos()
+        {
+            Usuario usuarioActual = UsuarioActual();
+            Cancion cancion = SeleccionarCancion();
+            usuarioActual.AgregarCancionFavoritos(cancion);
+        }
+
+        public void AgregarVideoAFavoritos()
+        {
+            Usuario usuarioActual = UsuarioActual();
+            Video video = SeleccionarVideo();
+            usuarioActual.AgregarVideoFavoritos(video);
+        }
+
+
         public void AgregarImagenCancion() //Agregar una imagen a una cancion
         {
             Console.WriteLine("Nombre de la Cancion:");
@@ -1076,9 +1270,18 @@ namespace Sonic
 
         public void VerPlaylists() // Se ven las playlists de todos los usuarios que tienen su playlist como PUBLICA
         {
+            Console.WriteLine("\nPlaylists Publicas: ");
             foreach (Playlist playlist in playlists)
             {
                 if (playlist.privacidad == "Publica")
+                {
+                    playlist.Info();
+                }
+            }
+            Console.WriteLine("\nPlaylist Privadas: ");
+            foreach (Playlist playlist in playlists)
+            {
+                if (playlist.privacidad == "Privada")
                 {
                     playlist.Info();
                 }
@@ -1195,6 +1398,42 @@ namespace Sonic
             return null;
         }
 
+        public Album SeleccionarAlbum()
+        {
+            int i = 1;
+            foreach (Album album in albums)
+            {
+                Console.WriteLine(i + ". " + album.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Album album1 in albums)
+            {
+                if (i == eleccion) { return album1; }
+                i++;
+            }
+            return null;
+        }
+
+        public Playlist SeleccionarPlaylist()
+        {
+            int i = 1;
+            foreach (Playlist playlist in playlists)
+            {
+                Console.WriteLine(i + ". " + playlist.nombre);
+                i++;
+            }
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            i = 1;
+            foreach (Playlist playlist1 in playlists)
+            {
+                if (i == eleccion) { return playlist1; }
+                i++;
+            }
+            return null;
+        }
+
         public Usuario SeleccionarUsuario()
         {
             int i = 1;
@@ -1249,6 +1488,14 @@ namespace Sonic
                     Usuario usuario1 = SeleccionarUsuario();
                     NuevoSeguidorPersona(usuario, usuario1);
                     break;
+                case 6:
+                    Album album = SeleccionarAlbum();
+                    NuevoSeguidorAlbum(usuario, album);
+                    break;
+                case 7:
+                    Playlist playlist = SeleccionarPlaylist();
+                    NuevoSeguidorPlaylist(usuario, playlist);
+                    break;
                 default:
                     break;
             }
@@ -1287,6 +1534,54 @@ namespace Sonic
                 if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.SeguimientoCompositor(persona1); };
                 if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario)persona; usuario.SeguimientoUsuario(persona1); };
                 Console.WriteLine("Has comenzado a seguir al " + persona.GetType().Name);
+                Thread.Sleep(1500);
+            }
+        }
+
+        public void NuevoSeguidorAlbum(Usuario usuario, Album album)
+        {
+            int contador = 0;
+            foreach (var i in album.seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al " + album.GetType().Name);
+                    Thread.Sleep(1500);
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0)
+            {
+                album.NuevoSeguidor(usuario);
+                album.numeroSeguidores++;
+                usuario.SeguimientoAlbum(album);
+                Console.WriteLine("Has comenzado a seguir al " + album.GetType().Name);
+                Thread.Sleep(1500);
+            }
+        }
+
+        public void NuevoSeguidorPlaylist(Usuario usuario, Playlist playlist)
+        {
+            int contador = 0;
+            foreach (var i in playlist.seguidores)
+            {
+                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
+                {
+                    Console.WriteLine("Ya sigues al " + playlist.GetType().Name);
+                    Thread.Sleep(1500);
+                    contador++;
+                    break;
+                }
+            }
+
+            if (contador == 0)
+            {
+                playlist.NuevoSeguidor(usuario);
+                playlist.numeroSeguidores++;
+                usuario.SeguimientoPlaylist(playlist);
+                Console.WriteLine("Has comenzado a seguir a la " + playlist.GetType().Name);
                 Thread.Sleep(1500);
             }
         }

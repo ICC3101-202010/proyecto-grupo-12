@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Sonic
 {
     [Serializable]
     public class Persona
     {
         public string nombre;
-      
+        public List<Usuario> seguidores = new List<Usuario>();
+        public int numeroSeguidores;
+
+
         public Persona()
         {
-            //
-<<<<<<< Updated upstream
-=======
         }
 
         public void NuevoSeguidor(Usuario usuario) { seguidores.Add(usuario); }
@@ -27,7 +29,6 @@ namespace Sonic
             }
 
             if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
->>>>>>> Stashed changes
         }
     }
 }

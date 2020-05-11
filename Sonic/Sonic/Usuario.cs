@@ -5,34 +5,35 @@ using System.Threading;
 namespace Sonic
 {
     [Serializable]
-    public class Usuario
+    public class Usuario : Persona
     {
         public string nombreDeUsuario;
-        string nombre;
         string apellido;
         string tipoUsuario;
-        string privacidad;
+        public string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
         List<Cancion> descargas = new List<Cancion>();
-        List<Cancion> FavoritosCancion;
-        List<Video> FavoritosVideo;
+        List<Cancion> FavoritosCancion = new List<Cancion>();
+        List<Video> FavoritosVideo = new List<Video>();
+        public List<Cancion> cancionesDescargadas = new List<Cancion>();
+        public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
 
+
+
+        //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;
         public int tiempoReproduccion;
-
-        // List<Object> seguir; Primera forma //BORRAR POST EXPLICACION
+        public List<Cancion> colaCanciones = new List<Cancion>();
+        public List<Video> colaVideos = new List<Video>();
 
         List<Usuario> seguirUsuario = new List<Usuario>();
-        // List<Playlist> seguirPlaylist; Aun no esta creada
-        // List<Disco> seguirDisco; Aparece en el enunciado
+        List<Playlist> seguirPlaylist = new List<Playlist>();
         List<Cantante> seguirCantante = new List<Cantante>();
         List<Actor> seguirActor = new List<Actor>();
         List<Director> seguirDirector = new List<Director>();
         List<Compositor> seguirCompositor = new List<Compositor>();
-        // List<Album> seguirAlbum; Nose si va esto
-        int numeroSeguidores = 0;
-        List<Usuario> seguidores = new List<Usuario>();
+        List<Album> seguirAlbum = new List<Album>();
 
         public Usuario(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {
@@ -88,7 +89,14 @@ namespace Sonic
             Console.WriteLine("Privacidad: " + this.privacidad);
             Console.WriteLine("Gustos: ");
             foreach (string gusto in gustos) { Console.Write(gusto + ", "); }
-
+            InformacionSeguidores();
+            InformacionUsuarioSeguidor();
+            InformacionCantanteSeguidor();
+            InformacionAlbumSeguidor();
+            InformacionCompositorSeguidor();
+            InformacionPlaylistSeguidor();
+            InformacionActorSeguidor();
+            InformacionDirectorSeguidor();
         }
 
         public void AgregarCancionDescargada(Cancion cancion) //Agregar cancion a lista de descargas
@@ -126,82 +134,29 @@ namespace Sonic
                 }
             }
         }
-        // public void Seguimiento(Object objeto) {seguir.Add(objeto);} Primera forma ==> REVISAR para no repetir tanto codigo //BORRAR POST EXPLICACION
 
-        // public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
-
-        // public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } //FALTA
-
-        // public void SeguimientoDisco(Disco disco) { seguirDisco.Add(disco); } //FALTA
-
-        // public void NoSeguimientoDisco(Disco disco) { seguirDisco.Remove(disco); } //FALTA
-
+        public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
+        public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } //FALTA
         public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } //LISTO
-
         public void NoSeguimientoCantante(Cantante cantante) { seguirCantante.Remove(cantante); } //LISTO
-
         public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } //LISTO
-
         public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } //LISTO
-
+        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
+        public void NoSeguimientoUsuario(Usuario usuario) { seguirUsuario.Remove(usuario); } //LISTO
         public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
-
         public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } //LISTO
-
         public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } //LISTO
-
         public void NoSeguimientoCompositor(Compositor compositor) { seguirCompositor.Remove(compositor); } //LISTO
+        public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
+        public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
 
-        // public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
-
-        // public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
-
-        public void NuevoSeguidor(Usuario usuario) //Recomendado poner en una clase abstracta por multiples repeticiones
-                                                   //Considere que solo pueden seguir los usuarios
-                                                   //Decidi recibir el objeto usuario para  poder hacer futuras funciones con el, como revisar sus propios seguidores    
-        {
-            int contador = 0;
-            foreach (var i in seguidores)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    Console.WriteLine("Ya sigues al Usuario");
-                    contador++;
-                    break;
-                }
-            }
-
-            if (contador == 0)
-            {
-                seguidores.Add(usuario);
-                numeroSeguidores++;
-                Console.WriteLine("Has comenzado a seguir al Usuario");
-            }
-        }
-
-        public void DejarSeguir(Usuario usuario)
-        {
-            int contador = 0;
-            foreach (var i in seguidores)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    seguidores.Remove(usuario);
-                    numeroSeguidores--;
-                    Console.WriteLine("Has dejado de seguir al Usuario");
-                    contador++;
-                    break;
-                }
-            }
-
-            if (contador == 0) {Console.WriteLine("No sigues al Usuario"); }
-        }
+        
 
         public void InformacionUsuarioSeguidor() //LISTO
         {
             int contador = 0;
 
-            Console.WriteLine("Los Usuarios que sigues son:");
+            Console.WriteLine("\nLos Usuarios que sigues son:");
 
             foreach (var i in seguirUsuario)
             {
@@ -212,15 +167,27 @@ namespace Sonic
             if (contador == 0) { Console.WriteLine("No sigues a ningun usuario"); }
         }
 
-        // public void InformacionPlaylistSeguidor() //FALTA
+        public void InformacionPlaylistSeguidor()
+        {
+            int contador = 0;
 
-        // public void InformacionDiscoSeguidor() //FALTA
+            Console.WriteLine("\nLas Playlists que sigues son:");
+
+            foreach (var i in seguirPlaylist)
+            {
+                Console.WriteLine(i.nombre);
+                contador++;
+            }
+
+            if (contador == 0) { Console.WriteLine("No sigues a ninguna playlist"); }
+        }
+
 
         public void InformacionCantanteSeguidor() //LISTO
         {
             int contador = 0;
 
-            Console.WriteLine("Los Cantantes que sigues son:");
+            Console.WriteLine("\nLos Cantantes que sigues son:");
 
             foreach (var i in seguirCantante)
             {
@@ -235,7 +202,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Actores que sigues son:");
+            Console.WriteLine("\nLos Actores que sigues son:");
 
             foreach (var i in seguirActor)
             {
@@ -250,7 +217,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Directores que sigues son:");
+            Console.WriteLine("\nLos Directores que sigues son:");
 
             foreach (var i in seguirDirector)
             {
@@ -265,7 +232,7 @@ namespace Sonic
         {
             int contador = 0;
 
-            Console.WriteLine("Los Compositor que sigues son:");
+            Console.WriteLine("\nLos Compositores que sigues son:");
 
             foreach (var i in seguirCompositor)
             {
@@ -276,19 +243,38 @@ namespace Sonic
             if (contador == 0) { Console.WriteLine("No sigues a ningun Compositor"); }
         }
 
-        // public void InformacionAlbumSeguidor() //FALTA
-
-        public void InformacionSeguidores() //LISTO
+        public void InformacionAlbumSeguidor()
         {
-            Console.WriteLine("Sus seguidores son:");
+            int contador = 0;
 
-            foreach (var i in seguidores)
+            Console.WriteLine("\nLos Albums que sigues son:");
+
+            foreach (var i in seguirAlbum)
             {
-                Console.WriteLine(i.nombreDeUsuario);
+                Console.WriteLine(i.nombre);
+                contador++;
             }
 
-            if (numeroSeguidores == 0) { Console.WriteLine("No tiene ningun seguidor"); }
+            if (contador == 0) { Console.WriteLine("No sigues a ningun album"); }
+        }
 
+        public void AgregarCancionFavoritos(Cancion cancion){
+            bool cancionEnFavoritos = false;
+            foreach(Cancion cancion1 in FavoritosCancion)
+            {
+                if (cancion.nombre == cancion1.nombre) { Console.WriteLine("\nCancion ya se encuentra en favoritos"); Thread.Sleep(1500); cancionEnFavoritos = true; break; }
+            }
+            if (!cancionEnFavoritos) { this.FavoritosCancion.Add(cancion); Console.WriteLine("\nCancion agregada con exito"); Thread.Sleep(1500); }
+        }
+
+        public void AgregarVideoFavoritos(Video video)
+        {
+            bool videoEnFavoritos = false;
+            foreach (Video video1 in FavoritosVideo)
+            {
+                if (video.nombre == video1.nombre) { Console.WriteLine("\nVideo ya se encuentra en favoritos"); Thread.Sleep(1500); videoEnFavoritos = true; break; }
+            }
+            if (!videoEnFavoritos) { this.FavoritosVideo.Add(video); Console.WriteLine("\nVideo agregado con exito"); Thread.Sleep(1500); }
         }
     }
 }

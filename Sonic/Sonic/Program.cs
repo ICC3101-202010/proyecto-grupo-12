@@ -181,7 +181,7 @@ namespace Sonic
                                         case "Cerrar Sesión":
                                             Console.Clear();
                                             Console.WriteLine("Cerrando Sesión...");
-                                            Thread.Sleep(2000);
+                                            Thread.Sleep(1000);
                                             controlador1 = false;
                                             sesion1 = false;
                                             break;
@@ -223,34 +223,58 @@ namespace Sonic
                                             bool sesion = true;
                                             while (sesion)
                                             {
-                                                string elejido2 = MostrarOpciones(new List<string>() {"Mostrar Perfil", "Editar Perfil", "Buscar", "Reproducir","Descargar", "Mostar Descargas", "Cerrar Sesión" });
+                                                string elejido2 = MostrarOpciones(new List<string>() {"Perfil", "Buscar", "Reproducir", "Seguimiento", "Descargas", "Playlists","Favoritos", "Calificacíon","Me Gusta","Cerrar Sesión" });
 
                                                 switch (elejido2)
                                                 {
-                                                    case "Mostrar Perfil":
-                                                        Console.Clear();
-                                                        sonic.MostarInfoPerfilUsuario();
-                                                        break;
-                                                    case "Editar Perfil":
-                                                        Console.Clear();
-                                                        string elejido3 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña", "Elegir Gustos", "Cambiar Privacidad"});
-                                                        switch (elejido3)
+                                                    case "Perfil":
+                                                        string elejido9 = MostrarOpciones(new List<string>() { "Mostrar Perfil", "Editar Perfil" });
+                                                        switch (elejido9)
                                                         {
-                                                            case "Cambiar Nombre":
+                                                            case "Mostrar Perfil":
                                                                 Console.Clear();
-                                                                sonic.CambiarNombreUsuario();
+                                                                sonic.MostarInfoPerfilUsuario();
                                                                 break;
-                                                            case "Cambiar Contraseña":
+                                                            case "Editar Perfil":
                                                                 Console.Clear();
-                                                                sonic.CambiarContraseñaUsuario();
+                                                                string elejido3 = MostrarOpciones(new List<string>() { "Cambiar Nombre", "Cambiar Contraseña", "Elegir Gustos", "Cambiar Privacidad" });
+                                                                switch (elejido3)
+                                                                {
+                                                                    case "Cambiar Nombre":
+                                                                        Console.Clear();
+                                                                        sonic.CambiarNombreUsuario();
+                                                                        break;
+                                                                    case "Cambiar Contraseña":
+                                                                        Console.Clear();
+                                                                        sonic.CambiarContraseñaUsuario();
+                                                                        break;
+                                                                    case "Elegir Gustos":
+                                                                        Console.Clear();
+                                                                        sonic.ElegirGustos();
+                                                                        break;
+                                                                    case "Cambiar Privacidad":
+                                                                        Console.Clear();
+                                                                        sonic.CambiarPrivacidad();
+                                                                        break;
+                                                                    default:
+                                                                        Console.WriteLine("Opción no valida");
+                                                                        Thread.Sleep(1000);
+                                                                        break;
+                                                                }
                                                                 break;
-                                                            case "Elegir Gustos":
+                                                        }
+                                                        break;
+                                                    case "Buscar":
+                                                        string elejido11 = MostrarOpciones(new List<string>() { "Buscar por filtros", "Buquedas Inteligentes" });
+                                                        switch (elejido11)
+                                                        {
+                                                            case "Buscar por filtros":
                                                                 Console.Clear();
-                                                                sonic.ElegirGustos();
+                                                                sonic.Buscar();
                                                                 break;
-                                                            case "Cambiar Privacidad":
+                                                            case "Buquedas Inteligentes":
                                                                 Console.Clear();
-                                                                sonic.CambiarPrivacidad();
+                                                                sonic.RealizarBusqueda();
                                                                 break;
                                                             default:
                                                                 Console.WriteLine("Opción no valida");
@@ -258,21 +282,117 @@ namespace Sonic
                                                                 break;
                                                         }
                                                         break;
-                                                    case "Buscar":
-                                                        Console.Clear();
-                                                        sonic.Buscar();
-                                                        break;
                                                     case "Reproducir":
                                                         Console.Clear();
                                                         sonic.ReproductorPoint();
                                                         break;
-                                                    case "Descargar":
-                                                        Console.Clear();
-                                                        sonic.DescargarCancion();
+                                                    case "Seguimiento":
+                                                        string elejido4 = MostrarOpciones(new List<string>() { "Seguir", "Dejar de Seguir" });
+                                                        switch (elejido4)
+                                                        {
+                                                            case "Seguir":
+                                                                Console.Clear();
+                                                                sonic.Seguir();
+                                                                break;
+                                                            case "Dejar de Seguir":
+                                                                Console.Clear();
+                                                                sonic.DejarSeguir();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
                                                         break;
-                                                    case "Mostar Descargas":
-                                                        Console.Clear();
-                                                        sonic.VerDescargas();
+                                                    case "Descargas":
+                                                        string elejido5 = MostrarOpciones(new List<string>() { "Descargar", "Mostar Descargas"});
+                                                        switch (elejido5)
+                                                        {
+                                                            case "Descargar":
+                                                                Console.Clear();
+                                                                sonic.DescargarCancion();
+                                                                break;
+                                                            case "Mostar Descargas":
+                                                                Console.Clear();
+                                                                sonic.VerDescargas();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
+                                                        break;
+                                                    case "Playlists":
+                                                        string elejido6 = MostrarOpciones(new List<string>() { "Crear Playlist", "Mostrar Playlists" });
+                                                        switch (elejido6)
+                                                        {
+                                                            case "Crear Playlist":
+                                                                Console.Clear();
+                                                                sonic.CrearPlaylist();
+                                                                break;
+                                                            case "Mostrar Playlists":
+                                                                Console.Clear();
+                                                                sonic.VerPlaylists();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
+                                                        break;
+                                                    case "Favoritos":
+                                                        string elejido12 = MostrarOpciones(new List<string>() { "Crear Playlist", "Mostrar Playlists" });
+                                                        switch (elejido12)
+                                                        {
+                                                            case "Agregar cancion a Favoritos":
+                                                                Console.Clear();
+                                                                sonic.AgregarCancionAFavoritos();
+                                                                break;
+                                                            case "Agregar video a Favoritos":
+                                                                Console.Clear();
+                                                                sonic.AgregarVideoAFavoritos();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
+                                                        break;
+                                                     case "Calificacíon":
+                                                        string elejido7 = MostrarOpciones(new List<string>() { "Calificar", "Quitar Calificación" });
+                                                        switch (elejido7)
+                                                        {
+                                                            case "Calificar":
+                                                                Console.Clear();
+                                                                sonic.Calificar();
+                                                                break;
+                                                            case "Quitar Calificación":
+                                                                Console.Clear();
+                                                                sonic.SacarCalificacion();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
+                                                        break;
+                                                    case "Me Gusta":
+                                                        string elejido8 = MostrarOpciones(new List<string>() { "Dar Me Gusta", "Quitar Me Gusta"});
+                                                        switch (elejido8)
+                                                        {
+                                                            case "Dar Me Gusta":
+                                                                Console.Clear();
+                                                                sonic.PonerMeGusta();
+                                                                break;
+                                                            case "Quitar Me Gusta":
+                                                                Console.Clear();
+                                                                sonic.SacarMeGusta();
+                                                                break;
+                                                            default:
+                                                                Console.WriteLine("Opción no valida");
+                                                                Thread.Sleep(1000);
+                                                                break;
+                                                        }
                                                         break;
                                                     case "Cerrar Sesión":
                                                         Console.Clear();
@@ -316,7 +436,7 @@ namespace Sonic
                         Console.Clear();
                         Console.WriteLine("Saliendo...");
                         sonic.GuardarDatos();
-                        Thread.Sleep(2000);
+                        Thread.Sleep(1000);
                         exit = false;
                         break;
 

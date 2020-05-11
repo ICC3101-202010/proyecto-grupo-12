@@ -8,22 +8,19 @@ namespace Sonic
     {
 
        
-        string categoria;
-        string genero;
-        string estudio;
-        Director director;
-        string descripcion;
-        List<Actor> actores;
-        int añoPublicacion;
-        int calificacion;
-        int meGusta;
+        public string categoria;
+        public string genero;
+        public string estudio;
+        public Director director;
+        public string descripcion;
+        public List<Actor> actores;
+        public int añoPublicacion;
+        public int resolucion;
         public string imagen = null;
-        List<Usuario> meGustaUsuario = new List<Usuario>();
-        List<Usuario> CalificacionUsuario = new List<Usuario>();
 
 
 
-        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion)
+        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion, int resolucion)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -34,6 +31,7 @@ namespace Sonic
             this.actores = actores;
             this.añoPublicacion = añoPublicacion;
             this.duracion = duracion;
+            this.resolucion = resolucion;
         }
 
         public void ObtenerInfo() //Obtener Info del video
@@ -48,6 +46,7 @@ namespace Sonic
             Console.WriteLine("Descripción: " + this.descripcion);
             Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
             Console.WriteLine("Duración: " + this.duracion);
+            Console.WriteLine("Resolución: " + this.resolucion);
             Console.WriteLine("Imagen: " + this.imagen);
             Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
 
@@ -59,57 +58,6 @@ namespace Sonic
         {
             this.imagen = imagen;
         }
-
-        public void MeGusta(Usuario usuario)
-        {
-            Console.WriteLine("Le has dado me gusta a esta cancion");
-            meGustaUsuario.Add(usuario);
-            meGusta++;
-        }
-
-        public void RevisionMeGusta(Usuario usuario)
-        {
-            int contador = 0;
-            foreach (var i in meGustaUsuario)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    Console.WriteLine("Ya le has dado me gusta");
-                    contador++;
-                    break;
-                }
-            }
-            if (contador == 0)
-            {
-                MeGusta(usuario);
-            }
-        }
-
-        public void QuitarMeGusta(Usuario usuario)
-        {
-            Console.WriteLine("Le has quitado el me gusta a esta cancion");
-            meGustaUsuario.Remove(usuario);
-            meGusta--;
-        }
-
-        public void RevisionQuitarMeGusta(Usuario usuario)
-        {
-            int contador = 0;
-            foreach (var i in meGustaUsuario)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    Console.WriteLine("No le has dado me gusta");
-                    contador++;
-                    break;
-                }
-            }
-            if (contador == 0)
-            {
-                QuitarMeGusta(usuario);
-            }
-        }
-
 
     }
 }

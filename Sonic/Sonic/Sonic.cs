@@ -21,6 +21,7 @@ namespace Sonic
         public List<Playlist> playlists = new List<Playlist>();
         public List<Cancion> cancionesBusqueda = new List<Cancion>();
         public List<Video> videosBusqueda = new List<Video>();
+        public List<Publicidad> publicidades = new List<Publicidad>();
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
@@ -86,6 +87,12 @@ namespace Sonic
                 formatter.Serialize(stream10, playlists);
                 stream10.Close();
             }
+            if (publicidades.Count != 0)
+            {
+                Stream stream11 = new FileStream("publicidades.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream11, publicidades);
+                stream11.Close();
+            }
 
         }
 
@@ -101,6 +108,7 @@ namespace Sonic
             if (File.Exists("videos.bin")) { CargarVideos(); }
             if (File.Exists("actores.bin")) { CargarActores(); }
             if (File.Exists("playlists.bin")) { CargarPlaylists(); }
+            if (File.Exists("publicidades.bin")) { CargarPlaylists(); }
         }
         
         public void CargarAdmins() //Cargar administradores
@@ -172,6 +180,13 @@ namespace Sonic
             Stream stream10 = new FileStream("playlists.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
             playlists = (List<Playlist>)formatter10.Deserialize(stream10);
             stream10.Close();
+        }
+        public void CargarPublicidades() //Cargar directores
+        {
+            IFormatter formatter11 = new BinaryFormatter();
+            Stream stream11 = new FileStream("publicidades.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            publicidades = (List<Publicidad>)formatter11.Deserialize(stream11);
+            stream11.Close();
         }
 
 
@@ -1166,7 +1181,7 @@ namespace Sonic
         {
             Usuario pasarUsuario = null;
             foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
-            Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, pasarUsuario.tiempoReproduccion );
+            Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, publicidades, pasarUsuario.tiempoReproduccion );
         }
 
        public void DescargarCancion() //Añadir cancion a descargas
@@ -1743,5 +1758,49 @@ namespace Sonic
                     break;
             }
         }
+
+        public void AgregarPublicidad()
+        {
+            string eleccion;
+            string tipo = "";
+            int precioPagar = 0;
+            int cantidad;
+            int cantidadApariciones = 0;
+            Console.WriteLine("Precio cada aparicion de Video publicitario----------> $1.000");
+            Console.WriteLine("Precio cada aparicion de Imagen publicitaria----------> $500");
+            Console.WriteLine("\nQue desea agregar");
+            Console.WriteLine("1. Video");
+            Console.WriteLine("2. Imagen");
+            eleccion = Console.ReadLine();
+            Console.WriteLine("\n Nombre publicidad: ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Descripción publicidad: ");
+            string descripcion = Console.ReadLine();
+            Console.WriteLine("\nQue cantidad de repeticiones desea agregar");
+            cantidad = int.Parse(Console.ReadLine());
+
+            switch (eleccion)
+            {
+                case "1":
+                    precioPagar = cantidad * 1000;
+                    cantidadApariciones = cantidad;
+                    tipo = "Video";
+                    break;
+                case "2":
+                    precioPagar = cantidad * 500;
+                    cantidadApariciones = cantidad;
+                    tipo = "Imagen";
+                    break;
+                default:
+                    break;
+            }
+
+            Publicidad publicidad1 = new Publicidad(nombre, tipo, descripcion, cantidadApariciones, precioPagar);
+            publicidades.Add(publicidad1);
+            publicidad1.PrecioPublicidad();
+            if (!publicidad1.PagarPublicidad()) { publicidades.Remove(publicidad1); }
+        }
+
+        public void QuitarPublicidad(Publicidad publicidad) { publicidades.Remove(publicidad); }
     }
 }

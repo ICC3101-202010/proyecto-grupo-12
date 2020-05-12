@@ -132,7 +132,7 @@ namespace Sonic
                                             bool sesion4 = true;
                                             while (sesion4)
                                             {
-                                                string elejido8 = MostrarOpciones(new List<string>() { "Agregar Administrador", "Mostrar Perfil", "Editar Perfil", "Salir" });
+                                                string elejido8 = MostrarOpciones(new List<string>() { "Agregar Administrador", "Agregar Publicidad", "Mostrar Perfil", "Editar Perfil", "Salir" });
 
                                                 switch (elejido8)
                                                 {
@@ -162,6 +162,10 @@ namespace Sonic
                                                                 Thread.Sleep(1000);
                                                                 break;
                                                         }
+                                                        break;
+                                                    case "Agregar Publicidad":
+                                                        Console.Clear();
+                                                        sonic.AgregarPublicidad();
                                                         break;
                                                     case "Salir":
                                                         Console.Clear();

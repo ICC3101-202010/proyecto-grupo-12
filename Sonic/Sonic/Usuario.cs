@@ -9,7 +9,7 @@ namespace Sonic
     {
         public string nombreDeUsuario;
         string apellido;
-        string tipoUsuario;
+        public string tipoUsuario;
         public string privacidad;
         public string contraseña;
         List<string> gustos = new List<string>();
@@ -18,14 +18,13 @@ namespace Sonic
         List<Video> favoritosVideo = new List<Video>();
         public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
 
-
-
         //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;
         public int tiempoReproduccion;
         public List<Cancion> colaCanciones = new List<Cancion>();
         public List<Video> colaVideos = new List<Video>();
 
+        // -- LISTAS SEGUIR --
         List<Usuario> seguirUsuario = new List<Usuario>();
         List<Playlist> seguirPlaylist = new List<Playlist>();
         List<Cantante> seguirCantante = new List<Cantante>();

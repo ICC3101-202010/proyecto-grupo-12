@@ -100,7 +100,7 @@ namespace Sonic
             Console.ReadKey();
         }
 
-        public static void EmpezarReproductor(List<Cancion> canciones, List<Video> videos, Usuario usuario, ArchivoMultimedia ultimaReproduccion, int tiempoGuardado = 0) //Reproductor
+        public static void EmpezarReproductor(List<Cancion> canciones, List<Video> videos, Usuario usuario, ArchivoMultimedia ultimaReproduccion, List<Publicidad> publicidades, int tiempoGuardado = 0) //Reproductor
         {
             ArchivoMultimedia archivo = null;
             while (true)
@@ -145,6 +145,7 @@ namespace Sonic
                 Console.Clear();
                 if (archivo != null)
                 {
+                    if (usuario.tipoUsuario  == "Gratis") { ReproducirPublicidad(publicidades); }
                     if (ultimaReproduccion == null) { archivo.numeroReproducciones++; }
                     Barra.WriteProgressBar(0, "00:00");
                     int minutos = -1; int segundos = inicio;
@@ -218,6 +219,20 @@ namespace Sonic
                     break;
                 }
             }
+        }
+
+        public static void ReproducirPublicidad(List<Publicidad> publicidades)
+        {
+            Random rnd = new Random();
+            int numero = rnd.Next(0, publicidades.Count);
+            publicidades[numero].MostrarPublicidad();
+
+            for(int i = 5; i > 0; i++)
+            {
+                Console.WriteLine(i + " segundos restantes");
+                Thread.Sleep(1000);
+            }
+            publicidades[numero].cantidadApariciones--;
         }
 
         public static void GuardarArchivo(ArchivoMultimedia archivo, int tiempo, Usuario usuario) //Guardar Archivo si se estaba reproduciendo

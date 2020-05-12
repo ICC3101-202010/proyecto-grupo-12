@@ -108,7 +108,7 @@ namespace Sonic
             if (File.Exists("videos.bin")) { CargarVideos(); }
             if (File.Exists("actores.bin")) { CargarActores(); }
             if (File.Exists("playlists.bin")) { CargarPlaylists(); }
-            if (File.Exists("publicidades.bin")) { CargarPlaylists(); }
+            if (File.Exists("publicidades.bin")) { CargarPublicidades(); }
         }
         
         public void CargarAdmins() //Cargar administradores

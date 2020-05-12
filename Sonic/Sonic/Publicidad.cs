@@ -114,16 +114,6 @@ namespace Sonic
             Thread.Sleep(1500);
         }
 
-        public void EnvioReciboPublicidad()
-        {
-            //Mandar recibo al mail
-        }
-
-        public void MostrarPublicidadRandom()
-        {
-            //Preguntar como agregar
-        }
-
         public void MostrarPublicidad()
         {
             Console.WriteLine(this.nombre);

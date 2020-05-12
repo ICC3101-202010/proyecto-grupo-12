@@ -225,12 +225,13 @@ namespace Sonic
         {
             Random rnd = new Random();
             int numero = rnd.Next(0, publicidades.Count);
-            publicidades[numero].MostrarPublicidad();
 
-            for(int i = 5; i > 0; i++)
+            for(int i = 5; i > 0; i--)
             {
-                Console.WriteLine(i + " segundos restantes");
+                publicidades[numero].MostrarPublicidad();
+                Console.WriteLine("\n" + i + " segundos restantes");
                 Thread.Sleep(1000);
+                Console.Clear();
             }
             publicidades[numero].cantidadApariciones--;
         }

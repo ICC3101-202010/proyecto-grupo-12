@@ -28,11 +28,6 @@ namespace Sonic
             this.precioPagar = precioPagar;
         }
 
-        public void PublicidadDenunciada()
-        {
-            // Si la publicidad es denunciada por un usuario debe ser quitada por un Admin
-        }
-
         
         public void PrecioPublicidad()
         {
@@ -73,7 +68,6 @@ namespace Sonic
                 this.clave = Console.ReadLine();
                 Console.WriteLine("Realizando pago...");
                 Thread.Sleep(1500);
-                //EnvioReciboPublicidad();
             }
 
             else if (banco != null && clave != null)
@@ -93,14 +87,12 @@ namespace Sonic
                         this.clave = Console.ReadLine();
                         Console.WriteLine("Realizando pago...");
                         Thread.Sleep(1500);
-                        //EnvioReciboPublicidad();
                         break;
 
                     case "2":
                         Console.WriteLine($"Su cuenta esta afiliada al Banco {banco}");
                         Console.WriteLine("Realizando pago...");
                         Thread.Sleep(1500);
-                        //EnvioReciboPublicidad();
                         break;
 
                     default:

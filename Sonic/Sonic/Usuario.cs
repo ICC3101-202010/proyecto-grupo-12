@@ -135,20 +135,20 @@ namespace Sonic
             }
         }
 
-        public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } //FALTA
-        public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } //FALTA
-        public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } //LISTO
-        public void NoSeguimientoCantante(Cantante cantante) { seguirCantante.Remove(cantante); } //LISTO
-        public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } //LISTO
-        public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } //LISTO
-        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } //LISTO
-        public void NoSeguimientoUsuario(Usuario usuario) { seguirUsuario.Remove(usuario); } //LISTO
-        public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } //LISTO
-        public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } //LISTO
-        public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } //LISTO
-        public void NoSeguimientoCompositor(Compositor compositor) { seguirCompositor.Remove(compositor); } //LISTO
-        public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } //FALTA
-        public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); } //FALTA
+        public void SeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Add(playlist); } 
+        public void NoSeguimientoPlaylist(Playlist playlist) { seguirPlaylist.Remove(playlist); } 
+        public void SeguimientoCantante(Cantante cantante) { seguirCantante.Add(cantante); } 
+        public void NoSeguimientoCantante(Cantante cantante) { seguirCantante.Remove(cantante); } 
+        public void SeguimientoActor(Actor actor) { seguirActor.Add(actor); } 
+        public void NoSeguimientoActor(Actor actor) { seguirActor.Remove(actor); } 
+        public void SeguimientoUsuario(Usuario usuario) { seguirUsuario.Add(usuario); } 
+        public void NoSeguimientoUsuario(Usuario usuario) { seguirUsuario.Remove(usuario); } 
+        public void SeguimientoDirector(Director director) { seguirDirector.Add(director); } 
+        public void NoSeguimientoDirector(Director director) { seguirDirector.Remove(director); } 
+        public void SeguimientoCompositor(Compositor compositor) { seguirCompositor.Add(compositor); } 
+        public void NoSeguimientoCompositor(Compositor compositor) { seguirCompositor.Remove(compositor); } 
+        public void SeguimientoAlbum(Album album) { seguirAlbum.Add(album); } 
+        public void NoSeguimientoAlbum(Album album) { seguirAlbum.Remove(album); }
 
         
 

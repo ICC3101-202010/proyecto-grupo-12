@@ -1,0 +1,11 @@
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\bin\Debug\SonicWFA.exe.config
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\bin\Debug\SonicWFA.exe
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\bin\Debug\SonicWFA.pdb
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.csprojAssemblyReference.cache
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.Properties.Resources.resources
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.csproj.GenerateResource.cache
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.exe
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.pdb
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.Login.resources
+C:\Users\Rodrigo\Desktop\SonicWFA\SonicWFA\obj\Debug\SonicWFA.Usuario.resources

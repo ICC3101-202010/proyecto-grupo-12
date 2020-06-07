@@ -14,7 +14,6 @@ namespace SonicWFA
 {
     public partial class Login : Form
     {
-        public bool botonEntrar = false;
         Sonic sonic = new Sonic();
 
         Thread th;
@@ -91,7 +90,7 @@ namespace SonicWFA
             bool temp = InicioSesionCorrecto();
             if (temp)
             {
-                UsuarioForm usuario = new UsuarioForm();
+                Usuario usuario = new Usuario();
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();
@@ -117,5 +116,6 @@ namespace SonicWFA
             Registrarse registrarse = new Registrarse();
             registrarse.Show();
         }
+
     }
 }

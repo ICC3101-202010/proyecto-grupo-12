@@ -24,7 +24,6 @@ C:/Users/Rodrigo/Desktop/SonicWFA/SonicWFA/obj/Debug/SonicWFA.Usuario.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\SonicWFA.exe
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\SonicWFA.pdb
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csprojAssemblyReference.cache
-\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Usuario.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Login.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Properties.Resources.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csproj.GenerateResource.cache
@@ -44,3 +43,6 @@ C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\Sonic
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.exe
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.pdb
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Registrarse.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Perfil.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Registrarse.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.UsuarioForm.resources

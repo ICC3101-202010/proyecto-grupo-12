@@ -90,7 +90,7 @@ namespace SonicWFA
             bool temp = InicioSesionCorrecto();
             if (temp)
             {
-                Usuario usuario = new Usuario();
+                UsuarioForm usuario = new UsuarioForm();
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();

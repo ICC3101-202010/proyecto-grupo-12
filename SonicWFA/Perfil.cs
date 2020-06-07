@@ -16,5 +16,10 @@ namespace SonicWFA
         {
             InitializeComponent();
         }
+
+        private void btnFlecha_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -91,7 +91,7 @@ namespace SonicWFA
             bool temp = InicioSesionCorrecto();
             if (temp)
             {
-                Usuario usuario = new Usuario();
+                UsuarioForm usuario = new UsuarioForm();
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();
@@ -110,6 +110,12 @@ namespace SonicWFA
                 label2.Text = "USUARIO O CONTRASEÑA INCORRECTO";
                 return false;
             }
+        }
+
+        private void linkRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registrarse registrarse = new Registrarse();
+            registrarse.Show();
         }
     }
 }

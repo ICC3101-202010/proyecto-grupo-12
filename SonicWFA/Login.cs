@@ -110,5 +110,12 @@ namespace SonicWFA
                 return false;
             }
         }
+
+        private void linkRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registrarse registrarse = new Registrarse();
+            registrarse.Show();
+        }
+
     }
 }

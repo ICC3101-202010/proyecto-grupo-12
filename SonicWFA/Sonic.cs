@@ -5,12 +5,12 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
-namespace Sonic 
+namespace SonicWFA
 {
     public class Sonic
     {
         public List<Admin> administradores = new List<Admin>(); //Creacion lista admin con un default
-        public List<Usuario> usuarios = new List<Usuario>(); //Creacion lista Usuarios
+        public List<Usuario2> usuarios = new List<Usuario2>(); //Creacion lista Usuarios
         public List<Cancion> canciones = new List<Cancion>(); //Creacion lista de canciones
         public List<Cantante> cantantes = new List<Cantante>(); //Creacion lista cantantes
         public List<Album> albums = new List<Album>(); //Creacion lista albums
@@ -24,6 +24,8 @@ namespace Sonic
         public List<Publicidad> publicidades = new List<Publicidad>();
         private string perfilActual; //Saber en que perfil esta la sesion actual
 
+        Usuario2 usuarioPrueba = new Usuario2("rodrigoguzman1", "Rodrigo", "Guzman", "1234", "Publico", "Gratis");
+        
         public void GuardarDatos() //Guardar datos al cerrar aplicacion
         {
             IFormatter formatter = new BinaryFormatter();
@@ -122,7 +124,7 @@ namespace Sonic
         {
             IFormatter formatter2 = new BinaryFormatter();
             Stream stream2 = new FileStream("usuarios.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            usuarios = (List<Usuario>)formatter2.Deserialize(stream2);
+            usuarios = (List<Usuario2>)formatter2.Deserialize(stream2);
             stream2.Close();
         }
         public void CargarCanciones() //Cargar canciones
@@ -301,9 +303,9 @@ namespace Sonic
                     break;
             }
 
-            Usuario usuario = new Usuario(nombreDeUsuario, nombre, apellido, contraseña, privacidad, tipoUsuario);
+            Usuario2 usuario = new Usuario2(nombreDeUsuario, nombre, apellido, contraseña, privacidad, tipoUsuario);
             bool UsuarioRegistrado = false;
-            foreach (Usuario Listausuario in usuarios)
+            foreach (Usuario2 Listausuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == Listausuario.nombreDeUsuario){UsuarioRegistrado = true;break;} else {UsuarioRegistrado = false;}
             }
@@ -323,8 +325,10 @@ namespace Sonic
             }
         }
 
-        public bool IniciarSesion() //Metodo para iniciar sesión como usuario
+        public bool IniciarSesion(string nombreDeUsuario, string contraseña) //Metodo para iniciar sesión como usuario
         {
+            usuarios.Add(usuarioPrueba);
+
             if (usuarios.Count == 0)
             {
                 Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("DEBES REGISTRAR UN USUARIO PRIMERO"); Console.BackgroundColor = ConsoleColor.Black;
@@ -333,24 +337,15 @@ namespace Sonic
             }
             else
             {
-                Console.WriteLine("Nombre de usuario: ");
-                string nombreDeUsuario = Console.ReadLine();
-                Console.WriteLine("Contraseña: ");
-                string contraseña = Console.ReadLine();
-
-                foreach (Usuario usuario in usuarios)
+                foreach (Usuario2 usuario in usuarios)
                 {
                     if (usuario.nombreDeUsuario == nombreDeUsuario && usuario.contraseña == contraseña)
                     {
                         perfilActual = usuario.nombreDeUsuario;
-                        InicioSesion();
                         return true;
                     }
                 }
-                Thread.Sleep(1000);
-                Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("USUARIO O CONTRASEÑA INCORRECTO"); Console.BackgroundColor = ConsoleColor.Black;
-                Thread.Sleep(2000);
-                Console.Clear();
+                
                 return false;
             }
 
@@ -359,7 +354,7 @@ namespace Sonic
 
         public void CambiarNombreUsuario() //Cambiar Nombre / Perfil Actual
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -372,7 +367,7 @@ namespace Sonic
 
         public void CambiarContraseñaUsuario() //Cambiar Contraseña / Perfil Actual
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -385,7 +380,7 @@ namespace Sonic
 
         public void CambiarPrivacidad() //Cambiar Privacidad / Perfil Actual
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -404,7 +399,7 @@ namespace Sonic
                 Console.WriteLine("Si deseas guardar y salir, escribe 'Salir' ");
                 string genero = Console.ReadLine();
                 if (genero == "Salir" || genero == "salir" || genero == "SALIR") { break; }
-                foreach (Usuario usuario in usuarios)
+                foreach (Usuario2 usuario in usuarios)
                 {
                     if (usuario.nombreDeUsuario == perfilActual)
                     {
@@ -419,7 +414,7 @@ namespace Sonic
 
         public void MostarInfoPerfilUsuario() // Mostrar Perfil / Perfil Actual
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -865,7 +860,7 @@ namespace Sonic
 
         public void GuardarBusqueda(List<Action> busqueda)
         {
-            Usuario usuarioActual = UsuarioActual();
+            Usuario2 usuarioActual = UsuarioActual();
             Console.WriteLine("Nombre de Busqueda Inteligente: ");
             string nombre = Console.ReadLine();
             Busqueda busqueda1 = new Busqueda(nombre, busqueda);
@@ -876,7 +871,7 @@ namespace Sonic
 
         public void RealizarBusqueda()
         {
-            Usuario usuarioActual = UsuarioActual();
+            Usuario2 usuarioActual = UsuarioActual();
             Console.WriteLine("Seleccione Busqueda: ");
             int i = 1;
             foreach(Busqueda busqueda in usuarioActual.busquedasInteligentes)
@@ -1029,14 +1024,14 @@ namespace Sonic
 
         public void AgregarCancionAFavoritos()
         {
-            Usuario usuarioActual = UsuarioActual();
+            Usuario2 usuarioActual = UsuarioActual();
             Cancion cancion = SeleccionarCancion();
             usuarioActual.AgregarCancionFavoritos(cancion);
         }
 
         public void AgregarVideoAFavoritos()
         {
-            Usuario usuarioActual = UsuarioActual();
+            Usuario2 usuarioActual = UsuarioActual();
             Video video = SeleccionarVideo();
             usuarioActual.AgregarVideoFavoritos(video);
         }
@@ -1180,14 +1175,14 @@ namespace Sonic
 
         public void ReproductorPoint() //Bypass a reproductor, entregandole la info
         {
-            Usuario pasarUsuario = null;
-            foreach(Usuario usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
+            Usuario2 pasarUsuario = null;
+            foreach(Usuario2 usuario in usuarios) { if (usuario.nombreDeUsuario == perfilActual) { pasarUsuario = usuario; } }
             Reproductor.EmpezarReproductor(canciones, videos, pasarUsuario, pasarUsuario.archivoReproduccion, publicidades, pasarUsuario.tiempoReproduccion );
         }
 
        public void DescargarCancion() //Añadir cancion a descargas
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -1222,7 +1217,7 @@ namespace Sonic
 
         public void VerDescargas() //Ver descargas
         {
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.nombreDeUsuario == perfilActual)
                 {
@@ -1450,10 +1445,10 @@ namespace Sonic
             return null;
         }
 
-        public Usuario SeleccionarUsuario()
+        public Usuario2 SeleccionarUsuario()
         {
             int i = 1;
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario2 usuario in usuarios)
             {
                 if (usuario.privacidad == "Publico")
                 {
@@ -1463,7 +1458,7 @@ namespace Sonic
             }
             int eleccion = Convert.ToInt32(Console.ReadLine());
             i = 0;
-            foreach (Usuario usuario1 in usuarios)
+            foreach (Usuario2 usuario1 in usuarios)
             {
                 if (usuario1.privacidad == "Publico") { i++; }
                 if (i == eleccion) { return usuario1; }
@@ -1481,7 +1476,7 @@ namespace Sonic
                 "\n6. Albums" +
                 "\n7. Playlist\n");
             int eleccion = Convert.ToInt32(Console.ReadLine());
-            Usuario usuario = UsuarioActual();
+            Usuario2 usuario = UsuarioActual();
             switch (eleccion)
             {
                 case 1:
@@ -1501,7 +1496,7 @@ namespace Sonic
                     NuevoSeguidorPersona(usuario, compositor);
                     break;
                 case 5:
-                    Usuario usuario1 = SeleccionarUsuario();
+                    Usuario2 usuario1 = SeleccionarUsuario();
                     NuevoSeguidorPersona(usuario, usuario1);
                     break;
                 case 6:
@@ -1517,16 +1512,16 @@ namespace Sonic
             }
         }
 
-        public Usuario UsuarioActual()
+        public Usuario2 UsuarioActual()
         {
-            foreach(Usuario usuario in usuarios)
+            foreach(Usuario2 usuario in usuarios)
             {
                 if(usuario.nombreDeUsuario == perfilActual) { return usuario; }
             }
             return null;
         }
 
-        public void NuevoSeguidorPersona(Usuario usuario, Persona persona)
+        public void NuevoSeguidorPersona(Usuario2 usuario, Persona persona)
         {
             int contador = 0;
             foreach (var i in persona.seguidores)
@@ -1548,13 +1543,13 @@ namespace Sonic
                 if (persona.GetType().Name == "Actor") { var persona1 = (Actor)persona; usuario.SeguimientoActor(persona1); };
                 if (persona.GetType().Name == "Director") { var persona1 = (Director)persona; usuario.SeguimientoDirector(persona1); };
                 if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.SeguimientoCompositor(persona1); };
-                if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario)persona; usuario.SeguimientoUsuario(persona1); };
+                if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario2)persona; usuario.SeguimientoUsuario(persona1); };
                 Console.WriteLine("Has comenzado a seguir al " + persona.GetType().Name);
                 Thread.Sleep(1500);
             }
         }
 
-        public void NuevoSeguidorAlbum(Usuario usuario, Album album)
+        public void NuevoSeguidorAlbum(Usuario2 usuario, Album album)
         {
             int contador = 0;
             foreach (var i in album.seguidores)
@@ -1578,7 +1573,7 @@ namespace Sonic
             }
         }
 
-        public void NuevoSeguidorPlaylist(Usuario usuario, Playlist playlist)
+        public void NuevoSeguidorPlaylist(Usuario2 usuario, Playlist playlist)
         {
             int contador = 0;
             foreach (var i in playlist.seguidores)
@@ -1612,7 +1607,7 @@ namespace Sonic
                 "\n6. Albums" +
                 "\n7. Playlist\n");
             int eleccion = Convert.ToInt32(Console.ReadLine());
-            Usuario usuario = UsuarioActual();
+            Usuario2 usuario = UsuarioActual();
             switch (eleccion)
             {
                 case 1:
@@ -1632,7 +1627,7 @@ namespace Sonic
                     DejarSeguirPersona(usuario, compositor);
                     break;
                 case 5:
-                    Usuario usuario1 = SeleccionarUsuario();
+                    Usuario2 usuario1 = SeleccionarUsuario();
                     DejarSeguirPersona(usuario, usuario1);
                     break;
                 default:
@@ -1640,7 +1635,7 @@ namespace Sonic
             }
         }
 
-        public void DejarSeguirPersona(Usuario usuario, Persona persona)
+        public void DejarSeguirPersona(Usuario2 usuario, Persona persona)
         {
             int contador = 0;
             foreach (var i in persona.seguidores)
@@ -1653,7 +1648,7 @@ namespace Sonic
                     if (persona.GetType().Name == "Actor") { var persona1 = (Actor)persona; usuario.NoSeguimientoActor(persona1); };
                     if (persona.GetType().Name == "Director") { var persona1 = (Director)persona; usuario.NoSeguimientoDirector(persona1); };
                     if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.NoSeguimientoCompositor(persona1); };
-                    if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario)persona; usuario.NoSeguimientoUsuario(persona1); };
+                    if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario2)persona; usuario.NoSeguimientoUsuario(persona1); };
                     Console.WriteLine("Has dejado de seguir al " + persona.GetType().Name);
                     Thread.Sleep(1500);
                     contador++;

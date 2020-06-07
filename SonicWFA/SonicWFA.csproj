@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,6 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actor.cs" />
+    <Compile Include="Admin.cs" />
+    <Compile Include="Album.cs" />
+    <Compile Include="ArchivoMultimedia.cs" />
+    <Compile Include="Barra.cs" />
+    <Compile Include="Busqueda.cs" />
+    <Compile Include="Cancion.cs" />
+    <Compile Include="Cantante.cs" />
+    <Compile Include="Compositor.cs" />
+    <Compile Include="Director.cs" />
+    <Compile Include="Persona.cs" />
+    <Compile Include="Playlist.cs" />
+    <Compile Include="Publicidad.cs" />
+    <Compile Include="Reproductor.cs" />
+    <Compile Include="Sonic.cs" />
     <Compile Include="Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +81,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario2.cs" />
+    <Compile Include="Video.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>

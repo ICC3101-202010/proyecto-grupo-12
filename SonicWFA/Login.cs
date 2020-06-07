@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace SonicWFA
 {
     public partial class Login : Form
     {
+        public bool botonEntrar = false;
+        Sonic sonic = new Sonic();
+
+        Thread th;
         public Login()
         {
             InitializeComponent();
@@ -79,6 +84,32 @@ namespace SonicWFA
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnEntrar_Click_1(object sender, EventArgs e)
+        {
+            bool temp = InicioSesionCorrecto();
+            if (temp)
+            {
+                Usuario usuario = new Usuario();
+                usuario.MdiParent = this.MdiParent;
+                this.Hide();
+                usuario.ShowDialog();
+            }
+        }
+
+        public bool InicioSesionCorrecto()
+        {
+            
+            if (sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text))
+            {
+                return true;
+            }
+            else
+            {
+                label2.Text = "USUARIO O CONTRASEÑA INCORRECTO";
+                return false;
+            }
         }
     }
 }

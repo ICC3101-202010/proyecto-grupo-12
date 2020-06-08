@@ -89,15 +89,7 @@ namespace SonicWFA
             Usuario2 usuarioActual = sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text);
             if (usuarioActual != null)
             {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                Usuario usuario = new Usuario();
-=======
-                UsuarioForm usuario = new UsuarioForm(sonic, usuarioActual);
->>>>>>> Stashed changes
-=======
-                UsuarioForm usuario = new UsuarioForm(sonic, usuarioActual);
->>>>>>> Stashed changes
+                UsuarioForm usuario = new UsuarioForm();
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();

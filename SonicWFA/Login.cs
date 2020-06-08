@@ -15,8 +15,7 @@ namespace SonicWFA
     public partial class Login : Form
     {
         Sonic sonic = new Sonic();
-
-        Thread th;
+     
         public Login()
         {
             InitializeComponent();
@@ -87,20 +86,24 @@ namespace SonicWFA
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            bool temp = InicioSesionCorrecto();
-            if (temp)
+            Usuario2 usuarioActual = sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text);
+            if (usuarioActual != null)
             {
                 UsuarioForm usuario = new UsuarioForm();
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();
             }
+            else
+            {
+                label2.Text = "USUARIO O CONTRASEÑA INCORRECTO";
+            }
         }
 
         public bool InicioSesionCorrecto()
         {
             
-            if (sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text))
+            if (sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text) != null)
             {
                 return true;
             }
@@ -113,7 +116,7 @@ namespace SonicWFA
 
         private void linkRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registrarse registrarse = new Registrarse();
+            Registrarse registrarse = new Registrarse(sonic);
             registrarse.Show();
         }
 

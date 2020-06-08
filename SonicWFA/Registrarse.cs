@@ -17,12 +17,9 @@ namespace SonicWFA
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        Sonic sonic;
         
-        public Registrarse(Sonic sonic)
+        public Registrarse()
         {
-            this.sonic = sonic;
             InitializeComponent();
         }
 
@@ -43,14 +40,7 @@ namespace SonicWFA
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            if(sonic.Registrarse(tbNombreUsuario.Text, tbUsuario.Text, tbApellido.Text, tbContrasena.Text, cbPremim.Text, cbPrivacidad.Text))
-            {
-                this.Close();
-            }
-            else
-            {
-                label8.Text = "NOMBRE DE USUARIO YA REGISTRADO";
-            }
+            this.Close();
         }
 
         private void Registrarse_MouseDown(object sender, MouseEventArgs e)

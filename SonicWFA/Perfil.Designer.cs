@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perfil));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFlecha = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -58,15 +57,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnFlecha = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.Controls.Add(this.btnFlecha);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnCancelar);
@@ -88,17 +88,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 600);
             this.panel1.TabIndex = 0;
-            // 
-            // btnFlecha
-            // 
-            this.btnFlecha.Image = ((System.Drawing.Image)(resources.GetObject("btnFlecha.Image")));
-            this.btnFlecha.Location = new System.Drawing.Point(337, 12);
-            this.btnFlecha.Name = "btnFlecha";
-            this.btnFlecha.Size = new System.Drawing.Size(44, 25);
-            this.btnFlecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFlecha.TabIndex = 13;
-            this.btnFlecha.TabStop = false;
-            this.btnFlecha.Click += new System.EventHandler(this.btnFlecha_Click);
             // 
             // btnGuardar
             // 
@@ -365,6 +354,17 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // btnFlecha
+            // 
+            this.btnFlecha.Image = ((System.Drawing.Image)(resources.GetObject("btnFlecha.Image")));
+            this.btnFlecha.Location = new System.Drawing.Point(337, 12);
+            this.btnFlecha.Name = "btnFlecha";
+            this.btnFlecha.Size = new System.Drawing.Size(44, 25);
+            this.btnFlecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFlecha.TabIndex = 13;
+            this.btnFlecha.TabStop = false;
+            this.btnFlecha.Click += new System.EventHandler(this.btnFlecha_Click);
+            // 
             // Perfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,11 +387,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Perfil";
             this.Text = "Perfil";
+            this.Load += new System.EventHandler(this.Perfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

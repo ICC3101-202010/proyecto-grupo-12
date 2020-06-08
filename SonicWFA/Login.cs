@@ -14,6 +14,7 @@ namespace SonicWFA
 {
     public partial class Login : Form
     {
+        public bool botonEntrar = false;
         Sonic sonic = new Sonic();
 
         Thread th;
@@ -116,6 +117,5 @@ namespace SonicWFA
             Registrarse registrarse = new Registrarse();
             registrarse.Show();
         }
-
     }
 }

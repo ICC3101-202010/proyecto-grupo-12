@@ -21,5 +21,10 @@ namespace SonicWFA
         {
             this.Close();
         }
+
+        private void Perfil_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

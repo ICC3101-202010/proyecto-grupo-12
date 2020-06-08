@@ -17,7 +17,6 @@ namespace SonicWFA
         String[] ArchivosMP3;
         String[] rutaArchivoMP3;
 
-
         public Reproducir()
         {
             InitializeComponent();

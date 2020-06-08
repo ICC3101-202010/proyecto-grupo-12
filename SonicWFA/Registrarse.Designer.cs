@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrarse));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbPrivacidad = new System.Windows.Forms.ComboBox();
+            this.btnRegistro = new System.Windows.Forms.Button();
+            this.cbPremim = new System.Windows.Forms.ComboBox();
+            this.tbContrasena = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.tbUsuario = new System.Windows.Forms.TextBox();
+            this.tbNombreUsuario = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbNombreUsuario = new System.Windows.Forms.TextBox();
-            this.tbUsuario = new System.Windows.Forms.TextBox();
-            this.tbApellido = new System.Windows.Forms.TextBox();
-            this.tbContrasena = new System.Windows.Forms.TextBox();
-            this.cbPremim = new System.Windows.Forms.ComboBox();
-            this.cbPrivacidad = new System.Windows.Forms.ComboBox();
-            this.btnRegistro = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -85,6 +85,107 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 455);
             this.panel1.TabIndex = 3;
+            // 
+            // cbPrivacidad
+            // 
+            this.cbPrivacidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.cbPrivacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPrivacidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPrivacidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.cbPrivacidad.FormattingEnabled = true;
+            this.cbPrivacidad.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.cbPrivacidad.Location = new System.Drawing.Point(15, 333);
+            this.cbPrivacidad.Name = "cbPrivacidad";
+            this.cbPrivacidad.Size = new System.Drawing.Size(584, 21);
+            this.cbPrivacidad.TabIndex = 15;
+            // 
+            // btnRegistro
+            // 
+            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.btnRegistro.FlatAppearance.BorderSize = 0;
+            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.btnRegistro.Location = new System.Drawing.Point(222, 385);
+            this.btnRegistro.Name = "btnRegistro";
+            this.btnRegistro.Size = new System.Drawing.Size(179, 42);
+            this.btnRegistro.TabIndex = 5;
+            this.btnRegistro.Text = "REGISTRARSE";
+            this.btnRegistro.UseVisualStyleBackColor = false;
+            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
+            // 
+            // cbPremim
+            // 
+            this.cbPremim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.cbPremim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPremim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPremim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.cbPremim.FormattingEnabled = true;
+            this.cbPremim.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.cbPremim.Location = new System.Drawing.Point(15, 269);
+            this.cbPremim.Name = "cbPremim";
+            this.cbPremim.Size = new System.Drawing.Size(584, 21);
+            this.cbPremim.TabIndex = 14;
+            this.cbPremim.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // tbContrasena
+            // 
+            this.tbContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbContrasena.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.tbContrasena.Location = new System.Drawing.Point(15, 210);
+            this.tbContrasena.Name = "tbContrasena";
+            this.tbContrasena.Size = new System.Drawing.Size(584, 20);
+            this.tbContrasena.TabIndex = 13;
+            // 
+            // tbApellido
+            // 
+            this.tbApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.tbApellido.Location = new System.Drawing.Point(15, 150);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(584, 20);
+            this.tbApellido.TabIndex = 12;
+            // 
+            // tbUsuario
+            // 
+            this.tbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.tbUsuario.Location = new System.Drawing.Point(15, 94);
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(584, 20);
+            this.tbUsuario.TabIndex = 11;
+            // 
+            // tbNombreUsuario
+            // 
+            this.tbNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNombreUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombreUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.tbNombreUsuario.Location = new System.Drawing.Point(15, 38);
+            this.tbNombreUsuario.Name = "tbNombreUsuario";
+            this.tbNombreUsuario.Size = new System.Drawing.Size(584, 20);
+            this.tbNombreUsuario.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(11, 309);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 21);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "PRIVACIDAD";
             // 
             // label2
             // 
@@ -141,107 +242,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "NOMBRE DE USUARIO";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(11, 309);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 21);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "PRIVACIDAD";
-            // 
-            // tbNombreUsuario
-            // 
-            this.tbNombreUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbNombreUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbNombreUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombreUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbNombreUsuario.Location = new System.Drawing.Point(15, 38);
-            this.tbNombreUsuario.Name = "tbNombreUsuario";
-            this.tbNombreUsuario.Size = new System.Drawing.Size(584, 20);
-            this.tbNombreUsuario.TabIndex = 10;
-            // 
-            // tbUsuario
-            // 
-            this.tbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbUsuario.Location = new System.Drawing.Point(15, 94);
-            this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(584, 20);
-            this.tbUsuario.TabIndex = 11;
-            // 
-            // tbApellido
-            // 
-            this.tbApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbApellido.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbApellido.Location = new System.Drawing.Point(15, 150);
-            this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(584, 20);
-            this.tbApellido.TabIndex = 12;
-            // 
-            // tbContrasena
-            // 
-            this.tbContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.tbContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbContrasena.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContrasena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbContrasena.Location = new System.Drawing.Point(15, 210);
-            this.tbContrasena.Name = "tbContrasena";
-            this.tbContrasena.Size = new System.Drawing.Size(584, 20);
-            this.tbContrasena.TabIndex = 13;
-            // 
-            // cbPremim
-            // 
-            this.cbPremim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.cbPremim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPremim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPremim.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.cbPremim.FormattingEnabled = true;
-            this.cbPremim.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.cbPremim.Location = new System.Drawing.Point(15, 269);
-            this.cbPremim.Name = "cbPremim";
-            this.cbPremim.Size = new System.Drawing.Size(584, 21);
-            this.cbPremim.TabIndex = 14;
-            this.cbPremim.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // cbPrivacidad
-            // 
-            this.cbPrivacidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.cbPrivacidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPrivacidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPrivacidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.cbPrivacidad.FormattingEnabled = true;
-            this.cbPrivacidad.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.cbPrivacidad.Location = new System.Drawing.Point(15, 333);
-            this.cbPrivacidad.Name = "cbPrivacidad";
-            this.cbPrivacidad.Size = new System.Drawing.Size(584, 21);
-            this.cbPrivacidad.TabIndex = 15;
-            // 
-            // btnRegistro
-            // 
-            this.btnRegistro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.btnRegistro.FlatAppearance.BorderSize = 0;
-            this.btnRegistro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.btnRegistro.Location = new System.Drawing.Point(222, 385);
-            this.btnRegistro.Name = "btnRegistro";
-            this.btnRegistro.Size = new System.Drawing.Size(179, 42);
-            this.btnRegistro.TabIndex = 5;
-            this.btnRegistro.Text = "REGISTRARSE";
-            this.btnRegistro.UseVisualStyleBackColor = false;
-            this.btnRegistro.Click += new System.EventHandler(this.btnRegistro_Click);
-            // 
             // btnVolver
             // 
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
@@ -266,7 +266,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(259, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(259, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

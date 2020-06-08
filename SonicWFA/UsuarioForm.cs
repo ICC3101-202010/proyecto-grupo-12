@@ -82,5 +82,15 @@ namespace SonicWFA
         {
             this.Close();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Buscar());
+        }
+
+        private void btnReproducir_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Reproducir());
+        }
     }
 }

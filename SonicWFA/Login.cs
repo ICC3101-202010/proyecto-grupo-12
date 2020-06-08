@@ -90,7 +90,11 @@ namespace SonicWFA
             if (usuarioActual != null)
             {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 Usuario usuario = new Usuario();
+=======
+                UsuarioForm usuario = new UsuarioForm(sonic, usuarioActual);
+>>>>>>> Stashed changes
 =======
                 UsuarioForm usuario = new UsuarioForm(sonic, usuarioActual);
 >>>>>>> Stashed changes

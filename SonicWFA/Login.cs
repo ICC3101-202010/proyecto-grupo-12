@@ -89,7 +89,7 @@ namespace SonicWFA
             Usuario2 usuarioActual = sonic.IniciarSesion(this.tbUsuario.Text, this.tbPassword.Text);
             if (usuarioActual != null)
             {
-                UsuarioForm usuario = new UsuarioForm();
+                UsuarioForm usuario = new UsuarioForm(sonic, usuarioActual);
                 usuario.MdiParent = this.MdiParent;
                 this.Hide();
                 usuario.ShowDialog();

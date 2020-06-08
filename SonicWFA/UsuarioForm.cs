@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Windows.Forms.VisualStyles;
 
 namespace SonicWFA
 {
     public partial class UsuarioForm : Form
     {
-        Sonic sonic;
-        Usuario2 usuarioActual;
-        public UsuarioForm(Sonic sonic, Usuario2 usuario)
+        public UsuarioForm()
         {
-            this.sonic = sonic;
-            this.usuarioActual = usuario;
-            
             InitializeComponent();
         }
 
@@ -81,7 +75,7 @@ namespace SonicWFA
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new Perfil(usuarioActual));
+            AbrirPanel(new Perfil());
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

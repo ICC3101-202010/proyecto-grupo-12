@@ -258,8 +258,51 @@ namespace SonicWFA
             }
         }
 
-        public bool Registrarse(string nombreDeUsuario, string nombre, string apellido, string contraseña, string tipoUsuario, string privacidad) //Metodo para registrarse como usuario
+        public void Registrarse() //Metodo para registrarse como usuario
         {
+            Console.WriteLine("Nombre de Usuario: ");
+            string nombreDeUsuario = Console.ReadLine();
+            Console.WriteLine("Nombre: ");
+            string nombre = Console.ReadLine();
+            Console.WriteLine("Apellido: ");
+            string apellido = Console.ReadLine();
+            Console.WriteLine("Contraseña: ");
+            string contraseña = Console.ReadLine();
+            Console.WriteLine("¿Desea suscribirse como Usuario Premium?");
+            Console.WriteLine("1. SI");
+            Console.WriteLine("2. NO");
+            int opcion1 = Convert.ToInt32(Console.ReadLine());
+            string tipoUsuario = "";
+            switch (opcion1)
+            {
+                case 1:
+                    tipoUsuario = "Premium";
+                    break;
+                case 2:
+                    tipoUsuario = "Gratis";
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    break;
+            }
+            Console.WriteLine("Elegir Privacidad");
+            Console.WriteLine("1. Publico");
+            Console.WriteLine("2. Privado");
+            int opcion2 = Convert.ToInt32(Console.ReadLine());
+            string privacidad = "";
+            switch (opcion2)
+            {
+                case 1:
+                    privacidad = "Publico";
+                    break;
+                case 2:
+                    privacidad = "Privado";
+                    break;
+                default:
+                    Console.WriteLine("Opcion no valida");
+                    break;
+            }
+
             Usuario2 usuario = new Usuario2(nombreDeUsuario, nombre, apellido, contraseña, privacidad, tipoUsuario);
             bool UsuarioRegistrado = false;
             foreach (Usuario2 Listausuario in usuarios)
@@ -268,16 +311,21 @@ namespace SonicWFA
             }
             if (UsuarioRegistrado)
             {
-                return false;
-
+                Thread.Sleep(1000);
+                Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NOMBRE DE USUARIO NO DISPONIBLE"); Console.BackgroundColor = ConsoleColor.Black;
+                Thread.Sleep(2000);
+                Console.Clear();
+                this.Registrarse();
             } else
             {
                 usuarios.Add(usuario);
-                return true;
+                Thread.Sleep(2000);
+                Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("USUARIO REGISTRADO CON EXITO"); Console.BackgroundColor = ConsoleColor.Black;
+                Thread.Sleep(2000);
             }
         }
 
-        public Usuario2 IniciarSesion(string nombreDeUsuario, string contraseña) //Metodo para iniciar sesión como usuario
+        public bool IniciarSesion(string nombreDeUsuario, string contraseña) //Metodo para iniciar sesión como usuario
         {
             usuarios.Add(usuarioPrueba);
 
@@ -285,7 +333,7 @@ namespace SonicWFA
             {
                 Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("DEBES REGISTRAR UN USUARIO PRIMERO"); Console.BackgroundColor = ConsoleColor.Black;
                 Thread.Sleep(2000);
-                return null;
+                return false;
             }
             else
             {
@@ -294,14 +342,88 @@ namespace SonicWFA
                     if (usuario.nombreDeUsuario == nombreDeUsuario && usuario.contraseña == contraseña)
                     {
                         perfilActual = usuario.nombreDeUsuario;
-                        return usuario;
+                        return true;
                     }
                 }
                 
-                return null;
+                return false;
             }
 
             
+        }
+
+        public void CambiarNombreUsuario() //Cambiar Nombre / Perfil Actual
+        {
+            foreach (Usuario2 usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.CambiarNombre();
+                }
+            }
+            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("NOMBRE CAMBIADO"); Console.BackgroundColor = ConsoleColor.Black;
+            Thread.Sleep(2000);
+        }
+
+        public void CambiarContraseñaUsuario() //Cambiar Contraseña / Perfil Actual
+        {
+            foreach (Usuario2 usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.CambiarContraseña();
+                }
+            }
+            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("CONTRASEÑA CAMBIADA"); Console.BackgroundColor = ConsoleColor.Black;
+            Thread.Sleep(2000);
+        }
+
+        public void CambiarPrivacidad() //Cambiar Privacidad / Perfil Actual
+        {
+            foreach (Usuario2 usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.CambiarPrivacidad();
+                }
+            }
+            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("PRIVACIDAD CAMBIADA"); Console.BackgroundColor = ConsoleColor.Black;
+            Thread.Sleep(2000);
+        }
+
+        public void ElegirGustos() //Elegir Gustos / Perfil Actual
+        {
+            while(true)
+            {
+                Console.WriteLine("Ingresa Generos que te gusten (uno a la vez): ");
+                Console.WriteLine("Si deseas guardar y salir, escribe 'Salir' ");
+                string genero = Console.ReadLine();
+                if (genero == "Salir" || genero == "salir" || genero == "SALIR") { break; }
+                foreach (Usuario2 usuario in usuarios)
+                {
+                    if (usuario.nombreDeUsuario == perfilActual)
+                    {
+                        usuario.AgregarGusto(genero);
+                    }
+                }
+                Console.Clear();
+            }
+            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("GUSTOS GUARDADOS"); Console.BackgroundColor = ConsoleColor.Black;
+            Thread.Sleep(2000);
+        }
+
+        public void MostarInfoPerfilUsuario() // Mostrar Perfil / Perfil Actual
+        {
+            foreach (Usuario2 usuario in usuarios)
+            {
+                if (usuario.nombreDeUsuario == perfilActual)
+                {
+                    usuario.ObtenerInformacion();
+                }
+            }
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Presiona cualquier tecla para volver atras");
+            Console.ReadKey();
         }
 
         public void CambiarNombreAdmin() //Cambiar Nombre / Perfil Actual

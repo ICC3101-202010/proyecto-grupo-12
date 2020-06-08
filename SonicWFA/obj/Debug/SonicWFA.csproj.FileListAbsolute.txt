@@ -24,7 +24,6 @@ C:/Users/Rodrigo/Desktop/SonicWFA/SonicWFA/obj/Debug/SonicWFA.Usuario.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\SonicWFA.exe
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\SonicWFA.pdb
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csprojAssemblyReference.cache
-\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Usuario.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Login.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Properties.Resources.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csproj.GenerateResource.cache
@@ -52,3 +51,14 @@ C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\Inter
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csproj.ResolveComReference.cache
 C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Reproducir.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\Interop.WMPLib.dll
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\bin\Debug\AxInterop.WMPLib.dll
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\Interop.WMPLib.dll
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\AxInterop.WMPLib.dll
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.csproj.ResolveComReference.cache
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Buscar.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.BusquedaPersonalizada.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Perfil.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Registrarse.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Reproducir.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.UsuarioForm.resources

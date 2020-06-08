@@ -13,8 +13,13 @@ namespace SonicWFA
 {
     public partial class UsuarioForm : Form
     {
-        public UsuarioForm()
+        Sonic sonic;
+        Usuario2 usuarioActual;
+        public UsuarioForm(Sonic sonic, Usuario2 usuario)
         {
+            this.sonic = sonic;
+            this.usuarioActual = usuario;
+
             InitializeComponent();
         }
 
@@ -75,7 +80,7 @@ namespace SonicWFA
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new Perfil());
+            AbrirPanel(new Perfil(usuarioActual));
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

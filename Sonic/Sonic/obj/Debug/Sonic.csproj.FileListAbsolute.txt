@@ -1,6 +1,0 @@
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\bin\Debug\Sonic.exe
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\bin\Debug\Sonic.pdb
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\obj\Debug\Sonic.csprojAssemblyReference.cache
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\obj\Debug\Sonic.csproj.CoreCompileInputs.cache
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\obj\Debug\Sonic.exe
-C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\Sonic\Sonic\obj\Debug\Sonic.pdb

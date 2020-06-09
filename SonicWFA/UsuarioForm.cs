@@ -13,8 +13,13 @@ namespace SonicWFA
 {
     public partial class UsuarioForm : Form
     {
-        public UsuarioForm()
+        Sonic sonic;
+        Usuario2 usuarioActual;
+        public UsuarioForm(Sonic sonic, Usuario2 usuario)
         {
+            this.sonic = sonic;
+            this.usuarioActual = usuario;
+
             InitializeComponent();
         }
 
@@ -75,7 +80,7 @@ namespace SonicWFA
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new Perfil());
+            AbrirPanel(new Perfil(usuarioActual));
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -85,12 +90,32 @@ namespace SonicWFA
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new Buscar());
+            AbrirPanel(new Buscar(sonic, usuarioActual));
         }
 
         private void btnReproducir_Click(object sender, EventArgs e)
         {
             AbrirPanel(new Reproducir());
+        }
+
+        private void btnSeguimiento_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Seguimiento());
+        }
+
+        private void btnMeGusta_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new MeGusta());
+        }
+
+        private void btnCalificacion_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Calificacion());
+        }
+
+        private void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Favoritos());
         }
     }
 }

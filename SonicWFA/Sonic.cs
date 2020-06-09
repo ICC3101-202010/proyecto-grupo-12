@@ -258,51 +258,8 @@ namespace SonicWFA
             }
         }
 
-        public void Registrarse() //Metodo para registrarse como usuario
+        public bool Registrarse(string nombreDeUsuario, string nombre, string apellido, string contraseña, string tipoUsuario, string privacidad) //Metodo para registrarse como usuario
         {
-            Console.WriteLine("Nombre de Usuario: ");
-            string nombreDeUsuario = Console.ReadLine();
-            Console.WriteLine("Nombre: ");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("Apellido: ");
-            string apellido = Console.ReadLine();
-            Console.WriteLine("Contraseña: ");
-            string contraseña = Console.ReadLine();
-            Console.WriteLine("¿Desea suscribirse como Usuario Premium?");
-            Console.WriteLine("1. SI");
-            Console.WriteLine("2. NO");
-            int opcion1 = Convert.ToInt32(Console.ReadLine());
-            string tipoUsuario = "";
-            switch (opcion1)
-            {
-                case 1:
-                    tipoUsuario = "Premium";
-                    break;
-                case 2:
-                    tipoUsuario = "Gratis";
-                    break;
-                default:
-                    Console.WriteLine("Opcion no valida");
-                    break;
-            }
-            Console.WriteLine("Elegir Privacidad");
-            Console.WriteLine("1. Publico");
-            Console.WriteLine("2. Privado");
-            int opcion2 = Convert.ToInt32(Console.ReadLine());
-            string privacidad = "";
-            switch (opcion2)
-            {
-                case 1:
-                    privacidad = "Publico";
-                    break;
-                case 2:
-                    privacidad = "Privado";
-                    break;
-                default:
-                    Console.WriteLine("Opcion no valida");
-                    break;
-            }
-
             Usuario2 usuario = new Usuario2(nombreDeUsuario, nombre, apellido, contraseña, privacidad, tipoUsuario);
             bool UsuarioRegistrado = false;
             foreach (Usuario2 Listausuario in usuarios)
@@ -311,21 +268,16 @@ namespace SonicWFA
             }
             if (UsuarioRegistrado)
             {
-                Thread.Sleep(1000);
-                Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NOMBRE DE USUARIO NO DISPONIBLE"); Console.BackgroundColor = ConsoleColor.Black;
-                Thread.Sleep(2000);
-                Console.Clear();
-                this.Registrarse();
+                return false;
+
             } else
             {
                 usuarios.Add(usuario);
-                Thread.Sleep(2000);
-                Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("USUARIO REGISTRADO CON EXITO"); Console.BackgroundColor = ConsoleColor.Black;
-                Thread.Sleep(2000);
+                return true;
             }
         }
 
-        public bool IniciarSesion(string nombreDeUsuario, string contraseña) //Metodo para iniciar sesión como usuario
+        public Usuario2 IniciarSesion(string nombreDeUsuario, string contraseña) //Metodo para iniciar sesión como usuario
         {
             usuarios.Add(usuarioPrueba);
 
@@ -333,7 +285,7 @@ namespace SonicWFA
             {
                 Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("DEBES REGISTRAR UN USUARIO PRIMERO"); Console.BackgroundColor = ConsoleColor.Black;
                 Thread.Sleep(2000);
-                return false;
+                return null;
             }
             else
             {
@@ -342,88 +294,14 @@ namespace SonicWFA
                     if (usuario.nombreDeUsuario == nombreDeUsuario && usuario.contraseña == contraseña)
                     {
                         perfilActual = usuario.nombreDeUsuario;
-                        return true;
+                        return usuario;
                     }
                 }
                 
-                return false;
+                return null;
             }
 
             
-        }
-
-        public void CambiarNombreUsuario() //Cambiar Nombre / Perfil Actual
-        {
-            foreach (Usuario2 usuario in usuarios)
-            {
-                if (usuario.nombreDeUsuario == perfilActual)
-                {
-                    usuario.CambiarNombre();
-                }
-            }
-            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("NOMBRE CAMBIADO"); Console.BackgroundColor = ConsoleColor.Black;
-            Thread.Sleep(2000);
-        }
-
-        public void CambiarContraseñaUsuario() //Cambiar Contraseña / Perfil Actual
-        {
-            foreach (Usuario2 usuario in usuarios)
-            {
-                if (usuario.nombreDeUsuario == perfilActual)
-                {
-                    usuario.CambiarContraseña();
-                }
-            }
-            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("CONTRASEÑA CAMBIADA"); Console.BackgroundColor = ConsoleColor.Black;
-            Thread.Sleep(2000);
-        }
-
-        public void CambiarPrivacidad() //Cambiar Privacidad / Perfil Actual
-        {
-            foreach (Usuario2 usuario in usuarios)
-            {
-                if (usuario.nombreDeUsuario == perfilActual)
-                {
-                    usuario.CambiarPrivacidad();
-                }
-            }
-            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("PRIVACIDAD CAMBIADA"); Console.BackgroundColor = ConsoleColor.Black;
-            Thread.Sleep(2000);
-        }
-
-        public void ElegirGustos() //Elegir Gustos / Perfil Actual
-        {
-            while(true)
-            {
-                Console.WriteLine("Ingresa Generos que te gusten (uno a la vez): ");
-                Console.WriteLine("Si deseas guardar y salir, escribe 'Salir' ");
-                string genero = Console.ReadLine();
-                if (genero == "Salir" || genero == "salir" || genero == "SALIR") { break; }
-                foreach (Usuario2 usuario in usuarios)
-                {
-                    if (usuario.nombreDeUsuario == perfilActual)
-                    {
-                        usuario.AgregarGusto(genero);
-                    }
-                }
-                Console.Clear();
-            }
-            Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("GUSTOS GUARDADOS"); Console.BackgroundColor = ConsoleColor.Black;
-            Thread.Sleep(2000);
-        }
-
-        public void MostarInfoPerfilUsuario() // Mostrar Perfil / Perfil Actual
-        {
-            foreach (Usuario2 usuario in usuarios)
-            {
-                if (usuario.nombreDeUsuario == perfilActual)
-                {
-                    usuario.ObtenerInformacion();
-                }
-            }
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine("Presiona cualquier tecla para volver atras");
-            Console.ReadKey();
         }
 
         public void CambiarNombreAdmin() //Cambiar Nombre / Perfil Actual
@@ -532,35 +410,12 @@ namespace SonicWFA
             }
         }
 
-
-        public void ImportarCanciones() //Metadata de Importacion
+        public void ImportarCanciones(string nombre, string cantante, string genero, string album, string estudio, string discografia, string compositor, int añoPublicacion, int duracionMinutos, int duracionSegundos) //Metadata de Importacion
         {
-            while (true)
-            {
-                Console.WriteLine("AGREGUE CANCIÓN");
-                Console.WriteLine("Titulo: ");
-                string nombre = Console.ReadLine();
-                Console.WriteLine("Cantante: ");
-                string cantante = Console.ReadLine();
+            
                 Cantante cantante2 = AgregarCantante(cantante);
-                Console.WriteLine("Genero: ");
-                string genero = Console.ReadLine();
-                Console.WriteLine("Album: ");
-                string album = Console.ReadLine();
                 Album album2 = AgregarAlbum(album, cantante2);
-                Console.WriteLine("Estudio: ");
-                string estudio = Console.ReadLine();
-                Console.WriteLine("Discografia: ");
-                string discografia = Console.ReadLine();
-                Console.WriteLine("Compositor: ");
-                string compositor = Console.ReadLine();
                 Compositor compositor2 = AgregarCompositor(compositor);
-                Console.WriteLine("Año de Publicación: ");
-                int añoPublicacion = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Duración (minutos): ");
-                int duracionMinutos = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Duración (segundos): ");
-                int duracionSegundos = Convert.ToInt32(Console.ReadLine());
                 int duracion = (duracionMinutos * 60 + duracionSegundos);
                 Cancion cancion = new Cancion(nombre, cantante2, album2,  genero, estudio, discografia, compositor2, añoPublicacion, duracion);
                 canciones.Add(cancion);
@@ -568,12 +423,6 @@ namespace SonicWFA
                 this.AgregarCancionCompositor(cancion, compositor);
                 this.AgregarCancionAlbum(cancion, album);
                 this.AgregarAlbumCantante(album2, cantante);
-                Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("CANCIÓN AGREGADA"); Console.BackgroundColor = ConsoleColor.Black; Console.WriteLine(Environment.NewLine);
-                Console.WriteLine("¿Desea agregar otra canción? (s/n)");
-                string eleccion = Console.ReadLine();
-                if (eleccion == "n") { Thread.Sleep(1000); break; }
-                Console.Clear();
-            }
         }
 
         public void MostarCanciones() // Display de info canciones
@@ -924,102 +773,54 @@ namespace SonicWFA
             videosBusqueda.Clear();
         }
 
-        public void Buscar()
+        public string Buscar(string palabra = "qwery", string persona = "qwery", int eleccion3 = 0, int valor = 0, int eleccion7 = 0, int valor2 = 0, string categoria = "qwery")
         {
+            string resultado = "";
+
             List<Action> busquedas = new List<Action>();
 
-            while (true)
-            {
-                Console.WriteLine("\nBuscar por:" +
-                "\n1. Palabra" +
-                "\n2. Persona" +
-                "\n3. Evaluacion" +
-                "\n4. Resolución" +
-                "\n5. Categoria");
+            BuscarPorPalabra(palabra);
+            busquedas.Add(() => BuscarPorPalabra(palabra));
 
-                int eleccion = Convert.ToInt32(Console.ReadLine());
-                switch (eleccion)
-                {
-                    case 1:
-                        Console.Clear();
-                        Console.WriteLine("Palabra:");
-                        string palabra = Console.ReadLine();
-                        BuscarPorPalabra(palabra);
-                        busquedas.Add(() => BuscarPorPalabra(palabra));
-                        break;
-                    case 2:
-                        Console.Clear();
-                        Console.WriteLine("Nombre Persona:");
-                        string persona = Console.ReadLine();
-                        BuscarPorPalabra(persona);
-                        busquedas.Add(() => BuscarPorPalabra(persona));
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
-                        int eleccion3 = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Valor: ");
-                        int valor = Convert.ToInt32(Console.ReadLine());
-                        if(eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
-                        else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
-                        else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
-                        int eleccion7 = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Valor: ");
-                        int valor2 = Convert.ToInt32(Console.ReadLine());
-                        if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
-                        else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
-                        else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
-                        break;
-                    case 5:
-                        Console.Clear();
-                        Console.WriteLine("Categoria: ");
-                        string categoria = Console.ReadLine();
-                        BuscarPorCategoria(categoria);
-                        busquedas.Add(() => BuscarPorCategoria(categoria));
-                        break;
-                    default:
-                        Console.WriteLine("Opcion no valida");
-                        Thread.Sleep(1500);
-                        break;
-                }
-                Console.WriteLine("\n ¿Desea agregar otro filtro? (s/n)");
-                string eleccion2 = Console.ReadLine();
-                if(eleccion2 == "n") { break; }
+            BuscarPorPalabra(persona);
+            busquedas.Add(() => BuscarPorPalabra(persona));
 
-            }
-            int i = 1;
-            Console.Clear();
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
+            if (eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
+            else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
+            else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
+
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
+            if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
+            else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
+            else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
+
+            BuscarPorCategoria(categoria);
+            busquedas.Add(() => BuscarPorCategoria(categoria));
+
+
             if (cancionesBusqueda.Count != 0)
             {
-                Console.WriteLine("Canciones: ");
                 foreach (Cancion cancion in cancionesBusqueda)
                 {
-                    Console.WriteLine(i +". \n");
-                    cancion.ObtenerInfo();
-                    i++;
+
+                    resultado += cancion.ObtenerInfo();
                 }
             }
-            i = 1;
             if (videosBusqueda.Count != 0)
             {
-                Console.WriteLine("Videos: ");
                 foreach (Video video in videosBusqueda)
                 {
-                    Console.WriteLine(i + ". ");
-                    video.ObtenerInfo();
-                    i++;
+                    resultado += video.ObtenerInfo();
                 }
             }
-            if(videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black; }
+
+            if(videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { return "NO HAY RESULTADOS"; }
             cancionesBusqueda.Clear();
             videosBusqueda.Clear();
-            Console.WriteLine("\n¿Desea guardar busqueda? (s/n)");
-            string eleccion5 = Console.ReadLine();
-            if (eleccion5 == "s") { GuardarBusqueda(busquedas); }
+            return resultado;
         }
 
         public void AgregarCancionAFavoritos()

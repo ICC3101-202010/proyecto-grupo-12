@@ -64,10 +64,52 @@
     <Compile Include="BusquedaPersonalizada.Designer.cs">
       <DependentUpon>BusquedaPersonalizada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificacion.Designer.cs">
+      <DependentUpon>Calificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalificacionEleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalificacionEleccion.Designer.cs">
+      <DependentUpon>CalificacionEleccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancion.cs" />
     <Compile Include="Cantante.cs" />
     <Compile Include="Compositor.cs" />
     <Compile Include="Director.cs" />
+    <Compile Include="Favoritos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Favoritos.Designer.cs">
+      <DependentUpon>Favoritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FavoritosEleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoritosEleccion.Designer.cs">
+      <DependentUpon>FavoritosEleccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformacionCancion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformacionCancion.Designer.cs">
+      <DependentUpon>InformacionCancion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeGusta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeGusta.Designer.cs">
+      <DependentUpon>MeGusta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeGustaEleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeGustaEleccion.Designer.cs">
+      <DependentUpon>MeGustaEleccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persona.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Publicidad.cs" />
@@ -84,6 +126,12 @@
       <DependentUpon>Reproducir.cs</DependentUpon>
     </Compile>
     <Compile Include="Reproductor.cs" />
+    <Compile Include="Seguimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguimiento.Designer.cs">
+      <DependentUpon>Seguimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sonic.cs" />
     <Compile Include="UsuarioForm.cs">
       <SubType>Form</SubType>
@@ -113,8 +161,29 @@
     <EmbeddedResource Include="BusquedaPersonalizada.resx">
       <DependentUpon>BusquedaPersonalizada.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calificacion.resx">
+      <DependentUpon>Calificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalificacionEleccion.resx">
+      <DependentUpon>CalificacionEleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Favoritos.resx">
+      <DependentUpon>Favoritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoritosEleccion.resx">
+      <DependentUpon>FavoritosEleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionCancion.resx">
+      <DependentUpon>InformacionCancion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeGusta.resx">
+      <DependentUpon>MeGusta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeGustaEleccion.resx">
+      <DependentUpon>MeGustaEleccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil.resx">
       <DependentUpon>Perfil.cs</DependentUpon>
@@ -134,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reproducir.resx">
       <DependentUpon>Reproducir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimiento.resx">
+      <DependentUpon>Seguimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>

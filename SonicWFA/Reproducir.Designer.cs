@@ -125,8 +125,6 @@
             this.listBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "Cancion1"});
             this.listBox1.Location = new System.Drawing.Point(53, 107);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(175, 404);
@@ -138,8 +136,6 @@
             this.listBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 16;
-            this.listBox2.Items.AddRange(new object[] {
-            "Video1"});
             this.listBox2.Location = new System.Drawing.Point(262, 107);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(175, 404);

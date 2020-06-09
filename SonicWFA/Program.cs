@@ -27,7 +27,7 @@ namespace SonicWFA
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsuarioForm());
+            Application.Run(new Login());
         }
     }
 }

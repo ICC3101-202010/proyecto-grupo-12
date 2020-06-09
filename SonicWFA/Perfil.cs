@@ -29,7 +29,6 @@ namespace SonicWFA
                 labelTipo.Text = "GRATIS";
             }
             labelPrivacidad.Text = usuario.privacidad;
-            labelGustos.Text = usuarioActual.gustos;
         }
 
         private void Actualizar()
@@ -47,7 +46,6 @@ namespace SonicWFA
                 labelTipo.Text = "GRATIS";
             }
             labelPrivacidad.Text = usuarioActual.privacidad;
-            labelGustos.Text = usuarioActual.gustos;
         }
 
         private void btnFlecha_Click(object sender, EventArgs e)

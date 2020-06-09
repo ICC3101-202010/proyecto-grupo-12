@@ -410,35 +410,12 @@ namespace SonicWFA
             }
         }
 
-
-        public void ImportarCanciones() //Metadata de Importacion
+        public void ImportarCanciones(string nombre, string cantante, string genero, string album, string estudio, string discografia, string compositor, int añoPublicacion, int duracionMinutos, int duracionSegundos) //Metadata de Importacion
         {
-            while (true)
-            {
-                Console.WriteLine("AGREGUE CANCIÓN");
-                Console.WriteLine("Titulo: ");
-                string nombre = Console.ReadLine();
-                Console.WriteLine("Cantante: ");
-                string cantante = Console.ReadLine();
+            
                 Cantante cantante2 = AgregarCantante(cantante);
-                Console.WriteLine("Genero: ");
-                string genero = Console.ReadLine();
-                Console.WriteLine("Album: ");
-                string album = Console.ReadLine();
                 Album album2 = AgregarAlbum(album, cantante2);
-                Console.WriteLine("Estudio: ");
-                string estudio = Console.ReadLine();
-                Console.WriteLine("Discografia: ");
-                string discografia = Console.ReadLine();
-                Console.WriteLine("Compositor: ");
-                string compositor = Console.ReadLine();
                 Compositor compositor2 = AgregarCompositor(compositor);
-                Console.WriteLine("Año de Publicación: ");
-                int añoPublicacion = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Duración (minutos): ");
-                int duracionMinutos = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Duración (segundos): ");
-                int duracionSegundos = Convert.ToInt32(Console.ReadLine());
                 int duracion = (duracionMinutos * 60 + duracionSegundos);
                 Cancion cancion = new Cancion(nombre, cantante2, album2,  genero, estudio, discografia, compositor2, añoPublicacion, duracion);
                 canciones.Add(cancion);
@@ -446,12 +423,6 @@ namespace SonicWFA
                 this.AgregarCancionCompositor(cancion, compositor);
                 this.AgregarCancionAlbum(cancion, album);
                 this.AgregarAlbumCantante(album2, cantante);
-                Console.BackgroundColor = ConsoleColor.Green; Console.WriteLine("CANCIÓN AGREGADA"); Console.BackgroundColor = ConsoleColor.Black; Console.WriteLine(Environment.NewLine);
-                Console.WriteLine("¿Desea agregar otra canción? (s/n)");
-                string eleccion = Console.ReadLine();
-                if (eleccion == "n") { Thread.Sleep(1000); break; }
-                Console.Clear();
-            }
         }
 
         public void MostarCanciones() // Display de info canciones
@@ -802,102 +773,54 @@ namespace SonicWFA
             videosBusqueda.Clear();
         }
 
-        public void Buscar()
+        public string Buscar(string palabra = "qwery", string persona = "qwery", int eleccion3 = 0, int valor = 0, int eleccion7 = 0, int valor2 = 0, string categoria = "qwery")
         {
+            string resultado = "";
+
             List<Action> busquedas = new List<Action>();
 
-            while (true)
-            {
-                Console.WriteLine("\nBuscar por:" +
-                "\n1. Palabra" +
-                "\n2. Persona" +
-                "\n3. Evaluacion" +
-                "\n4. Resolución" +
-                "\n5. Categoria");
+            BuscarPorPalabra(palabra);
+            busquedas.Add(() => BuscarPorPalabra(palabra));
 
-                int eleccion = Convert.ToInt32(Console.ReadLine());
-                switch (eleccion)
-                {
-                    case 1:
-                        Console.Clear();
-                        Console.WriteLine("Palabra:");
-                        string palabra = Console.ReadLine();
-                        BuscarPorPalabra(palabra);
-                        busquedas.Add(() => BuscarPorPalabra(palabra));
-                        break;
-                    case 2:
-                        Console.Clear();
-                        Console.WriteLine("Nombre Persona:");
-                        string persona = Console.ReadLine();
-                        BuscarPorPalabra(persona);
-                        busquedas.Add(() => BuscarPorPalabra(persona));
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
-                        int eleccion3 = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Valor: ");
-                        int valor = Convert.ToInt32(Console.ReadLine());
-                        if(eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
-                        else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
-                        else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
-                        int eleccion7 = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Valor: ");
-                        int valor2 = Convert.ToInt32(Console.ReadLine());
-                        if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
-                        else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
-                        else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
-                        break;
-                    case 5:
-                        Console.Clear();
-                        Console.WriteLine("Categoria: ");
-                        string categoria = Console.ReadLine();
-                        BuscarPorCategoria(categoria);
-                        busquedas.Add(() => BuscarPorCategoria(categoria));
-                        break;
-                    default:
-                        Console.WriteLine("Opcion no valida");
-                        Thread.Sleep(1500);
-                        break;
-                }
-                Console.WriteLine("\n ¿Desea agregar otro filtro? (s/n)");
-                string eleccion2 = Console.ReadLine();
-                if(eleccion2 == "n") { break; }
+            BuscarPorPalabra(persona);
+            busquedas.Add(() => BuscarPorPalabra(persona));
 
-            }
-            int i = 1;
-            Console.Clear();
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
+            if (eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
+            else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
+            else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
+
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
+            if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
+            else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
+            else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
+
+            BuscarPorCategoria(categoria);
+            busquedas.Add(() => BuscarPorCategoria(categoria));
+
+
             if (cancionesBusqueda.Count != 0)
             {
-                Console.WriteLine("Canciones: ");
                 foreach (Cancion cancion in cancionesBusqueda)
                 {
-                    Console.WriteLine(i +". \n");
-                    cancion.ObtenerInfo();
-                    i++;
+
+                    resultado += cancion.ObtenerInfo();
                 }
             }
-            i = 1;
             if (videosBusqueda.Count != 0)
             {
-                Console.WriteLine("Videos: ");
                 foreach (Video video in videosBusqueda)
                 {
-                    Console.WriteLine(i + ". ");
-                    video.ObtenerInfo();
-                    i++;
+                    resultado += video.ObtenerInfo();
                 }
             }
-            if(videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { Console.WriteLine(Environment.NewLine); Console.BackgroundColor = ConsoleColor.Red; Console.WriteLine("NO HAY RESULTADOS"); Console.BackgroundColor = ConsoleColor.Black; }
+
+            if(videosBusqueda.Count == 0 && cancionesBusqueda.Count == 0) { return "NO HAY RESULTADOS"; }
             cancionesBusqueda.Clear();
             videosBusqueda.Clear();
-            Console.WriteLine("\n¿Desea guardar busqueda? (s/n)");
-            string eleccion5 = Console.ReadLine();
-            if (eleccion5 == "s") { GuardarBusqueda(busquedas); }
+            return resultado;
         }
 
         public void AgregarCancionAFavoritos()

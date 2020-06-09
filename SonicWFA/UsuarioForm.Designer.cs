@@ -184,7 +184,6 @@
             this.btnReproducir.TabIndex = 5;
             this.btnReproducir.Text = "Reproducir";
             this.btnReproducir.UseVisualStyleBackColor = true;
-            this.btnReproducir.Click += new System.EventHandler(this.btnReproducir_Click);
             // 
             // btnBuscar
             // 
@@ -198,7 +197,6 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnPerfil
             // 
@@ -354,6 +352,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnDespliegue;
+        private System.Windows.Forms.Panel Contenedor;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox btnDisminuir;
         private System.Windows.Forms.PictureBox btnMinimizar;
@@ -369,7 +368,6 @@
         private System.Windows.Forms.Button btnReproducir;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnFavoritos;
-        private System.Windows.Forms.Panel Contenedor;
     }
 }
 

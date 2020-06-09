@@ -15,12 +15,15 @@ namespace SonicWFA
     public partial class Login : Form
     {
         Sonic sonic = new Sonic();
-     
+        
         public Login()
         {
             InitializeComponent();
+
+            sonic.ImportarCanciones("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", 2000, 2, 30);
         }
 
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 

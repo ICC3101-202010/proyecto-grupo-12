@@ -785,10 +785,14 @@ namespace SonicWFA
             BuscarPorPalabra(persona);
             busquedas.Add(() => BuscarPorPalabra(persona));
 
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
             if (eleccion3 == 1) { BuscarPorEvaluacion("mayor", valor); busquedas.Add(() => BuscarPorEvaluacion("mayor", valor)); }
             else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
             else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
 
+            Console.WriteLine("1. Mayor\n2. Menor\n3. Igual");
+            Console.WriteLine("Valor: ");
             if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
             else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
             else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }

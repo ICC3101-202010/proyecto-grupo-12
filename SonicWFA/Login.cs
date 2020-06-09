@@ -14,12 +14,12 @@ namespace SonicWFA
 {
     public partial class Login : Form
     {
-        public Sonic sonic = new Sonic();
+        Sonic sonic = new Sonic();
         
         public Login()
         {
             InitializeComponent();
-            sonic.CargarDatos();
+
             sonic.ImportarCanciones("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", 2000, 2, 30);
         }
 
@@ -35,7 +35,6 @@ namespace SonicWFA
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);     
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
-            sonic.GuardarDatos();
             Application.Exit();
         }
 
@@ -124,12 +123,5 @@ namespace SonicWFA
             registrarse.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 admin = new Form1(this);
-            admin.MdiParent = this.MdiParent;
-            this.Hide();
-            admin.ShowDialog();
-        }
     }
 }

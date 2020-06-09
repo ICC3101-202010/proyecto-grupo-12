@@ -45,7 +45,6 @@ namespace SonicWFA
         {
             if(sonic.Registrarse(tbNombreUsuario.Text, tbUsuario.Text, tbApellido.Text, tbContrasena.Text, cbPremim.Text, cbPrivacidad.Text))
             {
-                sonic.GuardarDatos();
                 this.Close();
             }
             else

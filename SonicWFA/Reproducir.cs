@@ -38,9 +38,9 @@ namespace SonicWFA
             buscar.Multiselect = true;
             if(buscar.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                ArchivoMP3 = buscar.SafeFileNames;
+                ArchivosMP3 = buscar.SafeFileNames;
                 rutaArchivoMP3 = buscar.FileNames;
-                foreach(var ArchivoMp3 in ArchivosMP3)
+                foreach(var ArchivoMP3 in ArchivosMP3)
                 {
                     listBox1.Items.Add(ArchivoMP3);
                 }

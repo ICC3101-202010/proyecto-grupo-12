@@ -39,7 +39,6 @@ namespace SonicWFA
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            sonic.GuardarDatos();
             Application.Exit();
         }
 
@@ -86,7 +85,6 @@ namespace SonicWFA
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            sonic.GuardarDatos();
             this.Close();
         }
 
@@ -98,6 +96,26 @@ namespace SonicWFA
         private void btnReproducir_Click(object sender, EventArgs e)
         {
             AbrirPanel(new Reproducir());
+        }
+
+        private void btnSeguimiento_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Seguimiento());
+        }
+
+        private void btnMeGusta_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new MeGusta());
+        }
+
+        private void btnCalificacion_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Calificacion());
+        }
+
+        private void btnFavoritos_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Favoritos());
         }
     }
 }

@@ -22,11 +22,6 @@ namespace SonicWFA
             this.usuarioActual = usuario;
         }
 
-        private void btnFlecha_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -51,6 +46,11 @@ namespace SonicWFA
             {
                label3.Text = "";
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

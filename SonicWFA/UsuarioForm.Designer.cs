@@ -34,7 +34,6 @@
             this.btnMeGusta = new System.Windows.Forms.Button();
             this.btnCalificacion = new System.Windows.Forms.Button();
             this.btnPlaylist = new System.Windows.Forms.Button();
-            this.btnDescargas = new System.Windows.Forms.Button();
             this.btnSeguimiento = new System.Windows.Forms.Button();
             this.btnReproducir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -67,7 +66,6 @@
             this.MenuVertical.Controls.Add(this.btnMeGusta);
             this.MenuVertical.Controls.Add(this.btnCalificacion);
             this.MenuVertical.Controls.Add(this.btnPlaylist);
-            this.MenuVertical.Controls.Add(this.btnDescargas);
             this.MenuVertical.Controls.Add(this.btnSeguimiento);
             this.MenuVertical.Controls.Add(this.btnReproducir);
             this.MenuVertical.Controls.Add(this.btnBuscar);
@@ -86,12 +84,13 @@
             this.btnFavoritos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnFavoritos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFavoritos.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoritos.Location = new System.Drawing.Point(0, 371);
+            this.btnFavoritos.Location = new System.Drawing.Point(0, 325);
             this.btnFavoritos.Name = "btnFavoritos";
             this.btnFavoritos.Size = new System.Drawing.Size(250, 40);
             this.btnFavoritos.TabIndex = 12;
             this.btnFavoritos.Text = "Favoritos";
             this.btnFavoritos.UseVisualStyleBackColor = true;
+            this.btnFavoritos.Click += new System.EventHandler(this.btnFavoritos_Click);
             // 
             // btnCerrarSesion
             // 
@@ -99,7 +98,7 @@
             this.btnCerrarSesion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 509);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 463);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
             this.btnCerrarSesion.TabIndex = 11;
@@ -113,12 +112,13 @@
             this.btnMeGusta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnMeGusta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMeGusta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMeGusta.Location = new System.Drawing.Point(0, 463);
+            this.btnMeGusta.Location = new System.Drawing.Point(0, 417);
             this.btnMeGusta.Name = "btnMeGusta";
             this.btnMeGusta.Size = new System.Drawing.Size(250, 40);
             this.btnMeGusta.TabIndex = 10;
             this.btnMeGusta.Text = "Me Gusta";
             this.btnMeGusta.UseVisualStyleBackColor = true;
+            this.btnMeGusta.Click += new System.EventHandler(this.btnMeGusta_Click);
             // 
             // btnCalificacion
             // 
@@ -126,12 +126,13 @@
             this.btnCalificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnCalificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalificacion.Location = new System.Drawing.Point(0, 417);
+            this.btnCalificacion.Location = new System.Drawing.Point(0, 371);
             this.btnCalificacion.Name = "btnCalificacion";
             this.btnCalificacion.Size = new System.Drawing.Size(250, 40);
             this.btnCalificacion.TabIndex = 9;
             this.btnCalificacion.Text = "Calificacion";
             this.btnCalificacion.UseVisualStyleBackColor = true;
+            this.btnCalificacion.Click += new System.EventHandler(this.btnCalificacion_Click);
             // 
             // btnPlaylist
             // 
@@ -139,25 +140,12 @@
             this.btnPlaylist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnPlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlaylist.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlaylist.Location = new System.Drawing.Point(0, 325);
+            this.btnPlaylist.Location = new System.Drawing.Point(0, 279);
             this.btnPlaylist.Name = "btnPlaylist";
             this.btnPlaylist.Size = new System.Drawing.Size(250, 40);
             this.btnPlaylist.TabIndex = 8;
             this.btnPlaylist.Text = "Playlist";
             this.btnPlaylist.UseVisualStyleBackColor = true;
-            // 
-            // btnDescargas
-            // 
-            this.btnDescargas.FlatAppearance.BorderSize = 0;
-            this.btnDescargas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
-            this.btnDescargas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescargas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescargas.Location = new System.Drawing.Point(0, 279);
-            this.btnDescargas.Name = "btnDescargas";
-            this.btnDescargas.Size = new System.Drawing.Size(250, 40);
-            this.btnDescargas.TabIndex = 7;
-            this.btnDescargas.Text = "Descargas";
-            this.btnDescargas.UseVisualStyleBackColor = true;
             // 
             // btnSeguimiento
             // 
@@ -171,6 +159,7 @@
             this.btnSeguimiento.TabIndex = 6;
             this.btnSeguimiento.Text = "Seguimiento";
             this.btnSeguimiento.UseVisualStyleBackColor = true;
+            this.btnSeguimiento.Click += new System.EventHandler(this.btnSeguimiento_Click);
             // 
             // btnReproducir
             // 
@@ -364,7 +353,6 @@
         private System.Windows.Forms.Button btnMeGusta;
         private System.Windows.Forms.Button btnCalificacion;
         private System.Windows.Forms.Button btnPlaylist;
-        private System.Windows.Forms.Button btnDescargas;
         private System.Windows.Forms.Button btnSeguimiento;
         private System.Windows.Forms.Button btnReproducir;
         private System.Windows.Forms.Button btnBuscar;

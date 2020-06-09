@@ -48,69 +48,6 @@
   <ItemGroup>
     <Compile Include="Actor.cs" />
     <Compile Include="Admin.cs" />
-    <Compile Include="agregarActores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarActores.designer.cs">
-      <DependentUpon>agregarActores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarAdmin.Designer.cs">
-      <DependentUpon>agregarAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarCancion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarCancion.Designer.cs">
-      <DependentUpon>agregarCancion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarPublicidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarPublicidad.Designer.cs">
-      <DependentUpon>agregarPublicidad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarVideo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarVideo.Designer.cs">
-      <DependentUpon>agregarVideo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Album.cs" />
-    <Compile Include="ArchivoMultimedia.cs" />
-    <Compile Include="Barra.cs" />
-    <Compile Include="Buscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarActores.designer.cs">
-      <DependentUpon>agregarActores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarAdmin.Designer.cs">
-      <DependentUpon>agregarAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarCancion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarCancion.Designer.cs">
-      <DependentUpon>agregarCancion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarPublicidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarPublicidad.Designer.cs">
-      <DependentUpon>agregarPublicidad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="agregarVideo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="agregarVideo.Designer.cs">
-      <DependentUpon>agregarVideo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Album.cs" />
     <Compile Include="ArchivoMultimedia.cs" />
     <Compile Include="Barra.cs" />
@@ -127,45 +64,51 @@
     <Compile Include="BusquedaPersonalizada.Designer.cs">
       <DependentUpon>BusquedaPersonalizada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calificacion.Designer.cs">
+      <DependentUpon>Calificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalificacionEleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalificacionEleccion.Designer.cs">
+      <DependentUpon>CalificacionEleccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancion.cs" />
     <Compile Include="Cantante.cs" />
     <Compile Include="Compositor.cs" />
     <Compile Include="Director.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Favoritos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Favoritos.Designer.cs">
+      <DependentUpon>Favoritos.cs</DependentUpon>
     </Compile>
-    <Compile Include="funcionesAdmin.cs">
+    <Compile Include="FavoritosEleccion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="funcionesAdmin.Designer.cs">
-      <DependentUpon>funcionesAdmin.cs</DependentUpon>
+    <Compile Include="FavoritosEleccion.Designer.cs">
+      <DependentUpon>FavoritosEleccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="funcionesCancion.cs">
+    <Compile Include="InformacionCancion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="funcionesCancion.Designer.cs">
-      <DependentUpon>funcionesCancion.cs</DependentUpon>
+    <Compile Include="InformacionCancion.Designer.cs">
+      <DependentUpon>InformacionCancion.cs</DependentUpon>
     </Compile>
-    <Compile Include="funcionesVideo.cs">
+    <Compile Include="MeGusta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="funcionesVideo.Designer.cs">
-      <DependentUpon>funcionesVideo.cs</DependentUpon>
+    <Compile Include="MeGusta.Designer.cs">
+      <DependentUpon>MeGusta.cs</DependentUpon>
     </Compile>
-    <Compile Include="pagarImagen.cs">
+    <Compile Include="MeGustaEleccion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="pagarImagen.Designer.cs">
-      <DependentUpon>pagarImagen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="pagarVideo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="pagarVideo.Designer.cs">
-      <DependentUpon>pagarVideo.cs</DependentUpon>
+    <Compile Include="MeGustaEleccion.Designer.cs">
+      <DependentUpon>MeGustaEleccion.cs</DependentUpon>
     </Compile>
     <Compile Include="Persona.cs" />
     <Compile Include="Playlist.cs" />
@@ -183,6 +126,12 @@
       <DependentUpon>Reproducir.cs</DependentUpon>
     </Compile>
     <Compile Include="Reproductor.cs" />
+    <Compile Include="Seguimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguimiento.Designer.cs">
+      <DependentUpon>Seguimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sonic.cs" />
     <Compile Include="UsuarioForm.cs">
       <SubType>Form</SubType>
@@ -206,47 +155,35 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario2.cs" />
     <Compile Include="Video.cs" />
-    <EmbeddedResource Include="agregarActores.resx">
-      <DependentUpon>agregarActores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="agregarAdmin.resx">
-      <DependentUpon>agregarAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="agregarCancion.resx">
-      <DependentUpon>agregarCancion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="agregarPublicidad.resx">
-      <DependentUpon>agregarPublicidad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="agregarVideo.resx">
-      <DependentUpon>agregarVideo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BusquedaPersonalizada.resx">
       <DependentUpon>BusquedaPersonalizada.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Calificacion.resx">
+      <DependentUpon>Calificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="funcionesAdmin.resx">
-      <DependentUpon>funcionesAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="CalificacionEleccion.resx">
+      <DependentUpon>CalificacionEleccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="funcionesCancion.resx">
-      <DependentUpon>funcionesCancion.cs</DependentUpon>
+    <EmbeddedResource Include="Favoritos.resx">
+      <DependentUpon>Favoritos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="funcionesVideo.resx">
-      <DependentUpon>funcionesVideo.cs</DependentUpon>
+    <EmbeddedResource Include="FavoritosEleccion.resx">
+      <DependentUpon>FavoritosEleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionCancion.resx">
+      <DependentUpon>InformacionCancion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pagarImagen.resx">
-      <DependentUpon>pagarImagen.cs</DependentUpon>
+    <EmbeddedResource Include="MeGusta.resx">
+      <DependentUpon>MeGusta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="pagarVideo.resx">
-      <DependentUpon>pagarVideo.cs</DependentUpon>
+    <EmbeddedResource Include="MeGustaEleccion.resx">
+      <DependentUpon>MeGustaEleccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil.resx">
       <DependentUpon>Perfil.cs</DependentUpon>
@@ -266,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reproducir.resx">
       <DependentUpon>Reproducir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimiento.resx">
+      <DependentUpon>Seguimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>

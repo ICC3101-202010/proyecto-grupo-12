@@ -48,6 +48,26 @@
   <ItemGroup>
     <Compile Include="Actor.cs" />
     <Compile Include="Admin.cs" />
+    <Compile Include="agregarActores.cs" />
+    <Compile Include="agregarActores.Designer.cs">
+      <DependentUpon>agregarActores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarAdmin.cs" />
+    <Compile Include="agregarAdmin.Designer.cs">
+      <DependentUpon>agregarAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarCancion.cs" />
+    <Compile Include="agregarCancion.Designer.cs">
+      <DependentUpon>agregarCancion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarPublicidad.cs" />
+    <Compile Include="agregarPublicidad.Designer.cs">
+      <DependentUpon>agregarPublicidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarVideo.cs" />
+    <Compile Include="agregarVideo.Designer.cs">
+      <DependentUpon>agregarVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Album.cs" />
     <Compile Include="ArchivoMultimedia.cs" />
     <Compile Include="Barra.cs" />
@@ -92,6 +112,22 @@
     <Compile Include="FavoritosEleccion.Designer.cs">
       <DependentUpon>FavoritosEleccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs" />
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funcionesAdmin.cs" />
+    <Compile Include="funcionesAdmin.Designer.cs">
+      <DependentUpon>funcionesAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funcionesCancion.cs" />
+    <Compile Include="funcionesCancion.Designer.cs">
+      <DependentUpon>funcionesCancion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funcionesVideo.cs" />
+    <Compile Include="funcionesVideo.Designer.cs">
+      <DependentUpon>funcionesVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="InformacionCancion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +145,14 @@
     </Compile>
     <Compile Include="MeGustaEleccion.Designer.cs">
       <DependentUpon>MeGustaEleccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagarImagen.cs" />
+    <Compile Include="pagarImagen.Designer.cs">
+      <DependentUpon>pagarImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pagarVideo.cs" />
+    <Compile Include="pagarVideo.Designer.cs">
+      <DependentUpon>pagarVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Persona.cs" />
     <Compile Include="Playlist.cs" />
@@ -155,6 +199,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario2.cs" />
     <Compile Include="Video.cs" />
+    <EmbeddedResource Include="agregarActores.resx">
+      <DependentUpon>agregarActores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarAdmin.resx">
+      <DependentUpon>agregarAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarCancion.resx">
+      <DependentUpon>agregarCancion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarPublicidad.resx">
+      <DependentUpon>agregarPublicidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarVideo.resx">
+      <DependentUpon>agregarVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +232,18 @@
     <EmbeddedResource Include="FavoritosEleccion.resx">
       <DependentUpon>FavoritosEleccion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="funcionesAdmin.resx">
+      <DependentUpon>funcionesAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="funcionesCancion.resx">
+      <DependentUpon>funcionesCancion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="funcionesVideo.resx">
+      <DependentUpon>funcionesVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InformacionCancion.resx">
       <DependentUpon>InformacionCancion.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MeGustaEleccion.resx">
       <DependentUpon>MeGustaEleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagarImagen.resx">
+      <DependentUpon>pagarImagen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pagarVideo.resx">
+      <DependentUpon>pagarVideo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil.resx">
       <DependentUpon>Perfil.cs</DependentUpon>

@@ -88,5 +88,18 @@ namespace SonicWFA
         {
             this.Close();
         }
+<<<<<<< Updated upstream
+=======
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Buscar(sonic, usuarioActual));
+        }
+
+        private void btnReproducir_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new Reproducir());
+        }
+>>>>>>> Stashed changes
     }
 }

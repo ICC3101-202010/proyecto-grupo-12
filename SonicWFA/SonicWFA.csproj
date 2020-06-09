@@ -49,6 +49,42 @@
     <Compile Include="Actor.cs" />
     <Compile Include="Admin.cs" />
     <Compile Include="agregarActores.cs">
+<<<<<<< Updated upstream
+=======
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarActores.designer.cs">
+      <DependentUpon>agregarActores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarAdmin.Designer.cs">
+      <DependentUpon>agregarAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarCancion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarCancion.Designer.cs">
+      <DependentUpon>agregarCancion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarPublicidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarPublicidad.Designer.cs">
+      <DependentUpon>agregarPublicidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarVideo.Designer.cs">
+      <DependentUpon>agregarVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Album.cs" />
+    <Compile Include="ArchivoMultimedia.cs" />
+    <Compile Include="Barra.cs" />
+    <Compile Include="Buscar.cs">
+>>>>>>> Stashed changes
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="agregarActores.designer.cs">
@@ -156,7 +192,10 @@
     <Compile Include="Usuario2.cs" />
     <Compile Include="Video.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     <EmbeddedResource Include="agregarActores.resx">
       <DependentUpon>agregarActores.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +229,9 @@
     <EmbeddedResource Include="funcionesVideo.resx">
       <DependentUpon>funcionesVideo.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

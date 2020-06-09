@@ -42,6 +42,7 @@
             this.btnEntrar = new System.Windows.Forms.Button();
             this.linkRegistro = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -58,16 +59,18 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 330);
+            this.panel1.Size = new System.Drawing.Size(500, 635);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::SonicWFA.Properties.Resources.sonicsinfondo;
-            this.pictureBox4.Location = new System.Drawing.Point(40, 216);
+            this.pictureBox4.Location = new System.Drawing.Point(80, 415);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(167, 83);
+            this.pictureBox4.Size = new System.Drawing.Size(334, 160);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
@@ -75,9 +78,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SonicWFA.Properties.Resources.LogoMakr_8SO5jm__2_;
-            this.pictureBox3.Location = new System.Drawing.Point(40, 38);
+            this.pictureBox3.Location = new System.Drawing.Point(80, 73);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(167, 191);
+            this.pictureBox3.Size = new System.Drawing.Size(334, 367);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -88,9 +92,10 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(339, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(678, 142);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(344, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(688, 131);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -100,9 +105,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Enabled = false;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(339, 148);
+            this.pictureBox2.Location = new System.Drawing.Point(678, 285);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(344, 46);
+            this.pictureBox2.Size = new System.Drawing.Size(688, 88);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -112,11 +118,12 @@
             this.tbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.tbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbUsuario.Location = new System.Drawing.Point(339, 84);
+            this.tbUsuario.Location = new System.Drawing.Point(678, 162);
+            this.tbUsuario.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(344, 20);
+            this.tbUsuario.Size = new System.Drawing.Size(688, 37);
             this.tbUsuario.TabIndex = 0;
             this.tbUsuario.Text = "USUARIO";
             this.tbUsuario.Enter += new System.EventHandler(this.tbUsuario_Enter);
@@ -126,11 +133,12 @@
             // 
             this.tbPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.tbPassword.Location = new System.Drawing.Point(339, 148);
+            this.tbPassword.Location = new System.Drawing.Point(678, 285);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(344, 20);
+            this.tbPassword.Size = new System.Drawing.Size(688, 37);
             this.tbPassword.TabIndex = 2;
             this.tbPassword.Text = "CONTRASEÑA";
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
@@ -141,9 +149,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label1.Location = new System.Drawing.Point(455, 27);
+            this.label1.Location = new System.Drawing.Point(910, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 20);
+            this.label1.Size = new System.Drawing.Size(223, 37);
             this.label1.TabIndex = 5;
             this.label1.Text = "BIENVENIDO!";
             // 
@@ -152,9 +161,10 @@
             this.btnDisminuir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDisminuir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisminuir.Image = global::SonicWFA.Properties.Resources.disminuir;
-            this.btnDisminuir.Location = new System.Drawing.Point(731, 3);
+            this.btnDisminuir.Location = new System.Drawing.Point(1462, 6);
+            this.btnDisminuir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnDisminuir.Name = "btnDisminuir";
-            this.btnDisminuir.Size = new System.Drawing.Size(20, 20);
+            this.btnDisminuir.Size = new System.Drawing.Size(40, 38);
             this.btnDisminuir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnDisminuir.TabIndex = 9;
             this.btnDisminuir.TabStop = false;
@@ -165,9 +175,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::SonicWFA.Properties.Resources.Cruz;
-            this.btnCerrar.Location = new System.Drawing.Point(757, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(1514, 6);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.Size = new System.Drawing.Size(40, 38);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.TabStop = false;
@@ -181,9 +192,10 @@
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.Black;
-            this.btnEntrar.Location = new System.Drawing.Point(339, 231);
+            this.btnEntrar.Location = new System.Drawing.Point(678, 444);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(343, 40);
+            this.btnEntrar.Size = new System.Drawing.Size(686, 77);
             this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
@@ -195,9 +207,10 @@
             this.linkRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkRegistro.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.linkRegistro.Location = new System.Drawing.Point(475, 283);
+            this.linkRegistro.Location = new System.Drawing.Point(950, 544);
+            this.linkRegistro.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.linkRegistro.Name = "linkRegistro";
-            this.linkRegistro.Size = new System.Drawing.Size(60, 13);
+            this.linkRegistro.Size = new System.Drawing.Size(123, 26);
             this.linkRegistro.TabIndex = 11;
             this.linkRegistro.TabStop = true;
             this.linkRegistro.Text = "Registrarse";
@@ -206,19 +219,33 @@
             // label2
             // 
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(342, 197);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(684, 379);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(342, 31);
+            this.label2.Size = new System.Drawing.Size(684, 60);
             this.label2.TabIndex = 12;
             this.label2.Text = "\r\n";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(1408, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 45);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "ADMIN";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.ClientSize = new System.Drawing.Size(780, 330);
+            this.ClientSize = new System.Drawing.Size(1560, 635);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkRegistro);
             this.Controls.Add(this.btnEntrar);
@@ -231,6 +258,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Login";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -263,5 +291,6 @@
         private System.Windows.Forms.LinkLabel linkRegistro;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

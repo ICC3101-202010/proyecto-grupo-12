@@ -46,3 +46,14 @@ C:\Users\Rodrigo\Desktop\Proyecto-POO\proyecto-grupo-12\SonicWFA\obj\Debug\Sonic
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Perfil.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Registrarse.resources
 \\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.UsuarioForm.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.agregarActores.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.agregarAdmin.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.agregarCancion.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.agregarPublicidad.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.agregarVideo.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.Form1.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.funcionesAdmin.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.funcionesCancion.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.funcionesVideo.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.pagarImagen.resources
+\\Mac\Home\Desktop\Prueba\proyecto-grupo-12\SonicWFA\obj\Debug\SonicWFA.pagarVideo.resources

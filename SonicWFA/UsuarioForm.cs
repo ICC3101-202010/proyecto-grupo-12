@@ -40,6 +40,7 @@ namespace SonicWFA
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            sonic.GuardarDatos();
             Application.Exit();
         }
 
@@ -86,6 +87,7 @@ namespace SonicWFA
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
+            sonic.GuardarDatos();
             this.Close();
         }
 <<<<<<< Updated upstream

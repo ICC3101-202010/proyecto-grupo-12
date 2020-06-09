@@ -12,7 +12,7 @@ namespace SonicWFA
         public string tipoUsuario;
         public string privacidad;
         public string contraseña;
-        string gustos;
+        public string gustos = "";
         List<Cancion> descargas = new List<Cancion>();
         List<Cancion> favoritosCancion = new List<Cancion>();
         List<Video> favoritosVideo = new List<Video>();

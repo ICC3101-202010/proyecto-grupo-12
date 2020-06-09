@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Windows.Forms.VisualStyles;
 
 namespace SonicWFA
 {
@@ -20,7 +19,7 @@ namespace SonicWFA
         {
             this.sonic = sonic;
             this.usuarioActual = usuario;
-            
+
             InitializeComponent();
         }
 
@@ -90,8 +89,6 @@ namespace SonicWFA
             sonic.GuardarDatos();
             this.Close();
         }
-<<<<<<< Updated upstream
-=======
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -102,6 +99,5 @@ namespace SonicWFA
         {
             AbrirPanel(new Reproducir());
         }
->>>>>>> Stashed changes
     }
 }

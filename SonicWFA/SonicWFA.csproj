@@ -49,8 +49,6 @@
     <Compile Include="Actor.cs" />
     <Compile Include="Admin.cs" />
     <Compile Include="agregarActores.cs">
-<<<<<<< Updated upstream
-=======
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="agregarActores.designer.cs">
@@ -84,7 +82,6 @@
     <Compile Include="ArchivoMultimedia.cs" />
     <Compile Include="Barra.cs" />
     <Compile Include="Buscar.cs">
->>>>>>> Stashed changes
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="agregarActores.designer.cs">
@@ -117,7 +114,19 @@
     <Compile Include="Album.cs" />
     <Compile Include="ArchivoMultimedia.cs" />
     <Compile Include="Barra.cs" />
+    <Compile Include="Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar.Designer.cs">
+      <DependentUpon>Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Busqueda.cs" />
+    <Compile Include="BusquedaPersonalizada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaPersonalizada.Designer.cs">
+      <DependentUpon>BusquedaPersonalizada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancion.cs" />
     <Compile Include="Cantante.cs" />
     <Compile Include="Compositor.cs" />
@@ -167,6 +176,12 @@
     <Compile Include="Registrarse.Designer.cs">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reproducir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reproducir.Designer.cs">
+      <DependentUpon>Reproducir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reproductor.cs" />
     <Compile Include="Sonic.cs" />
     <Compile Include="UsuarioForm.cs">
@@ -191,11 +206,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario2.cs" />
     <Compile Include="Video.cs" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
     <EmbeddedResource Include="agregarActores.resx">
       <DependentUpon>agregarActores.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,10 +239,6 @@
     <EmbeddedResource Include="funcionesVideo.resx">
       <DependentUpon>funcionesVideo.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +263,9 @@
     </Compile>
     <EmbeddedResource Include="Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reproducir.resx">
+      <DependentUpon>Reproducir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioForm.resx">
       <DependentUpon>UsuarioForm.cs</DependentUpon>
@@ -300,6 +309,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoMakr_1c4lPe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

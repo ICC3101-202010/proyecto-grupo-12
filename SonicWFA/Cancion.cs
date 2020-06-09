@@ -33,19 +33,19 @@ namespace SonicWFA
 
         public string ObtenerInfo() //Obtener Info Cancion
         {
-            return "\nTitulo: " + this.nombre +
-            "\nCantante: " + this.cantante.nombre +
-            "\nGenero: " + this.genero +
-            "\nEstudio: " + this.estudio +
-            "\nDiscografia: " + this.discografia +
-            "\nAlbum: " + this.album.nombre +
-            "\nCompositor: " + this.compositor.nombre +
-            "\nAño de Publicación: " + this.añoPublicacion +
-            "\nDuración: " + this.duracion +
-            "\nImagen: " + this.imagen +
-            "\nNumero de reproducciones: " + this.numeroReproducciones +
-            "\nCalificación: " + this.calificacion +
-            "\nMe Gusta: " + this.meGusta;
+            return "\r\nTitulo: " + this.nombre +
+            "\r\nCantante: " + this.cantante.nombre +
+            "\r\nGenero: " + this.genero +
+            "\r\nEstudio: " + this.estudio +
+            "\r\nDiscografia: " + this.discografia +
+            "\r\nAlbum: " + this.album.nombre +
+            "\r\nCompositor: " + this.compositor.nombre +
+            "\r\nAño de Publicación: " + this.añoPublicacion +
+            "\r\nDuración: " + this.duracion +
+            "\r\nImagen: " + this.imagen +
+            "\r\nNumero de reproducciones: " + this.numeroReproducciones +
+            "\r\nCalificación: " + this.calificacion +
+            "\r\nMe Gusta: " + this.meGusta + "\r\n\r\n\r\n";
         }
 
         public void ImagenCancion(string imagen)

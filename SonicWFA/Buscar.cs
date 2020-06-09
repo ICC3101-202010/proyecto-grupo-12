@@ -12,9 +12,14 @@ namespace SonicWFA
 {
     public partial class Buscar : Form
     {
-        public Buscar()
+        Sonic sonic;
+        Usuario2 usuarioActual;
+        public Buscar(Sonic sonic, Usuario2 usuario)
         {
             InitializeComponent();
+
+            this.sonic = sonic;
+            this.usuarioActual = usuario;
         }
 
         private void btnFlecha_Click(object sender, EventArgs e)
@@ -29,8 +34,23 @@ namespace SonicWFA
 
         private void btnBusqueda_Click(object sender, EventArgs e)
         {
-            BusquedaPersonalizada personalizada = new BusquedaPersonalizada();
+            BusquedaPersonalizada personalizada = new BusquedaPersonalizada(sonic, this);
             personalizada.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            label3.Text = "";
+            string palabra = textBox1.Text;
+            string resultadoBusqueda = sonic.Buscar(palabra);
+            if (resultadoBusqueda != "")
+            {
+               label3.Text = resultadoBusqueda;
+
+            } else
+            {
+               label3.Text = "";
+            }
         }
     }
 }

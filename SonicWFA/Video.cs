@@ -34,23 +34,24 @@ namespace SonicWFA
             this.resolucion = resolucion;
         }
 
-        public void ObtenerInfo() //Obtener Info del video
+        public string ObtenerInfo() //Obtener Info del video
         {
-            Console.WriteLine("Titulo: " + this.nombre);
-            Console.WriteLine("Actores: ");
-            foreach (Actor actor in actores) { Console.WriteLine(actor.nombre); }
-            Console.WriteLine("Categoria: " + this.categoria);
-            Console.WriteLine("Genero: " + this.genero);
-            Console.WriteLine("Estudio: " + this.estudio);
-            Console.WriteLine("Director: " + this.director.nombre);
-            Console.WriteLine("Descripción: " + this.descripcion);
-            Console.WriteLine("Año de Publicación: " + this.añoPublicacion);
-            Console.WriteLine("Duración: " + this.duracion);
-            Console.WriteLine("Resolución: " + this.resolucion);
-            Console.WriteLine("Imagen: " + this.imagen);
-            Console.WriteLine("Numero de reproducciones: " + this.numeroReproducciones);
+            string devolver = "";
+            devolver += "\nTitulo: " + this.nombre +
+            "\nActores: ";
+            foreach (Actor actor in actores) { devolver += "\n" + actor.nombre; }
+            devolver += "\nCategoria: " + this.categoria +
+            "\nGenero: " + this.genero +
+            "\nEstudio: " + this.estudio +
+            "\nDirector: " + this.director.nombre +
+            "\nDescripción: " + this.descripcion +
+            "\nAño de Publicación: " + this.añoPublicacion +
+            "\nDuración: " + this.duracion +
+            "\nResolución: " + this.resolucion +
+            "\nImagen: " + this.imagen +
+            "\nNumero de reproducciones: " + this.numeroReproducciones + "\n\n";
 
-
+            return devolver;
 
         }
 

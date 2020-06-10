@@ -40,17 +40,44 @@ namespace SonicWFA
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            label3.Text = "";
+            Console.WriteLine("FUNCIONA");
+            listBox1.Items.Clear();
             string palabra = textBox1.Text;
-            string resultadoBusqueda = sonic.Buscar(palabra);
-            if (resultadoBusqueda != "")
-            {
-               label3.Text = resultadoBusqueda;
 
-            } else
+            if (checkBox5.Checked == true) 
             {
-               label3.Text = "";
+                List<Cancion> cancionesBusqueda = sonic.BuscarCancion(palabra);
+                foreach(Cancion cancion in cancionesBusqueda)
+                {
+                    listBox1.Items.Add(cancion.nombre);
+                }
             }
+            if(checkBox1.Checked == true)
+            {
+                List<Video> videosBusqueda = sonic.BuscarVideo(palabra);
+                foreach (Video video in videosBusqueda)
+                {
+                    listBox1.Items.Add(video.nombre);
+                }
+            }
+
+        }
+<<<<<<< Updated upstream
+    }
+}
+=======
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string seleccion = Convert.ToString(listBox1.Items[listBox1.SelectedIndex]);
+            InformacionCancion infoCancion = new InformacionCancion(seleccion, sonic, usuarioActual);
+            infoCancion.Show();
         }
     }
 }
+>>>>>>> Stashed changes

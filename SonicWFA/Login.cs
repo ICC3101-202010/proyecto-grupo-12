@@ -20,13 +20,13 @@ namespace SonicWFA
         {
             InitializeComponent();
             sonic.CargarDatos();
-            sonic.ImportarCanciones("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", 2000, 2, 30);
+            sonic.ImportarCanciones("Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", "Prueba", 2000, 2, 30, "", "");
         }
 
         
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+                        
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -16,10 +16,24 @@ namespace SonicWFA
         String[] ArchivoMP3;
         String[] ArchivosMP3;
         String[] rutaArchivoMP3;
+        Sonic sonic;
+        Usuario2 usuario;
 
-        public Reproducir()
+        public Reproducir(Sonic sonic, Usuario2 usuario)
         {
             InitializeComponent();
+            this.sonic = sonic;
+            this.usuario = usuario;
+
+            foreach (Cancion cancion in sonic.canciones)
+            {
+                listBox1.Items.Add(cancion.nombre);
+            }
+
+            foreach (Video video in sonic.videos)
+            {
+                listBox2.Items.Add(video.nombre);
+            }
         }
 
         private void btnFlecha_Click(object sender, EventArgs e)
@@ -33,6 +47,7 @@ namespace SonicWFA
         }
 
         private void btnCargarCancion_Click(object sender, EventArgs e)
+<<<<<<< Updated upstream
         {
             OpenFileDialog buscar = new OpenFileDialog();
             buscar.Multiselect = true;
@@ -47,12 +62,31 @@ namespace SonicWFA
                 axWindowsMediaPlayer1.URL = rutaArchivoMP3[0];
                 listBox1.SelectedIndex = 0;
 
+=======
+        {
+
+            string cancionReproducir = Convert.ToString(listBox1.Items[listBox1.SelectedIndex]);
+            foreach(Cancion cancion in sonic.canciones)
+            {
+                if(cancion.nombre == cancionReproducir)
+                {
+                    axWindowsMediaPlayer1.URL = cancion.rutaArchivoMp3;
+                }
+>>>>>>> Stashed changes
             }
+               
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCargarVideos_Click(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.URL = rutaArchivoMP3[listBox1.SelectedIndex];
+            string videoReproducir = Convert.ToString(listBox2.Items[listBox2.SelectedIndex]);
+            foreach (Video video in sonic.videos)
+            {
+                if (video.nombre == videoReproducir)
+                {
+                    axWindowsMediaPlayer1.URL = video.rutaArchivoMp3;
+                }
+            }
         }
     }
 }

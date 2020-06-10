@@ -13,9 +13,9 @@ namespace SonicWFA
         public string privacidad;
         public string contraseña;
         public string gustos = "";
-        List<Cancion> descargas = new List<Cancion>();
-        List<Cancion> favoritosCancion = new List<Cancion>();
-        List<Video> favoritosVideo = new List<Video>();
+        public List<Cancion> descargas = new List<Cancion>();
+        public List<Cancion> favoritosCancion = new List<Cancion>();
+        public List<Video> favoritosVideo = new List<Video>();
         public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
 
         //-- DATOS REPRODUCTOR --
@@ -218,10 +218,10 @@ namespace SonicWFA
             {
                 foreach (Cancion cancion1 in favoritosCancion)
                 {
-                    if (cancion.nombre == cancion1.nombre) { Console.WriteLine("\nCancion ya se encuentra en favoritos"); Thread.Sleep(1500); cancionEnFavoritos = true; break; }
+                    if (cancion.nombre == cancion1.nombre) { cancionEnFavoritos = true; break; }
                 }
             }
-            if (!cancionEnFavoritos) { this.favoritosCancion.Add(cancion); Console.WriteLine("\nCancion agregada con exito"); Thread.Sleep(1500); }
+            if (!cancionEnFavoritos) { this.favoritosCancion.Add(cancion);  }
         }
 
         public void AgregarVideoFavoritos(Video video)

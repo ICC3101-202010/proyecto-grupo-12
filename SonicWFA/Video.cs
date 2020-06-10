@@ -14,13 +14,15 @@ namespace SonicWFA
         public Director director;
         public string descripcion;
         public List<Actor> actores;
+        public string archivoMp3;
+        public string rutaArchivoMp3;
         public int añoPublicacion;
         public int resolucion;
         public string imagen = null;
 
 
 
-        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion, int resolucion)
+        public Video(string nombre, string categoria, string genero, string estudio, Director director, string descripcion, List<Actor> actores, int añoPublicacion, int duracion, int resolucion, string archivoMP3, string rutaArchivo)
         {
             this.nombre = nombre;
             this.categoria = categoria;
@@ -32,6 +34,8 @@ namespace SonicWFA
             this.añoPublicacion = añoPublicacion;
             this.duracion = duracion;
             this.resolucion = resolucion;
+            this.archivoMp3 = archivoMP3;
+            this.rutaArchivoMp3 = rutaArchivo;
         }
 
         public string ObtenerInfo() //Obtener Info del video

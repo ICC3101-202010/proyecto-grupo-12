@@ -13,12 +13,14 @@ namespace SonicWFA
         public string discografia;
         public Album album;
         public Compositor compositor;
+        public string archivoMp3;
+        public string rutaArchivoMp3;
         public string letra;
         public int añoPublicacion;
         public string imagen = null;
         
 
-        public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion, int duracion)
+        public Cancion(string nombre, Cantante cantante,Album album, string genero, string estudio, string discografia, Compositor compositor, int añoPublicacion, int duracion, string archivoMP3, string rutaArchivo)
         {
             this.nombre = nombre;
             this.cantante = cantante;
@@ -29,6 +31,9 @@ namespace SonicWFA
             this.compositor = compositor;
             this.añoPublicacion = añoPublicacion;
             this.duracion = duracion;
+            this.archivoMp3 = archivoMP3;
+            this.rutaArchivoMp3 = rutaArchivo;
+
         }
 
         public string ObtenerInfo() //Obtener Info Cancion

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace SonicWFA
 {
-     
     public partial class agregarPublicidad : Form
     {
         Login login;

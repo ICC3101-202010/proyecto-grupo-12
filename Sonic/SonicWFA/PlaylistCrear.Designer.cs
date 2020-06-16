@@ -39,18 +39,19 @@
             this.btnFlecha = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(135, 13);
+            this.label1.Location = new System.Drawing.Point(135, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 21);
             this.label1.TabIndex = 102;
             this.label1.Text = "CREAR";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+    
             // 
             // label2
             // 
@@ -71,6 +72,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(180, 29);
             this.comboBox1.TabIndex = 104;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -80,24 +82,30 @@
             this.label3.Size = new System.Drawing.Size(95, 21);
             this.label3.TabIndex = 105;
             this.label3.Text = "ARCHIVOS";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+        
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.Black;
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(26, 158);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(136, 277);
+            this.listBox1.Size = new System.Drawing.Size(136, 275);
             this.listBox1.TabIndex = 106;
             // 
             // listBox2
             // 
+            this.listBox2.BackColor = System.Drawing.Color.Black;
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 21;
             this.listBox2.Location = new System.Drawing.Point(181, 158);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(138, 277);
+            this.listBox2.Size = new System.Drawing.Size(138, 275);
             this.listBox2.TabIndex = 107;
             // 
             // btnGuardar
@@ -107,12 +115,13 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(92, 450);
+            this.btnGuardar.Location = new System.Drawing.Point(181, 450);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(157, 43);
+            this.btnGuardar.Size = new System.Drawing.Size(138, 43);
             this.btnGuardar.TabIndex = 108;
             this.btnGuardar.Text = "CREAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnFlecha
             // 
@@ -142,12 +151,28 @@
             this.textBox1.Size = new System.Drawing.Size(204, 27);
             this.textBox1.TabIndex = 111;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(26, 450);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 43);
+            this.button1.TabIndex = 112;
+            this.button1.Text = "SELECCIONAR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PlaylistCrear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(349, 517);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnFlecha);
@@ -161,11 +186,11 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PlaylistCrear";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlaylistCrear";
-            this.Load += new System.EventHandler(this.PlaylistCrear_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlaylistCrear_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -184,5 +209,6 @@
         private System.Windows.Forms.PictureBox btnFlecha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

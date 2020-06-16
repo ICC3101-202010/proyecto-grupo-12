@@ -45,6 +45,7 @@ namespace SonicWFA
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             login.Show();
         }

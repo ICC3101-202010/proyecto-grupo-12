@@ -15,6 +15,7 @@ namespace SonicWFA
         Usuario2 usuarioActual;
         Sonic sonic;
         Cancion cancion;
+        Video video;
         public Favoritos(Usuario2 usuario, Sonic sonic)
         {
             InitializeComponent();
@@ -47,6 +48,21 @@ namespace SonicWFA
                 }
             }
             FavoritosEleccion fav = new FavoritosEleccion(sonic, usuarioActual, cancion);
+            fav.MdiParent = this.MdiParent;
+            this.Hide();
+            fav.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Video video in usuarioActual.favoritosVideo)
+            {
+                if (video.nombre == Convert.ToString(listBox2.Items[listBox2.SelectedIndex]))
+                {
+                    this.video = video;
+                }
+            }
+            FavoritosEleccion fav = new FavoritosEleccion(sonic, usuarioActual,null, video);
             fav.MdiParent = this.MdiParent;
             this.Hide();
             fav.ShowDialog();

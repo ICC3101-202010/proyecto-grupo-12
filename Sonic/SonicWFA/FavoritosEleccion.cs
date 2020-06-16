@@ -16,12 +16,14 @@ namespace SonicWFA
         Sonic sonic;
         Usuario2 usuarioActual;
         Cancion cancion;
-        public FavoritosEleccion(Sonic sonic, Usuario2 usuario, Cancion cancion)
+        Video video;
+        public FavoritosEleccion(Sonic sonic, Usuario2 usuario, Cancion cancion = null, Video video = null)
         {
             InitializeComponent();
             this.sonic = sonic;
             this.usuarioActual = usuario;
             this.cancion = cancion;
+            this.video = video;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -36,19 +38,32 @@ namespace SonicWFA
 
         private void FavoritosEleccion_Load(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            usuarioActual.favoritosCancion.Remove(cancion);
-            this.Close();
+            if (cancion != null)
+            {
+                usuarioActual.favoritosCancion.Remove(cancion);
+                this.Close();
+            }
+            if (video != null)
+            {
+                usuarioActual.favoritosVideo.Remove(video);
+                this.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FavoritosEleccion_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

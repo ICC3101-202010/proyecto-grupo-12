@@ -46,7 +46,7 @@
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(462, 59);
-            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(5);
+            this.axWindowsMediaPlayer1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(559, 504);
@@ -55,10 +55,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.label1.Location = new System.Drawing.Point(45, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 37);
+            this.label1.Size = new System.Drawing.Size(192, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "REPRODUCTOR";
             // 
@@ -67,7 +68,7 @@
             this.btnCargarVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.btnCargarVideos.FlatAppearance.BorderSize = 0;
             this.btnCargarVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarVideos.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnCargarVideos.ForeColor = System.Drawing.Color.Black;
             this.btnCargarVideos.Location = new System.Drawing.Point(262, 523);
             this.btnCargarVideos.Name = "btnCargarVideos";
@@ -82,7 +83,7 @@
             this.btnCargarCancion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.btnCargarCancion.FlatAppearance.BorderSize = 0;
             this.btnCargarCancion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarCancion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarCancion.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.btnCargarCancion.ForeColor = System.Drawing.Color.Black;
             this.btnCargarCancion.Location = new System.Drawing.Point(53, 523);
             this.btnCargarCancion.Name = "btnCargarCancion";
@@ -106,46 +107,55 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 76);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 83);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 37);
+            this.label2.Size = new System.Drawing.Size(109, 21);
             this.label2.TabIndex = 15;
             this.label2.Text = "CANCIONES";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(258, 76);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(258, 83);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 37);
+            this.label3.Size = new System.Drawing.Size(69, 21);
             this.label3.TabIndex = 16;
             this.label3.Text = "VIDEOS";
             // 
             // listBox1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 26;
+            this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(53, 107);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(175, 394);
+            this.listBox1.Size = new System.Drawing.Size(175, 401);
             this.listBox1.TabIndex = 17;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBox2
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 26;
+            this.listBox2.ItemHeight = 21;
             this.listBox2.Location = new System.Drawing.Point(262, 107);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(175, 394);
+            this.listBox2.Size = new System.Drawing.Size(175, 401);
             this.listBox2.TabIndex = 18;
             // 
             // Reproducir
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.ClientSize = new System.Drawing.Size(1050, 600);
@@ -161,7 +171,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Reproducir";
             this.Text = "Reproducir";
             this.Load += new System.EventHandler(this.Reproducir_Load);

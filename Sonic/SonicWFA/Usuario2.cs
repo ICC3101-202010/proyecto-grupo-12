@@ -17,6 +17,7 @@ namespace SonicWFA
         public List<Cancion> favoritosCancion = new List<Cancion>();
         public List<Video> favoritosVideo = new List<Video>();
         public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
+        public List<Playlist> playlistUsuario = new List<Playlist>();
 
         //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;

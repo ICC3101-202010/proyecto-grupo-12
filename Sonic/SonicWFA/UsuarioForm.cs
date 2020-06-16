@@ -40,6 +40,7 @@ namespace SonicWFA
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            sonic.GuardarDatos();
             Application.Exit();
         }
 
@@ -86,7 +87,10 @@ namespace SonicWFA
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Login login = new Login(sonic);
+            login.MdiParent = this.MdiParent;
+            this.Hide();
+            login.ShowDialog();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -121,7 +125,12 @@ namespace SonicWFA
 
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new PlaylistForm());
+            AbrirPanel(new PlaylistForm(sonic, usuarioActual));
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

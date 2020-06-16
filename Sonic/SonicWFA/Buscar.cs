@@ -35,7 +35,6 @@ namespace SonicWFA
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("FUNCIONA");
             listBox1.Items.Clear();
             string palabra = textBox1.Text;
 
@@ -66,8 +65,28 @@ namespace SonicWFA
         private void button1_Click(object sender, EventArgs e)
         {
             string seleccion = Convert.ToString(listBox1.Items[listBox1.SelectedIndex]);
-            InformacionCancion infoCancion = new InformacionCancion(seleccion, sonic, usuarioActual);
-            infoCancion.Show();
+           
+
+            if (checkBox5.Checked == true)
+            {
+                InformacionCancion infoCancion = new InformacionCancion(seleccion, sonic, usuarioActual);
+                infoCancion.Show();
+            }
+            if (checkBox1.Checked == true)
+            {
+                InformacionVideo infovideo = new InformacionVideo(seleccion, sonic, usuarioActual);
+                infovideo.Show();
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

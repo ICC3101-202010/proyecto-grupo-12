@@ -25,12 +25,12 @@ namespace SonicWFA
             this.sonic = sonic;
             this.usuario = usuario;
 
-            foreach (Cancion cancion in sonic.canciones)
+            foreach (Cancion cancion in usuario.favoritosCancion)
             {
                 listBox1.Items.Add(cancion.nombre);
             }
 
-            foreach (Video video in sonic.videos)
+            foreach (Video video in usuario.favoritosVideo)
             {
                 listBox2.Items.Add(video.nombre);
             }
@@ -70,6 +70,11 @@ namespace SonicWFA
                     axWindowsMediaPlayer1.URL = video.rutaArchivoMp3;
                 }
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

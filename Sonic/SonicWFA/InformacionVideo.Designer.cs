@@ -82,7 +82,7 @@
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.checkBox7.Location = new System.Drawing.Point(357, 521);
+            this.checkBox7.Location = new System.Drawing.Point(357, 519);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(59, 25);
             this.checkBox7.TabIndex = 120;
@@ -128,7 +128,7 @@
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label26.Location = new System.Drawing.Point(171, 521);
+            this.label26.Location = new System.Drawing.Point(171, 519);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(152, 23);
             this.label26.TabIndex = 110;
@@ -152,7 +152,7 @@
             this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label24.Location = new System.Drawing.Point(171, 438);
+            this.label24.Location = new System.Drawing.Point(171, 434);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(152, 23);
             this.label24.TabIndex = 108;
@@ -164,7 +164,7 @@
             this.label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label23.Location = new System.Drawing.Point(171, 396);
+            this.label23.Location = new System.Drawing.Point(171, 394);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(152, 23);
             this.label23.TabIndex = 107;
@@ -176,7 +176,7 @@
             this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label22.Location = new System.Drawing.Point(171, 349);
+            this.label22.Location = new System.Drawing.Point(171, 347);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(152, 23);
             this.label22.TabIndex = 106;
@@ -188,7 +188,7 @@
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label21.Location = new System.Drawing.Point(171, 307);
+            this.label21.Location = new System.Drawing.Point(171, 305);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(152, 23);
             this.label21.TabIndex = 105;
@@ -200,7 +200,7 @@
             this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label20.Location = new System.Drawing.Point(171, 267);
+            this.label20.Location = new System.Drawing.Point(171, 265);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(152, 23);
             this.label20.TabIndex = 104;
@@ -212,7 +212,7 @@
             this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label19.Location = new System.Drawing.Point(171, 228);
+            this.label19.Location = new System.Drawing.Point(171, 226);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(152, 23);
             this.label19.TabIndex = 103;
@@ -224,7 +224,7 @@
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label18.Location = new System.Drawing.Point(171, 142);
+            this.label18.Location = new System.Drawing.Point(171, 140);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(152, 23);
             this.label18.TabIndex = 102;
@@ -236,7 +236,7 @@
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label17.Location = new System.Drawing.Point(171, 95);
+            this.label17.Location = new System.Drawing.Point(171, 93);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(152, 23);
             this.label17.TabIndex = 101;
@@ -358,12 +358,13 @@
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(186, 610);
+            this.btnGuardar.Location = new System.Drawing.Point(186, 609);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(127, 56);
             this.btnGuardar.TabIndex = 85;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label1
             // 
@@ -394,7 +395,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
-            this.label4.Location = new System.Drawing.Point(171, 564);
+            this.label4.Location = new System.Drawing.Point(171, 562);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 23);
             this.label4.TabIndex = 123;
@@ -459,7 +460,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(171, 183);
+            this.comboBox1.Location = new System.Drawing.Point(171, 178);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(152, 29);
             this.comboBox1.TabIndex = 127;
@@ -468,7 +469,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(464, 696);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.checkBox2);
@@ -507,10 +508,11 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "InformacionVideo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InformacionVideo";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.InformacionVideo_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.btnFlecha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

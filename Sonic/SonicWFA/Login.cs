@@ -14,12 +14,21 @@ namespace SonicWFA
 {
     public partial class Login : Form
     {
-        public Sonic sonic = new Sonic();
+        public Sonic sonic;
         
-        public Login()
+        public Login(Sonic sonic = null)
         {
             InitializeComponent();
-            sonic.CargarDatos();
+
+            if(sonic != null)
+            {
+                this.sonic = sonic;
+            } else
+            {
+                this.sonic = new Sonic();
+                this.sonic.CargarDatos();
+            }
+            
         }
 
         

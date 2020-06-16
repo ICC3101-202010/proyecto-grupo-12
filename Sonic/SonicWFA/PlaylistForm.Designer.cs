@@ -75,11 +75,15 @@
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.Font = new System.Drawing.Font("Century Gothic", 16F);
+            this.listBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
+            this.listBox1.ItemHeight = 24;
             this.listBox1.Location = new System.Drawing.Point(66, 166);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(405, 277);
+            this.listBox1.Size = new System.Drawing.Size(405, 266);
             this.listBox1.TabIndex = 114;
             // 
             // label4
@@ -126,6 +130,7 @@
             this.btnGuardar.TabIndex = 115;
             this.btnGuardar.Text = "SELECCIONAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // checkBox1
             // 
@@ -164,11 +169,15 @@
             // 
             // listBox2
             // 
+            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox2.Font = new System.Drawing.Font("Century Gothic", 16F);
+            this.listBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 21;
+            this.listBox2.ItemHeight = 24;
             this.listBox2.Location = new System.Drawing.Point(497, 166);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(391, 277);
+            this.listBox2.Size = new System.Drawing.Size(391, 266);
             this.listBox2.TabIndex = 119;
             // 
             // button1
@@ -184,6 +193,7 @@
             this.button1.TabIndex = 120;
             this.button1.Text = "ELIMINAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // linkLabel1
             // 
@@ -210,6 +220,7 @@
             this.button2.TabIndex = 122;
             this.button2.Text = "SELECCIONAR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox2
             // 
@@ -221,6 +232,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 108;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnFlecha
             // 
@@ -259,7 +271,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(250)))), ((int)(((byte)(171)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PlaylistForm";
             this.Text = "PlaylistForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

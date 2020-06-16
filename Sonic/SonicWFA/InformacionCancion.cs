@@ -60,8 +60,7 @@ namespace SonicWFA
 
         private void Informacion_Load(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -73,6 +72,12 @@ namespace SonicWFA
             if(checkBox3.Checked == true) { usuarioActual.gustos += cancion.genero; }
             if(checkBox7.Checked == true) { cancion.meGusta += 1; }
             this.Close();
+        }
+
+        private void InformacionCancion_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

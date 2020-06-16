@@ -55,20 +55,10 @@ namespace SonicWFA
             this.Close();
         }
 
-        private void labelUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             usuarioActual.CambiarInfo(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.Text, textBox5.Text);
             Actualizar();
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

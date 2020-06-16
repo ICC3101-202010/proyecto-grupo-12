@@ -798,9 +798,7 @@ namespace SonicWFA
             else if (eleccion3 == 2) { BuscarPorEvaluacion("menor", valor); busquedas.Add(() => BuscarPorEvaluacion("menor", valor)); }
             else if (eleccion3 == 3) { BuscarPorEvaluacion("igual", valor); busquedas.Add(() => BuscarPorEvaluacion("igual", valor)); }
 
-            if (eleccion7 == 1) { BuscarPorResolucion("mayor", valor2); busquedas.Add(() => BuscarPorResolucion("mayor", valor2)); }
-            else if (eleccion7 == 2) { BuscarPorResolucion("menor", valor2); busquedas.Add(() => BuscarPorResolucion("menor", valor2)); }
-            else if (eleccion7 == 3) { BuscarPorResolucion("igual", valor2); busquedas.Add(() => BuscarPorResolucion("igual", valor2)); }
+          
 
             BuscarPorCategoria(categoria);
             busquedas.Add(() => BuscarPorCategoria(categoria));
@@ -881,11 +879,10 @@ namespace SonicWFA
             usuario.AgregarCancionFavoritos(cancion);
         }
 
-        public void AgregarVideoAFavoritos()
+        public void AgregarVideoAFavoritos(Usuario2 usuario, Video video)
         {
-            Usuario2 usuarioActual = UsuarioActual();
-            Video video = SeleccionarVideo();
-            usuarioActual.AgregarVideoFavoritos(video);
+            
+            usuario.AgregarVideoFavoritos(video);
         }
 
 
@@ -1082,37 +1079,25 @@ namespace SonicWFA
             }
         }
 
-        public void CrearPlaylist() // Crea la playlist
+        public void CrearPlaylist(Usuario2 usuario, string nombre, List<Cancion> canciones = null, List<Video> videos = null) // Crea la playlist
         {
-            Console.WriteLine("Ingrese nombre de la Playlist: ");
-            string nombre = Console.ReadLine();
-            Console.WriteLine("Privacidad de la Playlist: ");
-            Console.WriteLine("0.- Privada");
-            Console.WriteLine("1.- Publica");
-            int eleccion = Convert.ToInt32(Console.ReadLine());
-            string privacidad;
-            if (eleccion == 0 || eleccion == 1 && UsuarioActual().privacidad == "Publico")
-            {
-                if (eleccion == 0)
-                {
-                    privacidad = "Privada";
-                }
-                else
-                {
-                    privacidad = "Publica";
-                }
-            }
-            else
-            {
-                Console.WriteLine("Tus playlist solo pueden ser privada debido a que eres un usuario privado");
-                Thread.Sleep(1500);
-                privacidad = "Privada";
-            }
-            Playlist playlist = new Playlist(nombre, privacidad);
+            Playlist playlist = new Playlist(nombre, "Publica");
             playlists.Add(playlist);
-            AgregarCancionPlaylist(playlist);
-            Console.BackgroundColor = ConsoleColor.Green;  Console.WriteLine("PlAYLIST CREADA"); Console.BackgroundColor = ConsoleColor.Black;
-            Thread.Sleep(1500);
+            if (canciones != null)
+            {
+                foreach (Cancion cancion in canciones)
+                {
+                    playlist.playlist.Add(cancion);
+                }
+            }
+            if (videos != null)
+            {
+                foreach (Video video in videos)
+                {
+                    playlist.videos.Add(video);
+                }
+            }
+            usuario.playlistUsuario.Add(playlist);
         }
 
         public void AgregarCancionPlaylist(Playlist playlist) // Agrega canciones a la playlist

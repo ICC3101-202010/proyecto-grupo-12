@@ -80,15 +80,23 @@ namespace SonicWFA
             }
             string categoria = textBox3.Text;
 
-            string resultadoBusquedaInteligente = sonic.Buscar(palabra, persona, eleccion1, valor1, eleccion2, valor2, categoria);
-            if (resultadoBusquedaInteligente != "")
-            {
-                buscar.label3.Text = resultadoBusquedaInteligente;
+            if(textBox1.Text == "") { palabra = "qwery"; }
+            if(textBox2.Text == "") { persona = "qwery"; }
+            if (textBox3.Text == "") { categoria = "qwery"; }
 
-            }
-            else
+
+
+            List<Cancion> canciones = sonic.BuscarCancion(palabra, persona, eleccion1, valor1, eleccion2, valor2, categoria);
+            List<Video> videos = sonic.BuscarVideo(palabra, persona, eleccion1, valor1, eleccion2, valor2, categoria);
+
+            buscar.listBox1.Items.Clear();
+            foreach(Cancion cancion in canciones)
             {
-                buscar.label3.Text = "";
+                buscar.listBox1.Items.Add(cancion.nombre);
+            }
+            foreach (Video video in videos)
+            {
+                buscar.listBox1.Items.Add(video.nombre);
             }
             this.Close();
         }
@@ -99,6 +107,9 @@ namespace SonicWFA
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        
+        private void BusquedaPersonalizada_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

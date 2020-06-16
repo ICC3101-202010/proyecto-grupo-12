@@ -9,7 +9,8 @@ namespace SonicWFA
     {
         public string nombre;
         public string privacidad;
-        List<Cancion> playlist = new List<Cancion>();
+        public List<Cancion> playlist = new List<Cancion>();
+        public List<Video> videos = new List<Video>();
 
         public List<Usuario2> seguidores = new List<Usuario2>();
         public int numeroSeguidores;

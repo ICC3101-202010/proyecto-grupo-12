@@ -66,11 +66,22 @@ namespace SonicWFA
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (checkBox8.Checked == true) { sonic.AgregarVideoAFavoritos(usuarioActual, video); }
-            //if (checkBox1.Checked == true) { sonic.NuevoSeguidorPersona(usuarioActual, cancion.cantante); }
-            //if (checkBox4.Checked == true) { sonic.NuevoSeguidorEstudio(usuarioActual, cancion.album); }
+            if (checkBox2.Checked == true) 
+            {
+                Actor actorSeguir = null;
+                foreach(Actor actor in sonic.actores)
+                {
+                    if(actor.nombre == Convert.ToString(comboBox1.SelectedItem))
+                    {
+                        actorSeguir = actor;
+                        break;
+                    }
+                }
+                sonic.NuevoSeguidorPersona(usuarioActual, actorSeguir);
+            }
             if (checkBox1.Checked == true) { sonic.NuevoSeguidorPersona(usuarioActual, video.director); }
             if (checkBox3.Checked == true) { usuarioActual.gustos += video.genero; }
-            if (checkBox7.Checked == true) { video.meGusta += 1; }
+            if (checkBox7.Checked == true) { video.meGusta += 1; usuarioActual.meGustaVideos.Add(video); }
             this.Close();
         }
 

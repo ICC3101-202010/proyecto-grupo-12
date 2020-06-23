@@ -202,3 +202,4 @@ C:\Users\Rodrigo\Desktop\Proyecto-Sonic\proyecto-grupo-12\Sonic\SonicWFA\obj\Deb
 C:\Users\Rodrigo\Desktop\Proyecto-Sonic\proyecto-grupo-12\Sonic\SonicWFA\obj\Debug\SonicWFA.pdb
 C:\Users\Rodrigo\Desktop\Proyecto-Sonic\proyecto-grupo-12\Sonic\SonicWFA\obj\Debug\SonicWFA.AdminCanciones.resources
 C:\Users\Rodrigo\Desktop\Proyecto-Sonic\proyecto-grupo-12\Sonic\SonicWFA\obj\Debug\SonicWFA.AdminForm.resources
+C:\Users\Rodrigo\Desktop\Proyecto-Sonic\proyecto-grupo-12\Sonic\SonicWFA\obj\Debug\SonicWFA.JuegoForm.resources

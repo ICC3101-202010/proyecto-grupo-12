@@ -32,14 +32,13 @@
             this.btnFavoritos = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnMeGusta = new System.Windows.Forms.Button();
-            this.btnCalificacion = new System.Windows.Forms.Button();
             this.btnPlaylist = new System.Windows.Forms.Button();
             this.btnSeguimiento = new System.Windows.Forms.Button();
             this.btnReproducir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LogoSonic = new System.Windows.Forms.PictureBox();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.btnDisminuir = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -49,7 +48,7 @@
             this.Contenedor = new System.Windows.Forms.Panel();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSonic)).BeginInit();
             this.BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnDisminuir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -64,14 +63,13 @@
             this.MenuVertical.Controls.Add(this.btnFavoritos);
             this.MenuVertical.Controls.Add(this.btnCerrarSesion);
             this.MenuVertical.Controls.Add(this.btnMeGusta);
-            this.MenuVertical.Controls.Add(this.btnCalificacion);
             this.MenuVertical.Controls.Add(this.btnPlaylist);
             this.MenuVertical.Controls.Add(this.btnSeguimiento);
             this.MenuVertical.Controls.Add(this.btnReproducir);
             this.MenuVertical.Controls.Add(this.btnBuscar);
             this.MenuVertical.Controls.Add(this.btnPerfil);
             this.MenuVertical.Controls.Add(this.pictureBox3);
-            this.MenuVertical.Controls.Add(this.pictureBox1);
+            this.MenuVertical.Controls.Add(this.LogoSonic);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 0);
             this.MenuVertical.Name = "MenuVertical";
@@ -98,7 +96,7 @@
             this.btnCerrarSesion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 463);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 414);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
             this.btnCerrarSesion.TabIndex = 11;
@@ -112,27 +110,13 @@
             this.btnMeGusta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
             this.btnMeGusta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMeGusta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMeGusta.Location = new System.Drawing.Point(0, 417);
+            this.btnMeGusta.Location = new System.Drawing.Point(0, 368);
             this.btnMeGusta.Name = "btnMeGusta";
             this.btnMeGusta.Size = new System.Drawing.Size(250, 40);
             this.btnMeGusta.TabIndex = 10;
             this.btnMeGusta.Text = "Me Gusta";
             this.btnMeGusta.UseVisualStyleBackColor = true;
             this.btnMeGusta.Click += new System.EventHandler(this.btnMeGusta_Click);
-            // 
-            // btnCalificacion
-            // 
-            this.btnCalificacion.FlatAppearance.BorderSize = 0;
-            this.btnCalificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(158)))), ((int)(((byte)(110)))));
-            this.btnCalificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalificacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalificacion.Location = new System.Drawing.Point(0, 371);
-            this.btnCalificacion.Name = "btnCalificacion";
-            this.btnCalificacion.Size = new System.Drawing.Size(250, 40);
-            this.btnCalificacion.TabIndex = 9;
-            this.btnCalificacion.Text = "Calificacion";
-            this.btnCalificacion.UseVisualStyleBackColor = true;
-            this.btnCalificacion.Click += new System.EventHandler(this.btnCalificacion_Click);
             // 
             // btnPlaylist
             // 
@@ -215,15 +199,16 @@
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // pictureBox1
+            // LogoSonic
             // 
-            this.pictureBox1.Image = global::SonicWFA.Properties.Resources.LogoMakr_8SO5jm__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(56, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.LogoSonic.Image = global::SonicWFA.Properties.Resources.LogoMakr_8SO5jm__2_;
+            this.LogoSonic.Location = new System.Drawing.Point(8, 12);
+            this.LogoSonic.Name = "LogoSonic";
+            this.LogoSonic.Size = new System.Drawing.Size(56, 52);
+            this.LogoSonic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoSonic.TabIndex = 1;
+            this.LogoSonic.TabStop = false;
+            this.LogoSonic.Click += new System.EventHandler(this.LogoSonic_Click);
             // 
             // BarraTitulo
             // 
@@ -328,7 +313,7 @@
             this.Text = "Form1";
             this.MenuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSonic)).EndInit();
             this.BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnDisminuir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -342,7 +327,7 @@
         #endregion
 
         private System.Windows.Forms.Panel MenuVertical;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox LogoSonic;
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.PictureBox btnDespliegue;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -353,7 +338,6 @@
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Button btnMeGusta;
-        private System.Windows.Forms.Button btnCalificacion;
         private System.Windows.Forms.Button btnPlaylist;
         private System.Windows.Forms.Button btnSeguimiento;
         private System.Windows.Forms.Button btnReproducir;

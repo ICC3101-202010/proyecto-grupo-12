@@ -41,7 +41,9 @@ namespace SonicWFA
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             sonic.GuardarDatos();
-            Application.Exit();
+            this.Close();
+            Login login = new Login(sonic);
+            login.Show();
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -105,12 +107,12 @@ namespace SonicWFA
 
         private void btnSeguimiento_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new Seguimiento());
+            AbrirPanel(new Seguimiento(sonic, usuarioActual));
         }
 
         private void btnMeGusta_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new MeGusta());
+            AbrirPanel(new MeGusta(sonic, usuarioActual));
         }
 
         private void btnCalificacion_Click(object sender, EventArgs e)
@@ -131,6 +133,12 @@ namespace SonicWFA
         private void BarraTitulo_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void LogoSonic_Click(object sender, EventArgs e)
+        {
+            JuegoForm juego = new JuegoForm();
+            juego.Show();
         }
     }
 }

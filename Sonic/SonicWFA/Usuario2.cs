@@ -18,6 +18,8 @@ namespace SonicWFA
         public List<Video> favoritosVideo = new List<Video>();
         public List<Busqueda> busquedasInteligentes = new List<Busqueda>();
         public List<Playlist> playlistUsuario = new List<Playlist>();
+        public List<Cancion> meGustaCanciones = new List<Cancion>();
+        public List<Video> meGustaVideos = new List<Video>();
 
         //-- DATOS REPRODUCTOR --
         public ArchivoMultimedia archivoReproduccion;
@@ -26,13 +28,13 @@ namespace SonicWFA
         public List<Video> colaVideos = new List<Video>();
 
         // -- LISTAS SEGUIR --
-        List<Usuario2> seguirUsuario = new List<Usuario2>();
-        List<Playlist> seguirPlaylist = new List<Playlist>();
-        List<Cantante> seguirCantante = new List<Cantante>();
-        List<Actor> seguirActor = new List<Actor>();
-        List<Director> seguirDirector = new List<Director>();
-        List<Compositor> seguirCompositor = new List<Compositor>();
-        List<Album> seguirAlbum = new List<Album>();
+        public List<Usuario2> seguirUsuario = new List<Usuario2>();
+        public List<Playlist> seguirPlaylist = new List<Playlist>();
+        public List<Cantante> seguirCantante = new List<Cantante>();
+        public List<Actor> seguirActor = new List<Actor>();
+        public List<Director> seguirDirector = new List<Director>();
+        public List<Compositor> seguirCompositor = new List<Compositor>();
+        public List<Album> seguirAlbum = new List<Album>();
 
         public Usuario2(string nombreDeUsuario, string nombre, string apellido, string contraseña, string privacidad, string tipoUsaurio) // Constructor Usuario
         {

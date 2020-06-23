@@ -103,6 +103,16 @@ namespace SonicWFA.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoMakr_1QFic3__1_ {
+            get {
+                object obj = ResourceManager.GetObject("LogoMakr_1QFic3 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoMakr_8SO5jm__2_ {
             get {
                 object obj = ResourceManager.GetObject("LogoMakr_8SO5jm (2)", resourceCulture);

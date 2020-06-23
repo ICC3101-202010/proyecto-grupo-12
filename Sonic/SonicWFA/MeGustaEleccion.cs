@@ -13,9 +13,17 @@ namespace SonicWFA
 {
     public partial class MeGustaEleccion : Form
     {
-        public MeGustaEleccion()
+        Sonic sonic;
+        Usuario2 usuario;
+        MeGusta meGusta;
+        public Cancion cancion;
+        public Video video;
+        public MeGustaEleccion(Sonic sonic, Usuario2 usuario, MeGusta megusta)
         {
             InitializeComponent();
+            this.sonic = sonic;
+            this.usuario = usuario;
+            this.meGusta = megusta;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -25,7 +33,20 @@ namespace SonicWFA
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            if(cancion != null)
+            {
+                usuario.meGustaCanciones.Remove(cancion);
+                cancion.meGusta--;
+                meGusta.listBox1.Items.Remove(cancion.nombre);
+            }
+            if(video != null)
+            {
+                usuario.meGustaVideos.Remove(video);
+                video.meGusta--;
+                meGusta.listBox2.Items.Remove(video.nombre);
+            }
+            meGusta.Actualizar();
+            this.Close();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -42,6 +63,11 @@ namespace SonicWFA
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

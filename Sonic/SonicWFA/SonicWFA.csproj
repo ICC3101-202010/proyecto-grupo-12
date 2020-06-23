@@ -170,6 +170,12 @@
     <Compile Include="InformacionVideo.Designer.cs">
       <DependentUpon>InformacionVideo.cs</DependentUpon>
     </Compile>
+    <Compile Include="JuegoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JuegoForm.Designer.cs">
+      <DependentUpon>JuegoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MeGusta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     <EmbeddedResource Include="InformacionVideo.resx">
       <DependentUpon>InformacionVideo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JuegoForm.resx">
+      <DependentUpon>JuegoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +439,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoMakr_1QFic3 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -70,7 +70,7 @@ namespace SonicWFA
             if(checkBox4.Checked == true) { sonic.NuevoSeguidorAlbum(usuarioActual, cancion.album); }
             if(checkBox5.Checked == true) { sonic.NuevoSeguidorPersona(usuarioActual, cancion.compositor); }
             if(checkBox3.Checked == true) { usuarioActual.gustos += cancion.genero; }
-            if(checkBox7.Checked == true) { cancion.meGusta += 1; }
+            if(checkBox7.Checked == true) { cancion.meGusta += 1; usuarioActual.meGustaCanciones.Add(cancion); }
             this.Close();
         }
 

@@ -1303,7 +1303,7 @@ namespace SonicWFA
             return null;
         }
 
-        public void Seguir()
+        public void Seguir(Usuario2 usuario, int eleccion, Cantante cantante = null, Actor actor = null, Director director = null, Compositor compositor = null, Usuario2 usuario1 = null, Album album = null, Playlist playlist = null)
         {
             Console.WriteLine("1. Cantantes" +
                 "\n2. Actores" +
@@ -1312,36 +1312,27 @@ namespace SonicWFA
                 "\n5. Usuarios" +
                 "\n6. Albums" +
                 "\n7. Playlist\n");
-            int eleccion = Convert.ToInt32(Console.ReadLine());
-            Usuario2 usuario = UsuarioActual();
             switch (eleccion)
             {
                 case 1:
-                    Cantante cantante = SeleccionarCantante();
                     NuevoSeguidorPersona(usuario, cantante);
                     break;
                 case 2:
-                    Actor actor = SeleccionarActor();
                     NuevoSeguidorPersona(usuario, actor);
                     break;
                 case 3:
-                    Director director = SeleccionarDirector();
                     NuevoSeguidorPersona(usuario, director);
                     break;
                 case 4:
-                    Compositor compositor = SeleccionarCompositor();
                     NuevoSeguidorPersona(usuario, compositor);
                     break;
                 case 5:
-                    Usuario2 usuario1 = SeleccionarUsuario();
                     NuevoSeguidorPersona(usuario, usuario1);
                     break;
                 case 6:
-                    Album album = SeleccionarAlbum();
                     NuevoSeguidorAlbum(usuario, album);
                     break;
                 case 7:
-                    Playlist playlist = SeleccionarPlaylist();
                     NuevoSeguidorPlaylist(usuario, playlist);
                     break;
                 default:
@@ -1450,12 +1441,7 @@ namespace SonicWFA
 
         public void DejarSeguirPersona(Usuario2 usuario, Persona persona)
         {
-            int contador = 0;
-            foreach (var i in persona.seguidores)
-            {
-                if (i.nombreDeUsuario == usuario.nombreDeUsuario)
-                {
-                    persona.EliminarSeguidor(usuario);
+          
                     persona.numeroSeguidores--;
                     if (persona.GetType().Name == "Cantante") { var persona1 = (Cantante)persona; usuario.NoSeguimientoCantante(persona1); };
                     if (persona.GetType().Name == "Actor") { var persona1 = (Actor)persona; usuario.NoSeguimientoActor(persona1); };
@@ -1463,13 +1449,7 @@ namespace SonicWFA
                     if (persona.GetType().Name == "Compositor") { var persona1 = (Compositor)persona; usuario.NoSeguimientoCompositor(persona1); };
                     if (persona.GetType().Name == "Usuario") { var persona1 = (Usuario2)persona; usuario.NoSeguimientoUsuario(persona1); };
                     Console.WriteLine("Has dejado de seguir al " + persona.GetType().Name);
-                    Thread.Sleep(1500);
-                    contador++;
-                    break;
-                }
-            }
-
-            if (contador == 0) { Console.WriteLine("No sigues al " + persona.GetType().Name); Thread.Sleep(1500); }
+                    
         }
 
         public void Calificar()
